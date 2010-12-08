@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<TITLE>groovit manual pages - $Revision: 1.2 $ .</TITLE>
+<META name="description" content="groovit manual pages Jean-Daniel PAUGET - jd">
+<META name="keywords" content="linux, sound, groovit, tb303, song, Jean-Daniel Pauget, PAUGET">
+</HEAD>
+<BODY BGCOLOR=#FFFFFF TEXT="000000" VLINK="000000" LINK="000000">
+
+<P><TABLE BORDER=0>
+<TR>
+   <TD><CENTER><TABLE BORDER=0>
+	<TR><TD><CENTER><IMG SRC="groovit.trans.small.gif"><CENTER></TD>
+        <TD><CENTER><TT><FONT SIZE=+1>&nbsp;-&nbsp;making accurate and groovy sound/noise.</FONT></CENTER></TT></TD></TR>
+   </TABLE></CENTER></TD>
+</TR>
+</TABLE>
+<HR>
+<P><CENTER><TABLE BORDER=0>
+  <TR>
+       <TD><IMG SRC="images/red_white.gif" BORDER=0></TD>
+       <TD><TT><FONT SIZE=+2><B>The dynamic filter.</B></FONT></TT></TD>
+  </TR>
+  <TR><TD>&nbsp;</TD><TD><TT><FONT SIZE=+1>
+	    This module of groovit receive sound as an input from the other part of groovit
+	    and dynamicly filters it.
+  </FONT></TT></TD></TR>
+  <TR><TD>&nbsp;</TD><TD><TT><FONT SIZE=+1>
+	    Setting dots on the <FONT COLOR=#FF0000>dynamic filter</FONT> line defines the instant
+            when the filter will restart from the <FONT COLOR=#FF0000>initial cuttoff
+	    frequency</FONT> before gliding to the <FONT COLOR=#FF0000>final cuttoff
+	    frequency</FONT>. Those dots set <FONT COLOR=#FF0000>filter events</FONT>.
+	    <I>(the associated <FONT COLOR=#FF0000>levels editor</FONT> has currently no use.
+	    This should be changed in a near future)</I>
+  </FONT></TT></TD></TR>
+<TR><TD>&nbsp;</TD></TR>
+  <TR><TD>&nbsp;</TD><TD><TT><FONT SIZE=+1>
+	    Below you can see the dynamic filter used to modify samples from the drum matrix&nbsp;:
+  </FONT></TT></TD></TR>
+<TR><TD>&nbsp;</TD></TR>
+  <TR><TD>&nbsp;</TD><TD><TT><FONT SIZE=+1>
+	    <IMG SRC="images/gr-dfilter.gif" BORDER=0>
+  </FONT></TT></TD></TR>
+<TR><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD></TR>
+  <TR><TD>&nbsp;</TD><TD><TT><FONT SIZE=+1>
+	    the filter can bet tuned with four buttons. <br>From left to right&nbsp;:
+  </FONT></TT></TD></TR>
+<TR><TD>&nbsp;</TD></TR>
+  <TR><TD>&nbsp;</TD><TD><TT><FONT SIZE=+1>
+	    The <FONT COLOR=#FF0000>initial cutoff frequency</FONT>. This sets the frequency used by the filter
+            just after the begining of the filter event. The cutoff frequency will then glide more
+	    or less quickly to the <FONT COLOR=#FF0000>final cutoff frequency</FONT>.
+  </FONT></TT></TD></TR>
+<TR><TD>&nbsp;</TD></TR>
+  <TR><TD>&nbsp;</TD><TD><TT><FONT SIZE=+1>
+	    The <FONT COLOR=#FF0000>final cutoff frequency</FONT>. This button sets the cutoff frequency of the
+	    filter at the ending of the filter event. It also sets the cutoff frequency when no filter
+	    filter event is set.
+  </FONT></TT></TD></TR>
+<TR><TD>&nbsp;</TD></TR>
+  <TR><TD>&nbsp;</TD><TD><TT><FONT SIZE=+1>
+	    The <FONT COLOR=#FF0000>resonance</FONT>. This sets the ability of the resonator filter to keep oscillating
+            after beeing excited by the initial sound. 
+  <TR><TD>&nbsp;</TD><TD BGCOLOR=#FF0000><TT><FONT SIZE=+1>
+	    <B><FONT COLOR=#FFFF00>WARNING !</FONT> When
+	    set to <FONT COLOR=#FFFF00>Zero</FONT> (turned to the left), this parameter can
+	    produce <FONT COLOR=#FFFF00> very high gain</FONT> from the original sound&nbsp;!</B>
+  </FONT></TT></TD></TR>
+<TR><TD>&nbsp;</TD></TR>
+  <TR><TD>&nbsp;</TD><TD><TT><FONT SIZE=+1>
+	    The <FONT COLOR=#FF0000>decay</FONT>. This sets the time length with which the sound 
+            will glide from the <FONT COLOR=#FF0000>initial cutoff frequency</FONT> to the <FONT COLOR=#FF0000>final
+	    cutoff frequency</FONT>.
+  </FONT></TT></TD></TR>
+
+<TR><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD ALIGN=RIGHT><TT><FONT SIZE=+1>Next&nbsp;: 
+            <A HREF="mixing.html">Mixing voices.</A>&nbsp;</FONT></TT></TD>
+            <TD><A HREF="mixing.html"><IMG SRC="images/blue_white.gif" BORDER=0></A></TD>
+</TR>
+</TABLE>
+<P><CENTER><TABLE BORDER=0>
+<TR><TD><CENTER><TT>$Revision: 1.2 $&nbsp;-&nbsp;last update&nbsp;:&nbsp;$Date: 2003/03/19 16:45:47 $.</TT></P></CENTER></TD></TR>
+</TABLE>
+

@@ -1,0 +1,29 @@
+-l80	/* longueur de ligne	*/
+
+-bad	/* sauter une ligne entre chaque bloc declaration	*/
+-bap	/* sauter une ligne entre chaque procedure	*/
+
+-fc1	/* formatter les commentaires qui demarrent a la premiere colonne */
+-d2	/* les commentaires a deux espaces du code ?	*/
+-fca	/* commentaires traités */
+-cdb	/* en étoiles alignées	*/
+
+-bl	/* on indente les if a la jd */
+-bli0	/* a l'aplomb du (i)f */
+
+-cli2	/* 2 espace pour les cases de witch */
+
+-ss	/* une espace pour les for en une seule ligne */
+-pcs	/* un espace entre printf et sa parenthese */
+-cs	/* un espace apres les cast (void *)	*/
+-bs	/* idem pour sizeof */
+
+-di16	/* alignement des declaration d'identifiers	*/
+-nbc	/* on passe pas forcement a la ligne */
+-T Settings /* avec tous les typdefs du code... */
+
+-i2	/* on indente de 2 */
+-ci3	/* on endende de trois en continuation de ligne brisee */
+-lp	/* on indente en dessous de la parenthese quand ca tient pas sur une ligne */
+
+

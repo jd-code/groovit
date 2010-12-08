@@ -1,0 +1,478 @@
+<HTML>
+<HEAD>
+<TITLE>groovit development pages - $Revision: 1.2 $ .</TITLE>
+<META name="description" content="groovit development pages Jean-Daniel PAUGET - jd">
+<META name="keywords" content="linux, sound, groovit, tb303, song, Jean-Daniel Pauget, PAUGET">
+</HEAD>
+<BODY BGCOLOR=#FFFFFF TEXT="000000" VLINK="000000" LINK="000000">
+
+<P><TABLE BORDER=0>
+<TR>
+   <TD><CENTER><TABLE BORDER=0>
+	<TR><TD><CENTER><IMG SRC="groovit.trans.small.gif"><CENTER></TD>
+        <TD><CENTER><TT><FONT SIZE=+1>&nbsp;-&nbsp;making accurate and groovy sound/noise.</FONT></CENTER></TT></TD></TR>
+   </TABLE></CENTER></TD>
+</TR>
+</TABLE>
+<HR>
+<P><CENTER><TABLE BORDER=0>
+
+<TR>
+       <TD><IMG SRC="images/blue_white.gif" BORDER=0></TD>
+       <TD><TT><FONT SIZE=+2><B>*.grov file format definition.</B></FONT></TT></TD>
+</TR>
+<TR><TD>&nbsp;</TD><TD>
+	This page describes the groovit songs file format <B>at revision 1.2.0.23</B>.
+
+<TR><TD><a name="principle"></a>&nbsp;</TD></TR>
+<TR>
+        <TD><IMG SRC="images/yellow_white.gif" BORDER=0></TD>
+	<TD><TT><B><FONT SIZE=+2>General principles&nbsp;: </FONT></B></TT></TD>
+</TR>
+
+<TR><TD>&nbsp;</TD><TD>
+	    Groovit files consist in a succession of <I>chunks</I>.<BR>
+	Each chunk consists in a succession of datas in that order&nbsp;:<BR>
+	<ul>
+	<li><B>chunk identifier</B>&nbsp;:<BR>
+	    4 bytes that identify the chunk, usually those  bytes  are
+       ASCII chars that abbreviate the chunk name (note that this
+       is not a null-ended string), for example:<BR>
+	    <BR> 
+	    <TABLE BORDER=0 BGCOLOR=000000 CELLPADDING=0 CELLSPACING=1><TR><TD>
+	    <TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDFFFF CELLSPACING=1>
+	    <TR> <TD ALIGN=CENTER><B>size</B></TD> <TD><B>data</B></TD><TD><B>byte-representation</B></TD></TR>
+	    <TR> <TD ALIGN=CENTER>.l</TD><TD>"grov"</TD><TD><TT>0x67 0x72 0x6f 0x76</TT></TD></TR>
+	    </TABLE>
+	    </TR></TD></TABLE>
+	    <BR> 
+	</LI>
+	<LI><B>chunk size</B>&nbsp;:<BR>
+	    Chunk size coded as a <B>little-endian</B> long word  (4  bytes).
+       This  data is usefull for checking if the chunk is shorted
+       or if there are extra datas at the end of chunk, in  which
+       case  they  must be ignored. It is also useful in order to
+       skip unknown chunks.<BR>
+	    <BR> 
+	</LI>
+        <LI><B>datas</B>&nbsp;:<BR>
+	    Then the properly-said  chunk's  datas  follows.  In  next
+       chapters,  their  size  and  nature are coded according to
+       this&nbsp;:<BR>
+	    <BR> 
+	    <TABLE BORDER=0 BGCOLOR=000000 CELLPADDING=0 CELLSPACING=1><TR><TD>
+	    <TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDFFFF CELLSPACING=1>
+	    <TR> <TD ALIGN=CENTER><B>code</B></TD> <TD><B>size</B></TD><TD><B>representation</B></TD></TR>
+	    <TR> <TD ALIGN=CENTER>.l</TD><TD>4 bytes</TD><TD>A <B>little-endian</B> coded long word.</TD></TR>
+	    <TR> <TD ALIGN=CENTER>.w</TD><TD>2 bytes</TD><TD>A <B>little-endian</B> coded short word.</TD></TR>
+	    <TR> <TD ALIGN=CENTER>.s</TD><TD>n (<B>even</B>) bytes</TD><TD>A null ended string. padded with a null char in order to have an even size.</TD></TR>
+	    <TR> <TD ALIGN=CENTER>...</TD><TD>n bytes</TD><TD>Raw datas, usually RLE-like compressed. The size is given in other chunk field or must be read until end of chunk.</TD></TR>
+	    </TABLE>
+	    </TR></TD></TABLE>
+	    <BR>
+	</LI>
+	<LI><B>example</B>&nbsp;:<BR>
+	here two chunks are shown, one <A HREF="#able">able</A> chunk and one
+	<A HREF="#gprm">gprm</A> chunk&nbsp;:<BR>
+	    <BR>
+	    <TABLE BORDER=0 BGCOLOR=000000 CELLPADDING=0 CELLSPACING=1><TR><TD>
+	    <TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDFFFF CELLSPACING=1>
+	    <TR><TD>&nbsp;</TD><TD ALIGN=CENTER><B>size</B></TD> <TD><B>data</B></TD><TD><B>byte-representation</B></TD><TD><B>comment</B></TD></TR>
+	    <TR><TD ROWSPAN=3>chunk</TD><TD ALIGN=CENTER>.l</TD><TD>"able"</TD><TD><TT>0x61 0x62 0x6c 0x65</TT></TD><TD>chunk-id</TD></TR>
+	    <TR> <TD ALIGN=CENTER>.l</TD><TD>4</TD><TD><TT>0x04 0x00 0x00 0x00</TT></TD><TD>chunk-size</TD></TR>
+	    <TR> <TD ALIGN=CENTER>.l</TD><TD>1.2.0.23</TD><TD><TT>0x17 0x00 0x02 0x01</TT></TD><TD>version number</TD></TR>
+	    <TR><TD ROWSPAN=4>chunk</TD><TD ALIGN=CENTER>.l</TD><TD>"gprm"</TD><TD><TT>0x67 0x70 0x72 0x6d</TT></TD><TD>chunk-id</TD></TR>
+	    <TR> <TD ALIGN=CENTER>.l</TD><TD>4</TD><TD><TT>0x04 0x00 0x00 0x00</TT></TD><TD>chunk-size</TD></TR>
+	    <TR> <TD ALIGN=CENTER>.w</TD><TD>140</TD><TD><TT>0x8c 0x00</TT></TD><TD>initial bpm</TD></TR>
+	    <TR> <TD ALIGN=CENTER>.w</TD><TD>0</TD><TD><TT>0x00 0x00</TT></TD><TD>initial pattern</TD></TR>
+	    </TABLE>
+	    </TR></TD></TABLE>
+	    <BR>
+	</LI>
+	</UL>
+</TD></TR>
+
+<TR><TD><a name="listchunk"></a>&nbsp;</TD></TR>
+<TR>
+        <TD><IMG SRC="images/red_white.gif" BORDER=0></TD>
+	<TD><TT><B><FONT SIZE=+2>list of .grov format chunks&nbsp;: </FONT></B></TT></TD>
+</TR>
+
+<TR><TD>&nbsp;</TD><TD>
+	<TABLE BORDER=0 BGCOLOR=000000 CELLPADDING=0 CELLSPACING=5><TR><TD>
+<TABLE BORDER=0 BGCOLOR=DDDDFF CELLPADDING=0 CELLSPACING=1>
+<TR><TD>
+	<TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDDDFF CELLSPACING=1>
+	<TR><TD><TT>[<A HREF="#grov">grov</A>]</TT></TD><TD>general file container</TD></TR>
+	</TABLE>
+</TD></TR>
+<TR><TD>
+	<TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDDDFF CELLSPACING=1>
+	<TR><TD><TT>[<A HREF="#able">able</A>]</TT></TD><TD>ability of creator</TD></TR>
+	<TR><TD><TT>[<A HREF="#gprm">gprm</A>]</TT></TD><TD>general parameters</TD></TR>
+	</TABLE>
+</TD></TR>
+<TR><TD>
+	<TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDDDFF CELLSPACING=1>
+	<TR><TD><TT>[<A HREF="#delp">delp</A>]</TT></TD><TD>delay parameters</TD></TR>
+	</TABLE>
+</TD></TR>
+<TR><TD>
+	<TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDDDFF CELLSPACING=1>
+	<TR><TD><TT>[<A HREF="#sdst">sdst</A>]</TT></TD><TD>sample distribution</TD></TR>
+	<TR><TD><TT>[<A HREF="#rptn">rptn</A>]</TT></TD><TD>rythms (samples) patterns</TD></TR>
+	</TABLE>
+</TD></TR>
+</TABLE></TD>
+
+<TD><TABLE BORDER=0 BGCOLOR=DDDDFF CELLPADDING=0 CELLSPACING=1>
+<TR><TD>
+	<TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDDDFF CELLSPACING=1>
+	<TR><TD><TT>[<A HREF="#aptn">aptn</A>]</TT></TD><TD>analogic voice pattern</TD></TR>
+	<TR><TD><TT>[<A HREF="#aprm">aprm</A>]</TT></TD><TD>analogic voice parameters</TD></TR>
+	</TABLE>
+</TD></TR>
+<TR><TD>
+	<TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDDDFF CELLSPACING=1>
+	<TR><TD><TT>[<A HREF="#fptn">fptn</A>]</TT></TD><TD>dynamic filter pattern</TD></TR>
+	<TR><TD><TT>[<A HREF="#fprm">fprm</A>]</TT></TD><TD>dynamic filter parameters</TD></TR>
+	</TABLE>
+</TD></TR>
+<TR><TD>
+	<TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDDDFF CELLSPACING=1>
+	<TR><TD><TT>[<A HREF="#void">void</A>]</TT></TD><TD>example of void chunk</TD></TR>
+	</TABLE>
+</TD></TR>
+<TR><TD>
+	<TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDDDFF CELLSPACING=1>
+	<TR><TD>&nbsp;</TD></TR>
+	</TABLE>
+</TD></TR>
+</TABLE>
+	</TABLE>
+</TD></TR>
+
+<TR><TD><a name="grov"></a>&nbsp;</TD></TR>
+<TR>
+	<TD ALIGN=RIGHT><TT><FONT SIZE=+2><B>[grov]&nbsp;</B></FONT></TT></TD>
+	<TD><TT><B><FONT SIZE=+2>general file container&nbsp;: </FONT></B></TT></TD>
+</TR>
+
+<TR><TD>&nbsp;</TD><TD>Any <B><TT>.grov</B></TT> files always start with this chunk that
+contains every other chunks. Thus, the chunk length is the complete file and may be used
+to detect corrupted files. Any data outside this chunk scope should be ignored, regarding
+groovit.</TD></TR>
+
+<TR><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD><TT><FONT SIZE=+1>
+	<TABLE BORDER=0 BGCOLOR=000000 CELLPADDING=0 CELLSPACING=1><TR><TD>
+	<TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDFFFF CELLSPACING=1>
+	  <TR> <TD ALIGN=CENTER><B>size</B></TD> <TD><B>description</B></TD><TD><B>data</B></TD><TD><B>rev</B></TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk ID</TD><TD><TT>"grov"</TT></B></TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk size</B></TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+	  <TR> <TD ALIGN=CENTER>...</TD><TD>chunks ...</B></TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+	  <TR> <TD ALIGN=CENTER>...</TD><TD>... chunks</B></TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+	</TABLE>
+	</TR></TD></TABLE>
+</FONT></TT></TD></TR>
+<TR><TD>&nbsp;</TD><TD>back to <A HREF="#listchunk">chunk list</A></TD></TR>
+
+<TR><TD><a name="able"></a>&nbsp;</TD></TR>
+<TR>
+	<TD ALIGN=RIGHT><TT><FONT SIZE=+2><B>[able]&nbsp;</B></FONT></TT></TD>
+	<TD><TT><B><FONT SIZE=+2>ability of creator&nbsp;: </FONT></B></TT></TD>
+</TR>
+
+<TR><TD>&nbsp;</TD><TD>This chunk, that should precede any others, contains the ability
+description that are recommended or mandatory for rendering this file. For instance, only the
+version ID of the creator is used. Usefull data <I>could</I> be add later here.
+</TD></TR>
+
+<TR><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD><TT><FONT SIZE=+1>
+	<TABLE BORDER=0 BGCOLOR=000000 CELLPADDING=0 CELLSPACING=1><TR><TD>
+	<TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDFFFF CELLSPACING=1>
+	  <TR> <TD ALIGN=CENTER><B>size</B></TD> <TD><B>description</B></TD><TD><B>data</B></TD><TD><B>rev</B></TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk ID</TD><TD><TT>"able"</TT></B></TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk size</B></TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.l</TD><TD VALIGN=TOP>version number of creator</B></TD>
+<TD><PRE>
+Major.b
+Minor.b
+Sub1.b
+Sub2.b
+</PRE></TD><TD>1.2.0.23</TD></TR>
+	</TABLE>
+	</TR></TD></TABLE>
+</FONT></TT></TD></TR>
+<TR><TD>&nbsp;</TD><TD>back to <A HREF="#listchunk">chunk list</A></TD></TR>
+
+
+<TR><TD><a name="gprm"></a>&nbsp;</TD></TR>
+<TR>
+	<TD ALIGN=RIGHT><TT><FONT SIZE=+2><B>[gprm]&nbsp;</B></FONT></TT></TD>
+	<TD><TT><B><FONT SIZE=+2>general parameters&nbsp;: </FONT></B></TT></TD>
+</TR>
+
+<TR><TD>&nbsp;</TD><TD>This one contains general and global parameters. Most of them are 
+attached to the <I>menuboard</I> module.
+</TD></TR>
+
+<TR><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD><TT><FONT SIZE=+1>
+	<TABLE BORDER=0 BGCOLOR=000000 CELLPADDING=0 CELLSPACING=1><TR><TD>
+	<TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDFFFF CELLSPACING=1>
+	  <TR> <TD ALIGN=CENTER><B>size</B></TD> <TD><B>description</B></TD><TD><B>data</B></TD><TD><B>rev</B></TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk ID</TD><TD><TT>"gprm"</TT></B></TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk size</B></TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>initial bpm.</B></TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>initial number of rythmic pattern.</B></TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	</TABLE>
+	</TR></TD></TABLE>
+</FONT></TT></TD></TR>
+<TR><TD>&nbsp;</TD><TD>back to <A HREF="#listchunk">chunk list</A></TD></TR>
+
+
+<TR><TD><a name="delp"></a>&nbsp;</TD></TR>
+<TR>
+	<TD ALIGN=RIGHT><TT><FONT SIZE=+2><B>[delp]&nbsp;</B></FONT></TT></TD>
+	<TD><TT><B><FONT SIZE=+2>delay parameters&nbsp;: </FONT></B></TT></TD>
+</TR>
+
+<TR><TD>&nbsp;</TD><TD>Contains the initial delay parameters.
+</TD></TR>
+
+<TR><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD><TT><FONT SIZE=+1>
+	<TABLE BORDER=0 BGCOLOR=000000 CELLPADDING=0 CELLSPACING=1><TR><TD>
+	<TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDFFFF CELLSPACING=1>
+	  <TR> <TD ALIGN=CENTER><B>size</B></TD> <TD><B>description</B></TD><TD><B>data</B></TD><TD><B>rev</B></TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk ID</TD><TD><TT>"delp"</TT></B></TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk size</B></TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>initial decay multiplicator.</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>initial delay length (in tickBPM).</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	</TABLE>
+	</TR></TD></TABLE>
+</FONT></TT></TD></TR>
+<TR><TD>&nbsp;</TD><TD>back to <A HREF="#listchunk">chunk list</A></TD></TR>
+
+
+
+<TR><TD><a name="sdst"></a>&nbsp;</TD></TR>
+<TR>
+	<TD ALIGN=RIGHT><TT><FONT SIZE=+2><B>[sdst]&nbsp;</B></FONT></TT></TD>
+	<TD><TT><B><FONT SIZE=+2>sample distribution&nbsp;: </FONT></B></TT></TD>
+</TR>
+
+<TR><TD>&nbsp;</TD><TD>Here are defined the samples files to be loaded and their initial
+associated parameters.
+</TD></TR>
+
+<TR><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD><TT><FONT SIZE=+1>
+	<TABLE BORDER=0 BGCOLOR=000000 CELLPADDING=0 CELLSPACING=1><TR><TD>
+	<TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDFFFF CELLSPACING=1>
+	  <TR><TD ROWSPAN="3">&nbsp;</TD><TD ALIGN=CENTER><B>size</B></TD> <TD><B>description</B></TD><TD><B>data</B></TD><TD><B>rev</B></TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk ID</TD><TD><TT>"sdst"</TT></B></TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk size</B></TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+	  
+	  <TR> <TD ROWSPAN="7">repeated<P>n times<P>until end<P>of chunk.</TD><TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>the voice number.</TD><TD>0...n</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>filename length (padded to an even value).</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.s</TD><TD VALIGN=TOP>filename.</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>main output level.</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>panoramic.</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>first mixer (delay0).</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>second mixer (dy-filter0).</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	</TABLE>
+	</TR></TD></TABLE>
+</FONT></TT></TD></TR>
+<TR><TD>&nbsp;</TD><TD>back to <A HREF="#listchunk">chunk list</A></TD></TR>
+
+
+<TR><TD><a name="rptn"></a>&nbsp;</TD></TR>
+<TR>
+	<TD ALIGN=RIGHT><TT><FONT SIZE=+2><B>[rptn]&nbsp;</B></FONT></TT></TD>
+	<TD><TT><B><FONT SIZE=+2>rythms (samples) patterns&nbsp;: </FONT></B></TT></TD>
+</TR>
+
+<TR><TD>&nbsp;</TD><TD>That chunk occurs as many times as there are non-empty defined
+rythm sample patterns.
+</TD></TR>
+
+<TR><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD><TT><FONT SIZE=+1>
+	<TABLE BORDER=0 BGCOLOR=000000 CELLPADDING=0 CELLSPACING=1><TR><TD>
+	<TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDFFFF CELLSPACING=1>
+	  <TR><TD ROWSPAN="7">&nbsp;</TD> <TD ALIGN=CENTER><B>size</B></TD> <TD><B>description</B></TD><TD><B>data</B></TD><TD><B>rev</B></TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk ID</TD><TD><TT>"rptn"</TT></B></TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk size</B></TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>(<B>maxsample</B>) number of voices (samples) used in this pattern.</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>(<B>maxpatternrow</B>) number maximum of rows of this pattern.</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>pattern number.</TD><TD>0...n</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>initial number of rendered rows (there <B>might</B> have some data out of this number).</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD>repeated (<B>maxsample</B>) times.</TD>
+	  <TD ALIGN=CENTER VALIGN=TOP>...</TD><TD VALIGN=TOP>compressed datas, up to the
+                   number maximum of rows of this pattern. eg&nbsp;: (<B>maxpatternrow</B>) decompressed bytes</TD><TD>&nbsp;</TD><TD VALIGN=TOP>1.2.0.23</TD></TR>
+	</TABLE>
+	</TR></TD></TABLE>
+</FONT></TT></TD></TR>
+<TR><TD>&nbsp;</TD><TD>back to <A HREF="#listchunk">chunk list</A></TD></TR>
+
+
+<TR><TD><a name="aptn"></a>&nbsp;</TD></TR>
+<TR>
+	<TD ALIGN=RIGHT><TT><FONT SIZE=+2><B>[aptn]&nbsp;</B></FONT></TT></TD>
+	<TD><TT><B><FONT SIZE=+2>analogic voice pattern&nbsp;: </FONT></B></TT></TD>
+</TR>
+
+<TR><TD>&nbsp;</TD><TD>That chunk occurs as many times as there are non-empty defined
+analogic voice patterns.
+</TD></TR>
+
+<TR><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD><TT><FONT SIZE=+1>
+	<TABLE BORDER=0 BGCOLOR=000000 CELLPADDING=0 CELLSPACING=1><TR><TD>
+	<TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDFFFF CELLSPACING=1>
+	  <TR> <TD ALIGN=CENTER><B>size</B></TD> <TD><B>description</B></TD><TD><B>data</B></TD><TD><B>rev</B></TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk ID</TD><TD><TT>"aptn"</TT></B></TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk size</B></TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>(<B>maxpatternrow</B>) number maximum of rows of this pattern.</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>pattern number.</TD><TD>0...n</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>initial number of rendered rows (there <B>might</B> have some data out of this number).</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR><TD ALIGN=CENTER VALIGN=TOP>...</TD><TD VALIGN=TOP>compressed datas, up to the
+                   number maximum of rows of this pattern. eg&nbsp;: (<B>maxpatternrow</B>) decompressed bytes</TD><TD>&nbsp;</TD><TD VALIGN=TOP>1.2.0.23</TD></TR>
+	</TABLE>
+	</TR></TD></TABLE>
+</FONT></TT></TD></TR>
+<TR><TD>&nbsp;</TD><TD>back to <A HREF="#listchunk">chunk list</A></TD></TR>
+
+
+<TR><TD><a name="aprm"></a>&nbsp;</TD></TR>
+<TR>
+	<TD ALIGN=RIGHT><TT><FONT SIZE=+2><B>[aprm]&nbsp;</B></FONT></TT></TD>
+	<TD><TT><B><FONT SIZE=+2>analogic voice parameters&nbsp;: </FONT></B></TT></TD>
+</TR>
+
+<TR><TD>&nbsp;</TD><TD>This chunk is present in the file as many times as there are
+analogic voices to be rendered. It contains the initial analogic voice parameters.
+</TD></TR>
+
+<TR><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD><TT><FONT SIZE=+1>
+	<TABLE BORDER=0 BGCOLOR=000000 CELLPADDING=0 CELLSPACING=1><TR><TD>
+	<TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDFFFF CELLSPACING=1>
+	  <TR> <TD ALIGN=CENTER><B>size</B></TD> <TD><B>description</B></TD><TD><B>data</B></TD><TD><B>rev</B></TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk ID</TD><TD><TT>"aprm"</TT></B></TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk size</B></TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>analogic voice number.</TD><TD>0...n</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>no of initial pattern to play.</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>starting cut frequency index.</TD><TD>0-256</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>ending cut frequency index.</TD><TD>0-256</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>initial resonance level.</TD><TD>0-256</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>initial decay multiplicator.</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>main output level.</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>panoramic.</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>first mixer (delay0).</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>second mixer (dy-filter0).</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	</TABLE>
+	</TR></TD></TABLE>
+</FONT></TT></TD></TR>
+<TR><TD>&nbsp;</TD><TD>back to <A HREF="#listchunk">chunk list</A></TD></TR>
+
+
+<TR><TD><a name="fptn"></a>&nbsp;</TD></TR>
+<TR>
+	<TD ALIGN=RIGHT><TT><FONT SIZE=+2><B>[fptn]&nbsp;</B></FONT></TT></TD>
+	<TD><TT><B><FONT SIZE=+2>dynamic filter pattern&nbsp;: </FONT></B></TT></TD>
+</TR>
+
+<TR><TD>&nbsp;</TD><TD>That chunk occurs as many times as there are non-empty defined
+dynamic filter patterns.
+</TD></TR>
+
+<TR><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD><TT><FONT SIZE=+1>
+	<TABLE BORDER=0 BGCOLOR=000000 CELLPADDING=0 CELLSPACING=1><TR><TD>
+	<TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDFFFF CELLSPACING=1>
+	  <TR> <TD ALIGN=CENTER><B>size</B></TD> <TD><B>description</B></TD><TD><B>data</B></TD><TD><B>rev</B></TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk ID</TD><TD><TT>"fptn"</TT></B></TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk size</B></TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>(<B>maxpatternrow</B>) number maximum of rows of this pattern.</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>pattern number.</TD><TD>0...n</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>initial number of rendered rows (there <B>might</B> have some data out of this number).</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR><TD ALIGN=CENTER VALIGN=TOP>...</TD><TD VALIGN=TOP>compressed datas, up to the
+                   number maximum of rows of this pattern. eg&nbsp;: (<B>maxpatternrow</B>) decompressed bytes</TD><TD>&nbsp;</TD><TD VALIGN=TOP>1.2.0.23</TD></TR>
+	</TABLE>
+	</TR></TD></TABLE>
+</FONT></TT></TD></TR>
+<TR><TD>&nbsp;</TD><TD>back to <A HREF="#listchunk">chunk list</A></TD></TR>
+
+
+<TR><TD><a name="fprm"></a>&nbsp;</TD></TR>
+<TR>
+	<TD ALIGN=RIGHT><TT><FONT SIZE=+2><B>[fprm]&nbsp;</B></FONT></TT></TD>
+	<TD><TT><B><FONT SIZE=+2>dynamic filter parameters&nbsp;: </FONT></B></TT></TD>
+</TR>
+
+<TR><TD>&nbsp;</TD><TD>This chunk is present in the file as many times as there are
+dynamic filters to be rendered. It contains the initial dynamic filters parameters.
+</TD></TR>
+
+<TR><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD><TT><FONT SIZE=+1>
+	<TABLE BORDER=0 BGCOLOR=000000 CELLPADDING=0 CELLSPACING=1><TR><TD>
+	<TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDFFFF CELLSPACING=1>
+	  <TR> <TD ALIGN=CENTER><B>size</B></TD> <TD><B>description</B></TD><TD><B>data</B></TD><TD><B>rev</B></TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk ID</TD><TD><TT>"aprm"</TT></B></TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk size</B></TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>dynamic filter number.</TD><TD>0...n</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>no of initial pattern to play.</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>starting cut frequency index.</TD><TD>0-256</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>ending cut frequency index.</TD><TD>0-256</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>initial resonance level.</TD><TD>0-256</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>initial decay multiplicator.</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>main output level.</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>panoramic.</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>first mixer (delay0).</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>second mixer (dy-filter0).</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	</TABLE>
+	</TR></TD></TABLE>
+</FONT></TT></TD></TR>
+<TR><TD>&nbsp;</TD><TD>back to <A HREF="#listchunk">chunk list</A></TD></TR>
+
+
+<TR><TD><a name="void"></a>&nbsp;</TD></TR>
+<TR>
+	<TD ALIGN=RIGHT><TT><FONT SIZE=+2><B>[void]&nbsp;</B></FONT></TT></TD>
+	<TD><TT><B><FONT SIZE=+2>example of void chunk&nbsp;: </FONT></B></TT></TD>
+</TR>
+
+<TR><TD>&nbsp;</TD><TD>This chunk is given here as an example.
+</TD></TR>
+
+<TR><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD><TT><FONT SIZE=+1>
+	<TABLE BORDER=0 BGCOLOR=000000 CELLPADDING=0 CELLSPACING=1><TR><TD>
+	<TABLE BORDER=0 CELLPADDING=5 BGCOLOR=DDFFFF CELLSPACING=1>
+	  <TR> <TD ALIGN=CENTER><B>size</B></TD> <TD><B>description</B></TD><TD><B>data</B></TD><TD><B>rev</B></TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk ID</TD><TD><TT>"void"</TT></B></TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER>.l</TD><TD>chunk size</B></TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.l</TD><TD VALIGN=TOP>a long number (4 bytes).</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	  <TR> <TD ALIGN=CENTER VALIGN=TOP>.w</TD><TD VALIGN=TOP>a short number (2 bytes).</TD><TD>&nbsp;</TD><TD>1.2.0.23</TD></TR>
+	</TABLE>
+	</TR></TD></TABLE>
+</FONT></TT></TD></TR>
+
+
+<TR><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD ALIGN=RIGHT><TT><FONT SIZE=+1>Next&nbsp;: 
+            <A HREF="controls.html">Using groovit's controls.</A>&nbsp;</FONT></TT></TD>
+            <TD><A HREF="controls.html"><IMG SRC="images/green_white.gif" BORDER=0></A></TD>
+</TR>
+</TABLE>
+<P><CENTER><TABLE BORDER=0>
+<TR><TD><CENTER><TT>$Revision: 1.2 $&nbsp;-&nbsp;last update&nbsp;:&nbsp;$Date: 2003/03/19 16:45:47 $.</TT></P></CENTER></TD></TR>
+</TABLE>
+
