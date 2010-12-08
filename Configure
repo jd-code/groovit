@@ -1,0 +1,1320 @@
+#!/bin/bash
+
+#  more or less an autoconf file
+#  it really has to be improved....
+#  I should use gnu-configure may be ? one day ?
+#
+# $Id: Configure,v 1.2 2003/03/19 16:45:47 jd Exp $
+# Groovit Copyright (C) 1998,1999 Jean-Daniel PAUGET
+# making accurate and groovy sound/noise
+#
+# groovit@disjunkt.com  -  http://groovit.disjunkt.com/
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# 
+# you can also try the web at http://www.gnu.org/
+#
+#
+# $Log: Configure,v $
+# Revision 1.2  2003/03/19 16:45:47  jd
+# major changes everywhere while retrieving source history up to this almost final release
+#
+# Revision 1.2.0.24.0.3  2000/10/01 21:07:03  jd
+# hmmmm I don't remember
+#
+# Revision 1.2.0.24.0.2  1999/10/19 19:29:45  jd
+# *** empty log message ***
+#
+# Revision 1.2.0.24.0.1  1999/10/11 18:36:29  jd
+# *** empty log message ***
+#
+# Revision 1.2.0.24  1999/10/11 15:30:51  jd
+# second pre-tel-aviv revision
+#
+# Revision 1.2.0.23.0.4  1999/10/07 14:08:05  jd
+# modified localistation of shared sample to /usr/share-like
+# directories with higher priority
+# corrected man-pages generation
+#
+# Revision 1.2.0.23.0.3  1999/10/05 23:04:46  jd
+# changed PLAYAHEAD to MAXPLAYAHEAD
+#
+# Revision 1.2.0.23.0.2  1999/09/27 00:46:09  jd
+# added MAXDYFILT
+# adjusted MAXLEVELS, MAXVOICES calulations
+#
+# Revision 1.2.0.23  1999/09/15 10:20:39  jd
+# second pre tel-aviv public revision, for testing
+#
+# Revision 1.2.0.22.0.3  1999/09/15 09:23:30  jd
+# added colors
+# added fake mono cards
+# added non interrupted write
+# added faked MIXMAX, NBVOICES and co..
+#
+# Revision 1.2.0.22.0.2  1999/09/05 22:30:16  jd
+# added termios test
+# added fast answers mode
+#
+# Revision 1.2.0.22  1999/08/24 22:42:20  jd
+# telaviv pre-release
+#
+# Revision 1.2.0.21.1.8  1999/08/24 22:33:19  jd
+# added no sliced write possibility
+# added trying to evaluate CPU strength
+# added simple C compiler detection
+# added dirent calls definitions detection
+# corrected CC handling in configure
+# corrected installation hooked because of missing man page
+# added sound card capabilities checking during "Configure/make config"
+#
+# Revision 1.2.0.21.1.7  1999/07/28 19:08:31  jd
+# fake revision
+#
+# Revision 1.2.0.21.1.6  1998/12/21 16:46:09  jd
+# added handling of display rows != internal rows
+# correction to match % 8 rows
+#
+# Revision 1.2.0.21.1.5  1998/12/15 16:16:48  jd
+# corrected additlib and (n)curses detection
+# corrected gpmlib test
+#
+# Revision 1.2.0.21.1.4  1998/12/15 00:51:18  jd
+# collapse from test branch
+#
+# Revision 1.2.0.21.1.3  1998/12/14 14:04:17  jd
+# gpm indep test
+#
+# Revision 1.2.0.21.0.1  1998/12/07 11:43:07  jd
+# une version pour jcd
+#
+# Revision 1.2.0.21  1998/11/23 21:52:11  jd
+# corrected char insertion bug in contredittext (!)
+# added automatic ".grov" ending concatenation when saving if no dot in file name
+# added menu for ponctual actions (save / about / quit and so on)
+# added slightly more friendly alerts
+# added quit warning
+# corrected menu inconsistance in linux console
+# added selection of raw-to-disk files
+# corrected case of reading less voices than present
+# added "wasmodified" flag and waning before erasing in memory...
+# added bar man page installation refering to HTML
+# added HTML manual pages + installation
+# added doc-groovit directory + rcs handling
+# corrected handling of suppr key in linux console
+#
+# Revision 1.2.0.20  1998/11/02 20:38:29  jd
+# corrected delete and backspace bug in contredittext
+# corrected overflow in sample dist reading when loading a song with
+# more voices than handled
+# handling of symbolic links to nowhere corrected in file selection
+# corrected freezed list-box when there are exactly "lines plus one" elements
+# corrected arrows bug in textedit
+# corrected alerts overlapped by leds in fileselect
+#
+# Revision 1.2.0.19  1998/10/29 19:48:22  jd
+# added bare INSTALL doc
+# added bare public SAMPLES
+# reducted # of sample voice to fit back in linux console by default
+#
+# Revision 1.2.0.18  1998/10/28 23:11:44  jd
+# reforming positions definitions and created placement header file
+# added precalculated pos for led-bars
+# added generation of installer
+# added make install via installer
+# added fileselection of load save grov files
+# added detection of stdout+stderr collisions
+# added usage
+# added make zips
+# added samples installation
+#
+# Revision 1.2.0.17  1998/10/23 17:13:04  jd
+# corrected includes in tokenio
+# separated globals var for export across modules
+# corrected unsigned 8bits data in .wav reading
+# added loading and saving .grov
+#
+# Revision 1.2.0.16  1998/10/06 22:05:42  jd
+# added keeping the last working dir for samples...
+# added curses lib and corrected minor warning in libgpm detection Configure
+# added correction of the "I forgot to stop the timer" bug
+# added embryo of input-output for .grov files
+# added token and chunk output
+#
+# Revision 1.2.0.15  1998/09/09 22:15:18  jd
+# debugged the end of controls in tty-mode
+# added flushing all bufs before finishing
+# added multi anologik voices
+# added patterns handling for a-voices
+#
+# Revision 1.2.0.14  1998/09/08 00:44:07  jd
+# second collapse before multi analogic-voices
+#
+# Revision 1.2.0.13  1998/09/06 23:11:54  jd
+# main collapse before adding multiple analog voices and pre-module organisation
+#
+# Revision 1.2.0.12  1998/09/01 01:32:58  jd
+# added alerts
+# added minimal stating sample-files
+# added gpl warning
+# corrected contexts usage
+# modified contexts changing redraw algorithme
+#
+# Revision 1.2.0.11  1998/08/18 04:22:52  jd
+# added reassignlistbox
+# added fileselect
+# added editable text
+# added reassigntextedit
+# added relooksimplebutton
+# added zeroradio
+# correct sample->name
+#
+# Revision 1.2.0.10  1998/08/15 00:31:37  jd
+# added removestrback
+# corrected deletecontrols
+# detected an inconsistancy in libgpm+xterm, suggested use of patched libgpm
+# added patched libgpm detection and proposal
+# tested and fixed use of gpm-xterm
+# added listbox
+#
+# Revision 1.2.0.9  1998/08/03 00:43:28  jd
+# added wave input
+#
+# Revision 1.2.0.8  1998/07/31 23:52:27  jd
+# added gpl, uname and who traced in config.h, bare joystick release, bare raw2dis
+#
+# Revision 1.2.0.7  1998/07/28 15:11:39  jd
+# collapse before adding joystick
+#
+# Revision 1.2.0.6  1998/06/29 18:01:36  jd
+# dissociated filter-pat/analog-pat
+#
+# Revision 1.2.0.5  1998/06/25 22:05:50  jd
+# special CB release
+#
+# Revision 1.2.0.4  1998/06/15 20:05:04  jd
+# added second cutoff
+#
+# Revision 1.2.0.3  1998/06/14 18:51:47  jd
+# collapse from previous branch
+#
+# Revision 1.2.0.2.0.2  1998/06/14 17:09:34  jd
+# loss of the e
+#
+# Revision 1.2.0.2.0.1  1998/06/05 22:18:38  jd
+# fork
+#
+# Revision 1.2.0.2  1998/06/05 22:17:23  jd
+# fork for mono-reverb test
+#
+# Revision 1.2.0.1  1998/06/03 14:38:55  jd
+# analog development initial release
+#
+# Revision 1.2  1998/06/03 14:13:16  jd
+# minimal analog part
+#
+# Revision 1.1.0.15  1998/06/03 14:00:15  jd
+# transition to analog part
+#
+# Revision 1.1.0.14  1998/06/02 21:53:09  jd
+# version de transition vers la synthese analogique...
+#
+# Revision 1.1.0.13  1998/05/27 22:05:48  jd
+# added locking mem against swap
+#
+# Revision 1.1.0.12  1998/05/25 23:35:19  jd
+# added vertical slide
+# added radio component for rythm parts
+# added dynamic part
+# analog sound embryo
+#
+# Revision 1.1.0.10  1998/05/17 00:12:20  jd
+# added Configure keeped out of RCS
+#
+# Revision 1.1.0.9  1998/05/17 00:07:45  jd
+# added interrupted select call handling
+# cleaned select return treatment
+#
+# Revision 1.1.0.8  1998/05/16 01:26:42  jd
+# added buttons and corrected more stalling process.
+# also completed configue script
+#
+# Revision 1.1.0.7  1998/05/12 15:22:07  jd
+# added interrupted write handling
+#
+# Revision 1.1.0.6  1998/05/11 11:00:58  jd
+# release with pattern row
+#
+# Revision 1.1.0.5  1998/05/10 20:06:56  jd
+# first release
+#
+# Revision 1.1  1998/05/10 20:06:08  jd
+# Initial revision
+#
+
+CONFCOLOR="N"
+FASTCONFIG="N"
+
+function echocolor
+{	if [ $CONFCOLOR = "Y" ]
+	then
+		echo -e "\033[33m $*\033[m"
+	else
+		echo " $*"
+	fi
+}
+
+function readit 
+{
+	DEFVALUE="$2"
+	if [ $FASTCONFIG = "Y" ]
+	then
+		echo
+		if [ $CONFCOLOR = "Y" ] 
+		then 
+			echo -e -n "\033[33m\033[1m$1\033[m"
+		else
+			echo -e -n "$1"
+		fi
+		if [ $CONFCOLOR = "Y" ] 
+		then 
+			echo -e " \033[33m[\033[m$DEFVALUE\033[33m] :\033[m"
+		else 
+			echo " [$DEFVALUE] :"
+		fi
+		VALUE="$DEFVALUE"
+	else
+		echo
+		if [ $CONFCOLOR = "Y" ] 
+		then 
+			echo -e -n "\033[33m\033[1m$1\033[m"
+		else
+			echo -e -n "$1"
+		fi
+		if [ $CONFCOLOR = "Y" ] 
+		then 
+			echo -e -n " \033[33m[\033[m$DEFVALUE\033[33m] :\033[m"
+		else 
+			echo -n " [$DEFVALUE] :"
+		fi
+		read VALUE
+		if [ "EE" = E"$VALUE"E ]
+		then
+			VALUE="$DEFVALUE"
+		fi
+	fi
+}
+
+function gsleep
+{
+	if [ $FASTCONFIG = "Y" ]
+	then
+		echo -n
+	else
+		sleep $1
+	fi
+}
+
+echo
+echo  '$Id: Configure,v 1.2 2003/03/19 16:45:47 jd Exp $'
+echo
+echo "a few question to Configure it all good..."
+echo "in a pintch just press RETURN for the default answer in [bracket]."
+echo
+
+VERSION=`echo $Id: Configure,v 1.2 2003/03/19 16:45:47 jd Exp $ | cut -d' ' -f3`
+FINAL=groovit
+PREFIX=/usr/local
+LIBDIR=$PREFIX/lib/groovit
+VERLIBDIR=$LIBDIR/$VERSION
+DESTDIR=$PREFIX/bin
+MANDIR=$PREFIX/man
+DSPDEV="/dev/dsp"
+MIXERDEV="/dev/mixer"
+
+rm -f .usecolor
+if echo $* | grep advanced > /dev/null 2> /dev/null
+then
+	ADVANCED="O"
+else
+	ADVANCED="N"
+fi
+if echo $* | grep fastconfig > /dev/null 2> /dev/null
+then
+	FASTCONFIG="Y"
+	echocolor -e "making it fast !!!\n"
+else
+	FASTCONFIG="N"
+fi
+
+echo "first of all: groovit is a color text application."
+readit "let's go : do you see any color here -> (\033[33mcolor/\033[1mbold\033[m)" "y"
+if [ "E"$VALUE"E" = "EyE" ]
+then
+	CONFCOLOR="Y"
+	echocolor "so we continue with colors."
+	: > .usecolor
+else
+	CONFCOLOR="N"
+	echocolor "okay, no more colors during configuration, but currently"
+	echocolor "groovit will remain slightly colored."
+	rm .usecolor
+fi
+if [ "E"$VALUE"E" = "EfE" ]
+then
+	FASTCONFIG="Y"
+	CONFCOLOR="Y"
+	: > .usecolor
+        echocolor -e "making it fast and color anyway!!!\n"
+fi
+
+echo
+echocolor "whith the actual prefix=/usr/local/ I will install groovit like this :"
+echocolor "a library dir which will contain the real executables:"
+echocolor "     $VERLIBDIR"
+echocolor "an executable dir and a man dir where I will put links to them:"
+echocolor "     $DESTDIR"
+echocolor "     $MANDIR"
+readit "what prefix shall I use ?" $PREFIX
+if [ "E"$VALUE"E" = "E"$PREFIX"E" ]
+then
+	echocolor "OK good idea to keep things like that !"
+else
+	PREFIX=$VALUE
+	LIBDIR=$PREFIX/lib/groovit
+	VERLIBDIR=$LIBDIR/$VERSION
+	DESTDIR=$PREFIX/bin
+	echo
+	echocolor "so, whith the new prefix=$PREFIX I will install groovit like this :"
+	echocolor "a library dir which will contain the real executables:"
+	echocolor "      $VERLIBDIR"
+	echocolor "an executable dir and a man dir where I will put links to them:"
+	echocolor "      $DESTDIR"
+	echocolor "     $MANDIR"
+fi
+
+if [ -d $PREFIX/lib/samples ]
+then
+    SAMPLEDIR=$PREFIX/lib/samples
+    echo
+    echo $SAMPLEDIR allready exists. suggest to keep it...
+else
+    if [ -e /usr/share/samples ]
+    then
+	SAMPLEDIR=/usr/share/samples
+	echo $SAMPLEDIR allready exists. suggest to keep it...
+    else
+	if [ -e /usr/local/share/samples ]
+	then
+	    SAMPLEDIR=/usr/local/share/samples
+	    echo $SAMPLEDIR allready exists. suggest to keep it...
+	else
+	    if [ -e $PREFIX/share ]
+	    then
+		SAMPLEDIR=$PREFIX/share/samples
+	    else
+		if [ -e /usr/share ]
+		then
+		    SAMPLEDIR=/usr/share/samples
+		else
+		    if [ -e /usr/local/share ]
+		    then
+			SAMPLEDIR=/usr/local/share/samples
+		    else
+			SAMPLEDIR=/usr/share/samples
+		    fi
+		fi
+	    fi
+	fi
+    fi
+fi
+	
+readit "where to put the shared sample-files ?" "$SAMPLEDIR"
+SAMPLEDIR=$VALUE
+echocolor "shared samples file will be in" $SAMPLEDIR
+
+if [ $ADVANCED = "O" ]
+then
+	readit "whats your dsp device file ?" $DSPDEV
+	DSPDEV=$VALUE
+	echocolor "DSP device file will be" $DSPDEV
+
+	readit "whats your mixer device file ?" $MIXERDEV
+	MIXERDEV=$VALUE
+	echocolor "MIXER device file will be" $MIXERDEV
+fi
+
+echo 
+rm -f .cc
+if [ e"$CC"e = 'e`./.cc`e' ]
+then
+   CC=""
+fi
+if [ e"$CC"e = "ee" ]
+then
+    echo -n "looking for a C compiler, "
+    echo -e "#include <stdio.h>\nint main (void){return 0;}\n" > testcc.c
+    rm -f testcc
+    if cc -o testcc testcc.c > /dev/null 2> /dev/null
+    then
+	echo -n "cc works, "
+	if ./testcc
+	then
+		CC=cc
+	else
+		echo "but output doesn't ? "
+	fi
+    else
+	echo -n "cc doesn't work (!), "
+    fi
+    rm -f testcc
+    if gcc -o testcc testcc.c > /dev/null 2> /dev/null
+    then
+	echo -n "gcc works, "
+	if ./testcc
+	then
+		CC=gcc
+	else
+		echo "but output doesn't ? "
+	fi
+    else
+	echo -n "gcc doesn't work (?), "
+    fi
+    rm -f testcc
+    if egcs -o testcc testcc.c > /dev/null 2> /dev/null
+    then
+	echo -n "egcs works, "
+	if ./testcc
+	then
+		CC=egcs
+	else
+		echo "but output doesn't ? "
+	fi
+    fi
+else
+    echo "testing your C compiler ($CC)"
+    if $CC -o testcc testcc.c
+    then
+	echo -n "$CC works, "
+	if ./testcc
+	then
+		echo
+	else
+		echo "but output doesn't ? this IS weird, continuing anyway"
+	fi
+    else
+	echocolor "$CC doesn't work."
+	echo
+	echocolor "you should try to remove CC from your environment var, or find a suitable"
+	echocolor "C compiler and come back here by typing ./Configure..."
+	exit 1
+    fi
+fi
+    
+if [ e"$CC"e = "ee" ]
+then
+	echo
+	echocolor "could not find any C compiler, if you know one, define the CC environment"
+	echocolor "var and then come back here by typing ./Configure"
+	exit 1
+fi
+echo -e '#!/bin/sh\necho -n "'$CC' "\n' > .cc
+chmod 700 .cc
+rm -f testcc testcc.c
+echocolor "will use $CC..."
+
+echo
+echo "building a small app to test your dsp..."
+TESTDSP="./testdsp"
+rm $TESTDSP
+make $TESTDSP
+if [ ! -x $TESTDSP ]
+then
+	echocolor "could not build the soundcard tester, are you building for another machine ?"
+	ECHEC="NOTBUILD"
+else
+	$TESTDSP $DSPDEV > ./.testdspout
+	. ./.testdspout
+fi
+echo
+
+if [ -e /proc/cpuinfo ]
+then
+	CPUMHZ=`grep 'cpu MHz' /proc/cpuinfo | head -1 | cut -d':' -f2 | cut -d'.' -f1`
+	if [ $CPUMHZ -lt 122 ]
+	then
+		echo
+		echocolor "your cpu clocks $CPUMHZ MHz, too weak for generating 44KHz sounds..."
+		HOPEDSPRATE=22050
+	else
+		echocolor "your cpu clocks $CPUMHZ MHz, strong enough for 44KHz sounds"
+	fi
+else
+	echo
+	echocolor 'could not test cpu clock, old kernel or no /proc ??'
+	CPUMHZ="UNK"
+fi
+
+if [ $ECHEC = "0" ]
+then
+	if [ $ADVANCED = "O" ]
+	then
+		echo
+		echocolor "suggested values for handling sound with $DSPDEV are :"
+		echocolor "bit-width = $HOPEDRESO bits"
+		echocolor "sample-freq = $HOPEDSPRATE Hz"
+
+		readit "what bit-width do you want to use ? " $HOPEDRESO
+		HOPEDRESO=$VALUE
+		echocolor "will try to work with $HOPEDRESO bits..."
+		if [ $CPUMHZ = "UNK" ]
+		then
+			echo
+			echocolor "if your CPU is less or equal than a 586/90MHz you should use 22050 KHz"
+		fi
+		readit "what sample-freq do you plan to use ? " $HOPEDSPRATE
+		HOPEDSPRATE=$VALUE
+		echocolor "will try to work at $HOPEDSPRATE Hz..."
+	else
+		echo
+		echocolor "testing indicates that your card can handle :"
+		echocolor "$HOPEDRESO bits sound at $HOPEDSPRATE Hz"
+		if [ $CPUMHZ = "UNK" ]
+		then
+			echo
+			echocolor "if your CPU is less or equal than a 586/90MHz you should use 22050 KHz"
+		fi
+		readit "what sample freq do you plan to use ? " $HOPEDSPRATE
+		HOPEDSPRATE=$VALUE
+		echocolor "will try to work at $HOPEDSPRATE Hz..."
+	fi
+else
+	echo
+	if [ $ECHEC = "NOTENOUGH" ]
+	then
+		echocolor "testing your card indicates that your card is not strong enough, reason(s) :"
+		echocolor "$REASON"
+	else
+		echocolor "I could not test your sound-card !!!"
+	fi
+	echocolor "however you can try arbitrary values :"
+	HOPEDRESO=16
+	if [ E"$HOPEDSPRATE"E = "E22050E" ]
+	then
+		HOPEDSPRATE=22050
+	else
+		HOPEDSPRATE=44100
+	fi
+	readit "what bit-width do you want to use ? " $HOPEDRESO
+	HOPEDRESO=$VALUE
+	echocolor "will try to work with $HOPEDRESO bits..."
+
+	readit "what sample-freq do you plan to use ? " $HOPEDSPRATE
+	HOPEDSPRATE=$VALUE
+	echocolor "will try to work at $HOPEDSPRATE Hz..."
+
+	echo
+	echocolor "some incomplete sound drivers (or maybe some nasty cards) say they are stereo"
+	echocolor "but they are (for instance) handled as mono by drivers (Maestro/OSS)."
+	readit "want to force 16bit MONO ?" "n"
+	if [ E"${VALUE}"E = "EyE" ]
+	then
+		HOPEDRESO=16
+		HOPEDRESOBIS=HOPEDMONO16
+	fi
+fi
+
+HOPEDRESO=` echo $HOPEDRESO `
+echo E"$HOPEDRESO"E
+if [ $HOPEDRESO = "16" ]
+then
+	if [ E"$HOPEDRESOBIS"E = E"HOPEDMONO16"E ]
+	then
+		echocolor "we will work in mono... $HOPEDRESO bits $HOPEDSPRATE Hz."
+	else
+		HOPEDRESOBIS=HOPEDRESO16
+	fi
+else
+	if [ $HOPEDRESO = "8" ]
+	then
+		HOPEDRESOBIS=HOPEDRESO8
+	else
+		echo
+		echocolor "you are expecting to use $HOPEDRESO bits (why not, lets try) ???"
+		echocolor "[ you have 20 seconds to use CTRL-C before continuing ]"
+		gsleep 20
+	fi
+fi
+
+echo
+if [ -f /usr/include/ncurses.h ]
+then
+	echo you seem to have ncurses...
+	HAVECURSES=ncurses
+else
+	echo you dont seem to have ncurses...
+	if [ -f /usr/include/curses.h ]
+	then
+		echo but you have curses \!
+		HAVECURSES=curses
+	else
+		echo neither curses \?
+		echo I try anyway with curses
+		HAVECURSES=no
+	fi
+fi
+if [ $HAVECURSES = "ncurses" ]
+then
+	if ls /usr/lib/lib* | grep libncurses > /dev/null 2>/dev/null
+	then 
+		CURSESLIB=" -lncurses "
+	else
+		CURSESLIB=" -lcurses "
+	fi
+else
+	CURSESLIB=" "
+fi
+
+echo -n "checking termios, "
+rm -f testtermios.c testtermios.out testtermios
+echo -e "#include <termios.h>\n#define JDCTRL(x) (x&037)\nint main (void)\n{ char c;\nstruct termios caracs;\ntcgetattr (0, &caracs);\nc=caracs.c_cc[3];\ncaracs.c_cc[3]=JDCTRL('H');\nif(tcsetattr (0, TCSANOW, &caracs))return 1;\ncaracs.c_cc[3]=c;\nif(tcsetattr (0, TCSANOW, &caracs))return 1;\nreturn 0;\n}"> testtermios.c
+
+$CC -o testtermios testtermios.c > testtermios.out 2> testtermios.out
+if [ -x ./testtermios ]
+then
+	if ./testtermios
+	then
+		USETERMIOS="Y"
+		echo "ok, will use it."
+	else
+		echocolor "it is compiled but doesn't work, you should report it !"
+		echocolor "anyway, groovit can work without it..."
+		gsleep 5
+		USETERMIOS="N"
+	fi
+else
+	USETERMIOS="N"
+	echocolor "compilation failed, will not use termios..."
+fi
+rm -f testtermios.c testtermios.out testtermios
+
+INSTGPMPAT="n"
+if ls /lib /usr/lib /usr/local/lib | grep libgpm > /dev/null 2> /dev/null
+then
+	echo "you seem to have libgpm, checking version..."
+	rm -f testgpmwithcc.c
+	echo -e '#include <gpm.h>\n#include <stdio.h>\nint main (void){int n;Gpm_GetLibVersion(&n);\n#ifndef GPM_XTERM_JDARROWS\nif(n>=11506)printf ("should\\n"); else printf ("wont\n");\n#else\nprintf ("will\\n");\n#endif\nreturn 0;}' > testgpmwithcc.c
+	
+	if $CC -o testgpmwithcc testgpmwithcc.c -lgpm $CURSESLIB
+	then
+		WILLGPMWORK=`./testgpmwithcc`
+                WILLGPMWORK=`./testgpmwithcc`
+                case "$WILLGPMWORK" in
+
+                'will')
+                        echocolor "your gpmlib totally complies... will use it"
+                        HAVE_LIBGPM="y"
+                        ;;
+
+                'should')
+                        echocolor "your gpmlib should comply... will use it ?"
+                        HAVE_LIBGPM="y"
+                        ;;
+
+#               'wont')
+                *)
+                        echocolor "oh ! your gpmlib is obsolete. you should update it with a "
+			echocolor "recent version (over 1.15.7)."
+			echocolor "but dont worry, groovit should work anyway..."
+			gsleep 2
+			HAVE_LIBGPM="y"
+			;;
+
+                esac
+	else
+		echocolor "could not compile with your libgpm..."
+		echocolor "groovit will work only in xterm with gpm-xterm substitute"
+		echo
+		echocolor "you might want to install a more recent libgpm and come"
+		echocolor "back here ..."
+		gsleep 2
+		HAVE_LIBGPM="n"
+	fi
+	rm -f testgpmwithcc testgpmwithcc.c
+else
+	echocolor "you don't seem to have libgpm."
+	echocolor "groovit will work only in xterm with gpm-xterm substitute"
+	echo
+	echocolor "you might want to install a more recent libgpm and come"
+	echocolor "back here ..."
+	gsleep 2
+	HAVE_LIBGPM="n"
+fi
+
+
+echo
+echo -n "checking your dirent definitions, "
+echo -e '#include <stdio.h>\n#include <dirent.h>\nint gd (CONSTDIRENT struct dirent * dir)\n{return 1;}\n\nint main (void)\n{ struct dirent **n = NULL;\n  return scandir (".", &n, &gd, alphasort);\n}\n' > testdirent.c
+
+$CC -DCONSTDIRENT="const" -o testdirent testdirent.c > testdirent.out 2> testdirent.out
+if grep -i "warn\|error" testdirent.out > /dev/null 2> /dev/null
+then
+	$CC -DCONSTDIRENT="" -o testdirent testdirent.c > testdirent.out 2> testdirent.out
+	if grep -i "warn\|error" testdirent.out > /dev/null 2> /dev/null
+	then
+		echocolor 'check failed, const is assumed in "scandir" calls.'
+		CONSTDIRENT="const"
+	else
+		echo '"scandir" calls without const.'
+		CONSTDIRENT=""
+	fi
+else
+	CONSTDIRENT="const"
+	echo '"scandir" calls with const.'
+fi
+rm -f testdirent testdirent.c testdirent.out
+
+if ls /dev/js? | grep js. > /dev/null 2> /dev/null
+then
+	if head -c 12 `ls /dev/js? | head -1` > /dev/null 2> /dev/null
+	then
+		readit "you seem to have joystick, do you want to use them (or a groovit-Jbox) ?" "y"
+	else
+		echo
+		echocolor "you have the entry for joystick in /dev, but..."
+		echocolor "your kernel doesn't seem to handle joystick, you should try to install the"
+		echocolor "analog joystick module from :"
+		echocolor "   ftp://atrey.karlin.mff.cuni.cz/pub/linux/joystick/joystick-1.2.x.tar.gz"
+		echocolor "then you'll be able to use joysticks or (better !) a groovit-Jbox for"
+		echocolor "riding groovit"
+		readit "include joystick (or groovit-Jbox !) handling for future use ?" "y"
+	fi
+else
+		echo
+		echocolor "your kernel doesn't seem to handle joystick, you should try to install the"
+		echocolor "analog joystick module from :"
+		echocolor "   ftp://atrey.karlin.mff.cuni.cz/pub/linux/joystick/joystick-1.2.x.tar.gz"
+		echocolor "then you'll be able to use joysticks or (better !) a groovit-Jbox for"
+		echocolor "riding groovit"
+		readit "include joystick (or groovit-Jbox !) handling for future use ?" "y"
+fi
+HANDLE_JOY=$VALUE
+if [ $HANDLE_JOY = "y" ]
+then
+	echocolor "will handle joystick (or groovit-Jbox !) - if kernel handles joystick..."
+else
+	echocolor "will NOT handle joystick (or groovit-Jbox !) even if kernel handles joystick..."
+fi
+
+if [ $HANDLE_JOY = "y" ]
+then
+	if ! ls /usr/include/linux/joystick.h > /dev/null 2> /dev/null
+	then
+		echo
+		echocolor "I can't find /usr/include/linux/joystick.h ... you should"
+		echocolor "copy it from joystick-1.2.x.tar.gz to the appropriate dir..."
+		echo
+		echocolor "so wont use joystick..."
+		HANDLE_JOY="n"
+	else
+		readit "what is the first jostick device to use ?" "/dev/js0"
+		F__JS1=$VALUE
+		readit "what is the second jostick device to use ?" "/dev/js1"
+		F__JS2=$VALUE
+		echocolor "will use" $F__JS1 and $F__JS2 "for first and second joysticks"
+	fi
+fi
+
+readit "want to zero input level of all recording devices when playin' ?" "y"
+ZEROINGINPUT=$VALUE
+if [ $ZEROINGINPUT = "y" ]
+then
+	echocolor "will zero inputs"
+else
+	echocolor "wont zero inputs"
+fi
+
+if [ -f /usr/include/errno.h ]
+then
+	echo
+	echo "will use errno.h"
+else
+	echo
+	echo "will not use errno.h"
+fi
+
+USEALARM="y"
+USELOCKMEM=0
+MAXSAMPLE=14
+MAXANALOG=2
+MAXDYFILT=1
+MAXPATTERN=32
+MAXPATTERNROW=128
+# JDJDJDJD add a question about this....
+MAXDISPLAYROW=32
+MAXPLAYAHEAD=8192
+SLICEIT="y"
+NEVERINTER="y"
+MINBPM=20
+MAXREV=64
+DIODEINPAT="n"
+DEBUGINCONSOLE="n"
+MAXDIRSIZE=256
+XTERMCMD="xterm +lc +u8 -fn 10x20 -bg black -fg white"
+
+if [ $ADVANCED = "O" ]
+then
+	echo
+	echocolor "-------------------------------------------------------------"
+	echocolor "entering advanced parameters..."
+	echocolor "if you did it its because you know why !!!"
+	gsleep 2
+	echocolor "I hope you know..."
+	gsleep 2
+	echo
+
+	readit "try to use memory lock to avoid swaping (needs suid root to be effective) 1=yes 0=no " $USELOCKMEM
+	USELOCKMEM=$VALUE
+	if [ $USELOCKMEM = "0" ]
+	then
+		echocolor "will not try to lock mem"
+	else
+		echocolor "will try to lock mem"
+	fi
+
+	readit "want to try the alarm signal handler ?" $USEALARM
+	USEALARM=$VALUE
+	if [ $USEALARM = "y" ]
+	then
+		echocolor "will use alarm handler"
+	else
+		echocolor "wont use alarm handler"
+	fi
+
+	readit "command line for xterm " "$XTERMCMD"
+	XTERMCMD="$VALUE"
+	echocolor "will use $XTERMCMD"
+
+	readit "number max of sampled channel" $MAXSAMPLE
+	MAXSAMPLE=$VALUE
+	echocolor "will _try_ to manage $MAXSAMPLE channels"
+
+	readit "number max of analog voices" $MAXANALOG
+	MAXANALOG=$VALUE
+	echocolor "will _try_ to manage $MAXANALOG analog voices"
+
+	readit "number max of dynamic filters" $MAXDYFILT
+	MAXDYFILT=$VALUE
+	echocolor "will _try_ to manage $MAXDYFILT dynamic filters"
+
+	readit "number max of pattern (hasardous to change)" "32"
+	MAXPATTERN=`echo $VALUE`
+	if [ $MAXPATTERN = 32 ]
+	then
+		echocolor "will manage $MAXPATTERN patterns"
+	else
+		echocolor "will try to manage (kind of debug ???) $MAXPATTERN patterns"
+	fi
+
+	readit "number of row DISPLAYED in patterns" $MAXDISPLAYROW
+	MAXDISPLAYROW=$VALUE
+	echo computing a suitable value...
+	rm -f testnbpat testnbpat.c
+	(
+	echo '#include <stdio.h>'
+	echo 'int main (void){int i='$MAXDISPLAYROW';i=(i&0xFFF8);printf("%d\n",(i<32)?32:i);return 0;}' ) > testnbpat.c
+	$CC -o testnbpat testnbpat.c
+	MAXDISPLAYROW=`./testnbpat`
+	rm -f testnbpat testnbpat.c
+	echocolor will display $MAXDISPLAYROW rows...
+
+	readit "number max of rows per pattern" $MAXPATTERNROW
+	MAXPATTERNROW=$VALUE
+	echo computing a suitable value...
+	rm -f testnbpat testnbpat.c
+	(
+	echo '#include <stdio.h>'
+	echo 'int main (void){int i='$MAXPATTERNROW',j='$MAXDISPLAYROW';i=(i&0xFFF8);printf("%d\n",(i<j)?j:i);return 0;}' ) > testnbpat.c
+	$CC -o testnbpat testnbpat.c
+	MAXPATTERNROW=`./testnbpat`
+	rm -f testnbpat testnbpat.c
+	echo "will handle $MAXPATTERNROW rows/pattern"
+
+	echo
+	readit "maximum play-ahead time in number of samples" $MAXPLAYAHEAD
+	MAXPLAYAHEAD=$VALUE
+	echocolor "play-ahead will be $MAXPLAYAHEAD samples long"
+
+	readit "slice the output ? (mandatory with 2.2.x kernels) " $SLICEIT
+	SLICEIT=$VALUE
+
+	readit "disable timer handling during write ?" $NEVERINTER
+	NEVERINTER=$VALUE
+
+	readit "minimum BPM handled (the lowest it is, the more memory it costs)" $MINBPM
+	MINBPM=$VALUE
+	echocolor "minimum BPM maintained will be $MINBPM"
+	
+	readit "longest reverb delay handled (in ticks) (the more, the more memory...)" $MAXREV
+	MAXREV=$VALUE
+
+	readit "do you want the tick indicator (not accurate)" $DIODEINPAT
+	DIODEINPAT=$VALUE
+
+	readit "do you want debug message when used some console (most time it bugs!)" $DEBUGINCONSOLE
+	DEBUGINCONSOLE=$VALUE
+
+	gsleep 2
+	echo "well lets try it so...."
+fi
+
+
+# -------------------------------------------------------------------
+echo
+if [ -e config.h ]
+then
+	echo backuping config.h to config.bak
+	rm -f config.bak
+	mv config.h config.bak
+fi
+echo -n "generating config.h ...    "
+(
+echo "/*"
+echo " * configuration file generated by Configure"
+echo ' * $Id: Configure,v 1.2 2003/03/19 16:45:47 jd Exp $'
+echo " * "
+echo " * mind before editing"
+echo " * "
+echo " */"
+echo
+echo "#define DSP "\"$DSPDEV\"
+echo "#define MIXER "\"$MIXERDEV\"
+echo "#define SAMPLEPATH "\"$SAMPLEDIR/\"
+if [ $HAVECURSES = "no" ]
+then
+	echo "/* no curses of any king detected ??? */"
+	echo "#define HAVECURSES"
+else
+	if [ $HAVECURSES = "ncurses" ]
+	then
+		echo "#define HAVENCURSES"
+	else
+		echo "#define HAVECURSES"
+	fi
+fi
+if [ $HAVE_LIBGPM = "y" ]
+then
+	echo "#define HAVE_LIBGPM 1"
+else
+	echo "/* #define HAVE_LIBGPM 1 */"
+fi
+if [ $USEALARM = "n" ]
+then
+	echo "/* #define ALARMHANDLER */"
+else
+	echo "#define ALARMHANDLER 1"
+fi
+if [ $ZEROINGINPUT = "y" ]
+then
+	echo "#define ZEROINGINPUT"
+fi
+
+if [ -f /usr/include/errno.h ]
+then
+	echo "#define USEERRNOH	1"
+fi
+if [ $HANDLE_JOY = "y" ]
+then
+	echo "#define HANDLE_JOY 1"
+	echo '#define F__JS1 "'$F__JS1'"'
+	echo '#define F__JS2 "'$F__JS2'"'
+fi
+#-------------------------------------------------------------
+# those part will be configurable soon
+#-------------------------------------------------------------
+	echo "#define USELOCKMEM"	$USELOCKMEM
+	echo "#define MAXSAMPLE"	$MAXSAMPLE
+	echo "#define MAXANALOG"	$MAXANALOG
+	echo "#define MAXDYFILT"	$MAXDYFILT
+	echo "#define MAXVOICES (MAXSAMPLE+MAXANALOG+MAXDYFILT)"
+	echo "#define MAXMODULES (1+MAXANALOG+MAXDYFILT)"
+	echo "#define MAXLEVELS 	(MAXDYFILT+1+2  +1)"
+	echo "#define MAXDISPLEVELS 	4"
+	echo "#define NBMIXMAX 		(1+MAXDYFILT  +1)"
+        echo "#define MAXPATTERN"	$MAXPATTERN
+	echo "#define MAXDISPLAYROW"	$MAXDISPLAYROW
+        echo "#define MAXPATTERNROW"	$MAXPATTERNROW
+	echo '#define UNAMED "'`uname -n` `uname -s` `uname -r`'"'
+	echo '#define CONFEDBY "'`whoami` `date "+%d-%m-%Y %H:%M"`'"'
+        echo "#define MAXPLAYAHEAD"	$MAXPLAYAHEAD"L"
+	if [ $SLICEIT = "y" ]
+	then
+		echo "#define SLICEDOUT 1024"
+	else
+		echo "/* #define SLICEDOUT 1024 */"
+	fi
+	if [ $NEVERINTER = "y" ]
+	then
+		echo "#define NEVERINTER"
+	else
+		echo "/* #define NEVERINTER */"
+	fi
+        echo "#define MINBPM"		$MINBPM
+        echo "#define MAXREV"		$MAXREV
+	echo "#define MAXDIRSIZE"	$MAXDIRSIZE
+	if [ $DEBUGINCONSOLE = "y" ]
+	then
+		echo "#define DEBUGINCONSOLE"
+	else
+		echo "/* #define DEBUGINCONSOLE */"
+	fi
+	echo "#define HOPEDSPRATE"	$HOPEDSPRATE
+	if [ $HOPEDSPRATE = "22050" ]
+	then
+		echo "#define DOWNSAMPLE"
+		echo "#define RESOFREQCUT 10"
+		echo "#define AMPTESTMASK 0xF"
+	else
+		echo "/* #define DOWNSAMPLE */"
+		echo "#define RESOFREQCUT 12"
+		echo "#define AMPTESTMASK 0x1F"
+	fi
+	echo "#define HOPEDRESO"	$HOPEDRESO
+	echo "#define "			$HOPEDRESOBIS
+	echo "#define XTERMCMD "\"$XTERMCMD \" "/* le dernier espace est IMPORTANT */"
+	echo "/* #define TESTDELETE */"
+	if [ $DIODEINPAT = "y" ]
+	then
+		echo "#define DIODEINPAT"
+	else
+		echo "/* #define DIODEINPAT */"
+	fi
+#-------------------------------------------------------------
+	if [ -f ./.testdspout ]
+	then
+		echo
+		echo "/* $TESTDSP $DSPDEV */"
+		cat ./.testdspout | while read LIGNE
+		do
+			echo "/* $LIGNE */"
+		done
+	else
+		echo
+		echo "/* $TESTDSP not executable */"
+	fi
+#-------------------------------------------------------------
+	echo "#define CONSTDIRENT $CONSTDIRENT"
+	if [ $USETERMIOS = "Y" ]
+	then
+		echo "#define USETERMIOS"
+	else
+		echo "/* #define USETERMIOS */"
+	fi
+echo 
+echo "/* last line of config.h */"
+) > ./config.h
+echo "    ...done."
+
+#-------------------------------------------------------------------------------------------
+( echo "#!/bin/sh" ; echo 'echo `uname -n` `uname -s` `uname -r`') > .inu
+( echo "#!/bin/sh" ; echo 'echo `whoami` `date "+%d-%m-%Y %H:%M"`') > .woa
+( echo "#!/bin/sh" ; echo "echo $SAMPLEDIR") > .sdis
+chmod 700 .inu .woa .sdis
+echo
+if [ -e additlib ]
+then
+	echo backuping additlib to additlib.bak
+	rm -f additlib.bak
+	mv additlib additlib.bak
+fi
+echo -n "generating additlib ...    "
+(
+	if [ $HAVE_LIBGPM = "y" ]
+	then
+		echo -n " -lgpm "
+	fi
+
+	echo -n $CURSESLIB
+) > ./additlib
+echo "    ...done : will link with " `cat ./additlib`
+echo
+
+if [ -e installer ]
+then
+	echo backuping installer to installer.bak
+	rm -f installer.bak
+	mv installer installer.bak
+fi
+echo -n "generating installer ...  "
+(	echo '#!/bin/sh'
+	echo 'LIBDIR'=$LIBDIR
+	echo 'SAMPLEDIR'=$SAMPLEDIR
+	echo 'DESTDIR'=$DESTDIR
+	echo 'MANDIR'=$MANDIR
+	echo 'VERLIBDIR'=$VERLIBDIR
+	echo 'VERSION'=$VERSION
+	echo 'FINAL'=groovit
+	echo
+
+	echo 'if [ E"$1"E = "Egroovit.1E" ]'
+	echo 'then'
+	echo '	echo making man 1 pages'
+	echo '	sed "s:here_insert_revision:"$VERSION":" groovit.man1 |'
+	echo '	sed "s:here_insert_url:"$VERLIBDIR":" |'
+	echo '	sed "s:here_insert_sampledir:"$SAMPLEDIR":" |'
+	echo '	sed "s:here_insert_mainrc:"$LIBDIR"/groovitrc:"i > groovit.1'
+	echo '  exit 0'
+	echo 'fi'
+	echo
+	echo 'if [ E"$1"E = "Egrov.5E" ]'
+	echo 'then'
+	echo '	echo making man 5 pages'
+	echo '	sed "s:here_insert_url:"$VERLIBDIR":" grov.man5 > grov.5'
+	echo '  exit 0'
+	echo 'fi'
+	echo
+
+	echo 'if [ E"$UID"E != "E0E" ]'
+	echo 'then'
+	if [ $CONFCOLOR = "Y" ] 
+	then
+	  echo '	echo -e -n "\033[33m\033[1myou are not running me as root, shall I stop ? [\033[my\033[33m]\033[m "'
+	else
+	  echo '	echo -n "you are not running me as root, shall I stop ? [y] "'
+	fi
+	echo '  read VALUE'
+	echo '  if [ E"$VALUE"E = "EE" ]'
+	echo '	then'
+	if [ $CONFCOLOR = "Y" ] 
+	then
+	  echo '		echo -e "\033[33m\033[1msu root then come back here and type in (make install)\033[m"'
+	else
+	  echo '		echo "su root then come back here and type in (make install)"'
+	fi
+	echo '		exit'
+	echo '	fi'
+	echo '	if [ E"$VALUE"E = "EyE" ]'
+	echo '	then'
+	if [ $CONFCOLOR = "Y" ] 
+	then
+	  echo '	echo -e "\033[33m\033[1msu root then come back here and type in (make install)\033[m"'
+	else
+	  echo '	echo "su root then come back here and type in (make install)"'
+	fi
+	echo '		exit'
+	echo '	fi'
+	echo 'fi'
+	echo
+	echo 'if [ ! -d $LIBDIR ]'
+	echo 'then'
+	echo '	install -d $LIBDIR'
+	echo 'fi'
+	echo 'if [ -d $VERLIBDIR ]'
+	echo 'then'
+	echo '	STAMPDATE=`date +%Y%m%d-%H%M%S`'
+	echo '	mv $VERLIBDIR $VERLIBDIR-$STAMPDATE'
+	if [ $CONFCOLOR = "Y" ] 
+	then
+	  echo '	echo -e "\033[33m\033[1myou can save space on your disk removing old version called $VERLIBDIR-$STAMPDATE\033[m"'
+	else
+	  echo '	echo "you can save space on your disk removing old version called $VERLIBDIR-$STAMPDATE"'
+	fi
+	echo '  du -sk $VERLIBDIR-$STAMPDATE'
+	echo '  echo'
+	echo 'fi'
+	echo 'install --mode 0755 -d $VERLIBDIR'
+	echo 'install --mode 0755 $FINAL $VERLIBDIR'
+	echo 'if [ ! -d $DESTDIR ]'
+	echo 'then'
+	echo '	install --mode 0755 -d $DESTDIR'
+	echo 'fi'
+	echo 'ln -sf $VERLIBDIR/$FINAL $DESTDIR'
+
+	echo 'echo installing man page'
+	echo 'install --mode 0755 $FINAL.1 $VERLIBDIR'
+	echo 'install --mode 0755 grov.5 $VERLIBDIR'
+
+	echo 'if [ -d $MANDIR/man1 ]'
+	echo 'then'
+	echo '	ln -sf $VERLIBDIR/$FINAL.1 $MANDIR/man1'
+	echo 'else'
+	echo '	mkdir  $MANDIR/man1'
+	echo '	chmod 755 $MANDIR/man1'
+	echo '	ln -sf $VERLIBDIR/$FINAL.1 $MANDIR/man1'
+	echo 'fi'
+
+	echo 'if [ -d $MANDIR/man5 ]'
+	echo 'then'
+	echo '	ln -sf $VERLIBDIR/grov.5 $MANDIR/man5'
+	echo 'else'
+	echo '	mkdir  $MANDIR/man5'
+	echo '	chmod 755 $MANDIR/man5'
+	echo '	ln -sf $VERLIBDIR/grov.5 $MANDIR/man5'
+	echo 'fi'
+
+	echo 'echo'
+	echo 'cp -rf doc-groovit $VERLIBDIR/doc'
+	echo 'chmod -R a+X $VERLIBDIR/doc'
+	echo 'chmod -R a+r $VERLIBDIR/doc' 
+
+	echo 'if [ ! -d $SAMPLEDIR ]'
+	echo 'then'
+	echo '	install --mode 0755 -d $SAMPLEDIR'
+	echo 'fi'
+	echo 'if [ -d SAMPLES ]'
+	echo 'then'
+	echo 'echo'
+	echo 'echo installing the sample files'
+	echo '  cd SAMPLES'
+	echo '	for SAMPLENAME in *'
+	echo '	do'
+	echo '		if [ -f $SAMPLEDIR/$SAMPLENAME ]'
+	echo '		then'
+	echo '			if diff $SAMPLEDIR/$SAMPLENAME $SAMPLENAME'
+	echo '			then'
+	echo '				echo'
+	echo '				echo SAMPLE/$SAMPLENAME allready installed'
+	echo '			else'
+	echo '				echo keeping _your_ $SAMPLEDIR/$SAMPLENAME'
+	echo '			fi'
+	echo '		else'
+	echo '			echo -n -e copying SAMPLE/$SAMPLENAME to $SAMPLEDIR/$SAMPLENAME"\015"'
+	echo '			cp $SAMPLENAME $SAMPLEDIR/$SAMPLENAME'
+	echo '			chmod 644 $SAMPLEDIR/$SAMPLENAME'
+	echo '		fi'
+	echo '	done'
+	echo '  cd ..'
+	echo 'fi'
+	echo 'echo'
+	if [ $CONFCOLOR = "Y" ] 
+	then
+	  echo 'echo -e "\033[33m\033[1meverythings done. exit root shell and try groovit (after typing rehash for csh or tcsh) !\033[m"'
+	else
+	  echo 'echo "everythings done. exit root shell and try groovit (after typing rehash for csh or tcsh) !"'
+	fi
+) > installer
+chmod 700 installer
+echo "    ...done."
+echo
+
+#-------------------------------------------------------------------------------------------
+
+if echo $* | grep -v frommakefile > /dev/null 2> /dev/null
+then
+	echocolor "you should now try (make clean ; make dep ; make)"
+	echocolor 'and after you will su root to finish with (make install)'
+	echo
+fi
+
