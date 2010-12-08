@@ -1,0 +1,130 @@
+this a bare alpha version of groovit-INSTALL-HOWTO.
+
+0 OPEN THE BOX
+~~~~~~~~~~~~~~
+Decompress the archive (alpha testers should know...) with something like
+"tar -zxvf groovit-1.2.0.xx.tar.gz". You should NOT do this as root and also
+you should not do this elsewhere than in a user home. When everything is
+finished you should not erase the distribution directory since its an
+alpha version and you're an alpha tester: I might ask you to try some
+changes or to give me some piece of the result you have to be able to
+improve groovit's quality.
+With the future final version you should remove the dist' dir after
+compilation and installation is finished.
+You need to be root only for the final installation.
+
+Also remember you can mail to the alpha-testers mailing list any of
+your comments.
+
+1 FAST WAY :
+~~~~~~~~~~~~
+In the distribution directory you should type in "make".
+This will automagically run the configure script for common installation,
+run the compilation and linking and stops just before installation.
+all this automatically.
+Then it should ask you to become root to finish the installation.
+
+1b ABOUT QUESTIONS
+~~~~~~~~~~~~~~~~~~
+When configuring, the script ask several questions. The default answer is
+in most of the case the appropriate answer. I will explain every question
+before the beta version comes out...
+
+2 LESS FAST WAY
+~~~~~~~~~~~~~~~
+You think you need to change an unusual feature in groovit like the
+DSP device to use (if you have more than one ?) or the number of
+drum voices you want to handle.
+Or may be the FAST-WAY didn't work.
+Then type-in "make advanced" to enter the complete configuration script.
+It will end before compilation, you'll have to type in the
+"make dep ; make clean ; make" sequence to run the compilation.
+At last you have to be root to install with make "install".
+
+3 make options
+~~~~~~~~~~~~~~
+This is not a complete Manual for my Configure/Makefile combination,
+only the main options :
+
+   make config       runs the short configuration script (most values
+                     defaulted) 
+   make advanced     runs the long configuration script (offer the
+                     ability to modify any options)
+   make fast         build all with no question (useful for me, but for you ?)
+   make dep          check dependencies 
+   make tags         create tag file (for the author)
+   make clean        brings you back before compilation (ie just after
+                     configuration)
+   make distclean    should bring you back to before any configuration
+   make install      runs the installation script
+
+4 WHERE'S THE MANUAL ?????
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+After installation it is in you $prefix/man/man1 dir with prefix
+having the value choosed during the installation script
+(default is /usr/local/man/man1). It's a bare manual page that
+points on the html version (more complete an friendly) that 
+is located in $prefix/lib/groovit/rev#/doc/index.html
+(default is file:///usr/local/lib/groovit/1.2.0.22/doc/index.html)
+
+$Id: INSTALL,v 1.2 2003/03/19 16:45:47 jd Exp $
+Groovit Copyright (C) 1998,1999 Jean-Daniel PAUGET
+making accurate and groovy sound/noise
+
+groovit@disjunkt.com  -  http://groovit.disjunkt.com/
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+you can also try the web at http://www.gnu.org/
+
+$Log: INSTALL,v $
+Revision 1.2  2003/03/19 16:45:47  jd
+major changes everywhere while retrieving source history up to this almost final release
+
+Revision 1.2.0.24.0.3  2000/10/01 21:07:03  jd
+*** empty log message ***
+
+Revision 1.2.0.24.0.2  1999/10/19 19:29:45  jd
+*** empty log message ***
+
+Revision 1.2.0.24.0.1  1999/10/11 18:36:29  jd
+*** empty log message ***
+
+Revision 1.2.0.24  1999/10/11 15:30:51  jd
+second pre-tel-aviv revision
+
+Revision 1.2.0.23.0.2  1999/10/07 14:08:05  jd
+*** empty log message ***
+
+Revision 1.2.0.23.0.1  1999/09/15 10:35:48  jd
+
+Revision 1.2.0.23  1999/09/15 10:20:39  jd
+second pre tel-aviv public revision, for testing
+
+Revision 1.2.0.22.0.2  1999/09/05 22:42:31  jd
+Revision 1.2.0.22  1999/08/24 22:42:20  jd
+telaviv pre-release
+
+Revision 1.2.0.21.0.1  1998/12/07 11:43:07  jd
+une version pour jcd
+
+Revision 1.2.0.19  1998/10/29 19:48:22  jd
+added bare INSTALL doc
+added bare public SAMPLES
+reducted # of sample voice to fit back in linux console by default
+
+Revision 1.2.0.18  1998/10/29 19:46:13  jd
+bare release
+

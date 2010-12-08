@@ -1,0 +1,26 @@
+#!/bin/sh
+
+echo >> memory_uses
+ps mw | grep "\./groovit" | grep -v grep >> memory_uses
+
+exit 0
+
+
+ FLAGS   UID   PID  PPID PRI  NI   SIZE   RSS WCHAN       STA TTY TIME COMMAND
+   100   504   919   918  10   0  16804  4056  c01b781c   S   p3  0:01 ./groovit
+   100   504  1475  1474  10   0  16020  3528  c01b781c   S   p4  0:01 ./groovit -noX -err/dev/ttyp1 
+   100   504  1521  1520  14   0  16020  4136  c01b781c   S   p4  0:01 ./groovit -noX -err/dev/ttyp1 
+   100   504  1577  1576  15   0  16392  5980  c01b781c   S   p4  0:02 ./groovit -noX -err/dev/ttyp1 /home/jd/pas_terr
+ 1596  p4    235   2560   116 10744 10860     0 10860   692     0 2542 ./groovit -noX -err/dev/ttyp1 /home/jd/pas_terrible.grov 
+
+
+  PID TTY MAJFLT MINFLT   TRS   DRS  SIZE  SWAP   RSS  SHRD   LIB  DT COMMAND
+ 1596  p4    235   2560   116 10744 10860     0 10860   692     0 2542 ./groovit -noX -err/dev/ttyp1 /home/jd/pas_terrible.grov 
+ 1657  p4    234    501   112  2552  2664     0  2664   688     0 494 ./groovit -noX -err/dev/ttyp1 
+ 1657  p4    235   1675   112  7252  7364     0  7364   692     0 1668 ./groovit -noX -err/dev/ttyp1 
+--MEGASTATIC
+ 1705  p4    240    590   112  2904  3016     0  3016   688     0 582 ./groovit -noX -err/dev/ttyp1 
+ 1710  p4    235   1084   116  4836  4952     0  4952   692     0 1065 ./groovit -noX -err/dev/ttyp1 /home/jd/pas_terrible.grov 
+--NOMEGASTATIC
+ 1753  p4    241    677   112  3256  3368     0  3368   688     0 670 ./groovit -noX -err/dev/ttyp1 
+ 1758  p4    235    924   116  4200  4316     0  4316   692     0 906 ./groovit -noX -err/dev/ttyp1 /home/jd/pas_terrible.grov 

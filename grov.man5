@@ -1,0 +1,332 @@
+.\"
+.\" $Id: grov.man5,v 1.2 2003/03/19 16:45:47 jd Exp $
+.\" Groovit Copyright (C) 1998,1999 Jean-Daniel PAUGET
+.\" making accurate and groovy sound/noise
+.\"
+.\" groovit@disjunkt.com  -  http://groovit.disjunkt.com/
+.\"
+.\" This program is free software; you can redistribute it and/or
+.\" modify it under the terms of the GNU General Public License
+.\" as published by the Free Software Foundation; either version 2
+.\" of the License, or (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\"
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+.\"
+.\" you can also try the web at http://www.gnu.org/.
+.\"
+.\" $Log: grov.man5,v $
+.\" Revision 1.2  2003/03/19 16:45:47  jd
+.\" major changes everywhere while retrieving source history up to this almost final release
+.\"
+.\" Revision 1.2.0.24.0.2  1999/10/19 19:29:45  jd
+.\" *** empty log message ***
+.\"
+.\" Revision 1.2.0.24.0.1  1999/10/11 18:36:29  jd
+.\" *** empty log message ***
+.\"
+.\" Revision 1.2.0.24  1999/10/11 15:30:51  jd
+.\" second pre-tel-aviv revision
+.\"
+.\" Revision 1.2.0.23.0.4  1999/10/07 14:14:48  jd
+.\" Revision 1.1  1999/10/07 14:13:16  jd
+.\" Initial revision
+.\"
+.\"
+.TH ".grov 1.2.0.23" "5" "6/10/1999" "jd" "groovit package"
+.LO 5
+.SH NAME
+.IB "*.grov" " - groovit song files."
+.SH DESCRIPTION
+This manual page describes the groovit songs file format at revision
+.BR 1.2.0.23 "."
+You may find more accurate or better designed datas in the html
+.B groovit documentation pages
+at the following URL:
+
+.B file://here_insert_url/doc/grov.html
+.SH GENERAL STRUCTURE
+.B Groovit files 
+consist in a succession of 
+.BR chunks "."
+Each chunk consists in a succession of datas in that order :
+.SS chunk identifier
+4 bytes that identify the chunk, usually those bytes are ASCII chars that
+abbreviate the chunk name (note that this is 
+.I not a null-ended
+string), for example:
+
+.nf
+    size  data   byte-representation
+     .l  "grov"  0x67 0x72 0x6f 0x76
+.SS chunk size
+.B chunk size 
+coded as a
+.I little-endian
+long word (4 bytes). this data is usefull for checking if the chunk is shorted
+or if there are extra datas at the end of chunk, in which case they must be
+ignored. It is also useful in order to skip unknown chunks.
+.SS datas
+Then the properly-said chunk's datas follows. In next chapters, their size and
+nature are coded according to this :
+
+.nf
+    code      size               representation
+     .l     4 bytes       A little-endian coded long word.
+     .w     2 bytes       A little-endian coded short word.
+     .s  n (even) bytes   A null ended string. padded with 
+                          a null char in order to have an 
+                          even size.
+    ...    n bytes        Raw datas, usually RLE-like 
+                          compressed, the size is given in
+                          other chunk field or must be read
+                          until end of chunk.
+.SS example :
+here two
+.B chunks
+are shown, one
+.I able
+chunk and one
+.I gprm chunk :
+
+.nf
+    size     data  byte-representation  comment
+
+     .l    "able"  0x61 0x62 0x6c 0x65  chunk-id
+     .l         4  0x04 0x00 0x00 0x00  chunk-size
+     .l  1.2.0.23  0x17 0x00 0x02 0x01  version no
+
+     .l    "gprm"  0x67 0x70 0x72 0x6d	chunk-id
+     .l         4  0x04 0x00 0x00 0x00	chunk-size
+     .w       140  0x8c 0x00            initial bpm
+     .w         0  0x00 0x00            initial pattern
+.SH CHUNK GENERAL LIST
+.RI   "[" "grov" "] general file container"
+
+.RI   "[" "able" "] ability of creator"
+
+.RI   "[" "gprm" "] general parameters"
+
+.RI   "[" "delp" "] delay parameters"
+
+.RI   "[" "sdst" "] sample distribution"
+
+.RI   "[" "rptn" "] rythms (samples) patterns"
+
+.RI   "[" "aptn" "] analogic voice pattern"
+
+.RI   "[" "aprm" "] analogic voice parameters"
+
+.RI   "[" "fptn" "] dynamic filter pattern"
+
+.RI   "[" "fprm" "] dynamic filter parameters"
+
+.RI   "[" "void" "] example of void chunk"
+.SH
+[grov]  general file container :
+Any
+.I .grov
+files always start with this chunk that contains
+every other chunks. Thus, the chunk length is the complete
+file and may be used to detect corrupted files. Any data
+outside this chunk scope should be ignored, regarding
+.BR groovit "."
+
+.nf
+size description  data   rev
+ .l  chunk ID     "grov" 1.2.0.23
+ .l  chunk size
+...  chunks ...
+...  ... chunks
+.SH
+[able]  ability of creator :
+This chunk, that should precede any others, contains the
+ability description that are recommended or mandatory for
+rendering this file. For instance, only the version ID of
+the creator is used. Usefull data could be add later here.
+
+.nf
+size description                data    rev
+ .l  chunk ID                   "able"  1.2.0.23
+ .l  chunk size
+ .l  version number of creator  Major.b
+                                Minor.b
+                                Sub1.b  1.2.0.23
+                                Sub2.b
+.SH
+[gprm]  general parameters :
+This one contains general and global parameters. Most of
+them are attached to the menuboard module.
+
+.nf
+size description                         data   rev
+ .l  chunk ID                            "gprm" 1.2.0.23
+ .l  chunk size
+ .w  initial bpm.                               1.2.0.23
+ .w  initial number of rythmic pattern.         1.2.0.23
+.SH
+[delp]  delay parameters :
+Contains the initial delay parameters.
+
+.nf
+size description                         data   rev
+ .l  chunk ID                            "delp" 1.2.0.23
+ .l  chunk size
+ .w  initial decay multiplicator.               1.2.0.23
+ .w  initial delay length (in tickBPM).         1.2.0.23
+.SH
+[sdst]  sample distribution :
+Here are defined the samples files to be loaded and their
+initial associated parameters.
+
+.nf
+          size  description                data   rev
+           .l   chunk ID                   "sdst" 1.2.0.23
+           .l   chunk size
+         |-------- 
+         | .w   the voice number.          0...n  1.2.0.23
+         | .w   filename length (padded to
+repeated |      an even value).
+n times  | .s   filename.                         1.2.0.23
+until end| .w   main output level.                1.2.0.23
+of chunk.| .w   panoramic.                        1.2.0.23
+         | .w   first mixer (delay0).             1.2.0.23
+         | .w   second mixer (dy-filter0).        1.2.0.23
+         |--------
+.SH
+[rptn]  rythms (samples) patterns :
+That chunk occurs as many times as there are non-empty
+defined rythm sample patterns.
+
+.nf
+               size  description           data   rev
+                .l   chunk ID              "rptn" 1.2.0.23
+                .l   chunk size
+                .w   (maxsample) number
+                     of voices (samples)
+                     used in this                 1.2.0.23
+                     pattern.
+                .w   (maxpatternrow)
+                     number maximum of
+                     rows of this                 1.2.0.23
+                     pattern.
+                .w   pattern number.       0...n  1.2.0.23
+                .w   initial number of
+                     rendered rows (there
+                     might have some data         1.2.0.23
+                     out of this number).
+           --------------
+           |    ...  compressed datas, up         1.2.0.23
+repeated   |         to the number
+(maxsample)|         maximum of rows of
+times.     |         this pattern. eg :
+           |         (maxpatternrow)
+           |         decompressed bytes
+           --------------
+.SH
+[aptn]  analogic voice pattern :
+That chunk occurs as many times as there are non-empty
+defined analogic voice patterns.
+
+.nf
+size description                           data   rev
+ .l  chunk ID                              "aptn" 1.2.0.23
+ .l  chunk size
+ .w  (maxpatternrow) number maximum of
+     rows of this pattern.                        1.2.0.23
+ .w  pattern number.                       0...n  1.2.0.23
+ .w  initial number of rendered rows
+     (there might have some data out of           1.2.0.23
+     this number).
+...  compressed datas, up to the number           1.2.0.23
+     maximum of rows of this pattern.
+     eg : (maxpatternrow) decompressed
+     bytes
+.SH
+[aprm]  analogic voice parameters :
+This chunk is present in the file as many times as there are
+analogic voices to be rendered. It contains the initial
+analogic voice parameters.
+
+.nf
+size description                     data   rev
+ .l  chunk ID                        "aprm" 1.2.0.23
+ .l  chunk size
+ .w  analogic voice number.          0...n  1.2.0.23
+ .w  no of initial pattern to play.         1.2.0.23
+ .w  starting cut frequency index.   0-256  1.2.0.23
+ .w  ending cut frequency index.     0-256  1.2.0.23
+ .w  initial resonance level.        0-256  1.2.0.23
+ .w  initial decay multiplicator.           1.2.0.23
+ .w  main output level.                     1.2.0.23
+ .w  panoramic.                             1.2.0.23
+ .w  first mixer (delay0).                  1.2.0.23
+ .w  second mixer (dy-filter0).             1.2.0.23
+.SH
+[fptn]  dynamic filter pattern :
+That chunk occurs as many times as there are non-empty
+defined dynamic filter patterns.
+
+.nf
+size description                           data   rev
+ .l  chunk ID                              "fptn" 1.2.0.23
+ .l  chunk size
+ .w  (maxpatternrow) number maximum of
+     rows of this pattern.                        1.2.0.23
+ .w  pattern number.                       0...n  1.2.0.23
+ .w  initial number of rendered rows
+     (there might have some data out of           1.2.0.23
+     this number).
+...  compressed datas, up to the number           1.2.0.23
+     maximum of rows of this pattern.
+     eg : (maxpatternrow) decompressed
+     bytes
+.SH
+[fprm]  dynamic filter parameters :
+This chunk is present in the file as many times as there are
+dynamic filters to be rendered. It contains the initial
+dynamic filters parameters.
+
+.nf
+size description                     data   rev
+ .l  chunk ID                        "aprm" 1.2.0.23
+ .l  chunk size
+ .w  dynamic filter number.          0...n  1.2.0.23
+ .w  no of initial pattern to play.         1.2.0.23
+ .w  starting cut frequency index.   0-256  1.2.0.23
+ .w  ending cut frequency index.     0-256  1.2.0.23
+ .w  initial resonance level.        0-256  1.2.0.23
+ .w  initial decay multiplicator.           1.2.0.23
+ .w  main output level.                     1.2.0.23
+ .w  panoramic.                             1.2.0.23
+ .w  first mixer (delay0).                  1.2.0.23
+ .w  second mixer (dy-filter0).             1.2.0.23
+.SH
+[void]  example of void chunk :
+This chunk is given here as an example.
+
+.nf
+size description                data   rev
+ .l  chunk ID                   "void" 1.2.0.23
+ .l  chunk size
+ .l  a long number (4 bytes).          1.2.0.23
+ .w  a short number (2 bytes).         1.2.0.23
+.SH SEE ALSO
+.SS
+.B
+(1)groovit
+the
+.B groovit
+command line manual.
+.SH AUTHOR
+Jean-Daniel Pauget 
+.RI "(" "groovit@disjunkt.com" ")"
+.SH MANPAGE VERSION
+$Id: grov.man5,v 1.2 2003/03/19 16:45:47 jd Exp $
+

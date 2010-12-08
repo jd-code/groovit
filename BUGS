@@ -1,0 +1,4 @@
+in fileselect.c :
+   cd /tmp
+   try to cd to an unauthorized dir
+   then use back the selector -> crash

@@ -1,0 +1,177 @@
+.\"
+.\" $Id: groovit.man1,v 1.2 2003/03/19 16:45:47 jd Exp $
+.\" Groovit Copyright (C) 1998,1999 Jean-Daniel PAUGET
+.\" making accurate and groovy sound/noise
+.\"
+.\" groovit@disjunkt.com  -  http://groovit.disjunkt.com/
+.\"
+.\" This program is free software; you can redistribute it and/or
+.\" modify it under the terms of the GNU General Public License
+.\" as published by the Free Software Foundation; either version 2
+.\" of the License, or (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\"
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+.\"
+.\" you can also try the web at http://www.gnu.org/
+.\"
+.\"
+.\" $Log: groovit.man1,v $
+.\" Revision 1.2  2003/03/19 16:45:47  jd
+.\" major changes everywhere while retrieving source history up to this almost final release
+.\"
+.\" Revision 1.2.0.24.0.2  1999/10/19 19:29:45  jd
+.\" *** empty log message ***
+.\"
+.\" Revision 1.2.0.24.0.1  1999/10/11 18:36:29  jd
+.\" *** empty log message ***
+.\"
+.\" Revision 1.2.0.24  1999/10/11 15:30:51  jd
+.\" second pre-tel-aviv revision
+.\"
+.\" Revision 1.2.0.23.0.3  1999/10/07 14:12:48  jd
+.\" corrected for sed processing
+.\"
+.\" Revision 1.2.0.23.0.2  1999/10/06 23:59:37  jd
+.\" autumn corrections in tel-aviv
+.\"
+.\" Revision 1.2.0.23.0.1  1999/09/15 10:35:48  jd
+.\"
+.\" Revision 1.2.0.23  1999/09/15 10:20:39  jd
+.\" second pre tel-aviv public revision, for testing
+.\"
+.\" Revision 1.2.0.22  1999/08/24 22:42:20  jd
+.\" telaviv pre-release
+.\"
+.\" Revision 1.2.0.21.1.2  1998/12/11 13:47:15  jd
+.\" rcs rev
+.\"
+.\" Revision 1.2.0.21.0.1  1998/12/07 11:43:07  jd
+.\" une version pour jcd
+.\"
+.\" Revision 1.1  1998/11/23 21:52:57  jd
+.\" Initial revision
+.\"
+.\"
+.\"
+.TH "groovit-here_insert_revision" "1" "6/10/1999" "jd" "groovit package"
+.LO 1
+.SH NAME
+groovit \- making accurate and groovy sound/noise.
+.br
+.SH SYNOPSIS
+.B
+groovit
+.RI "[-err" "filename" "] [-rc " "rcfile" "] [-noX] [-fakedsp] [-raw " "filename.wav" "] ..." "start-files" "..."
+.SH DESCRIPTION
+.B groovit
+intends to be an all-in-a-box beat-box. Its main parts are : the
+.IR "drum matrix" ", the " "dynamic-filter" " and the " "analog-synths voices" "."
+They are all mixed in real-time and can individually feed the
+.IR "reverb loop" "."
+.br
+This manual page describes only the
+.BR "command line options" ","
+for a complete manual please refer to the html pages :
+
+.B file://here_insert_url/doc/index.html
+
+People using 
+.B pulseaudio
+should consider using
+.B groovit
+this way :
+
+.B padsp groovit [ ... options ... ]
+
+.SH OPTIONS
+.SS 
+.RI "-err" "filename"
+Redirects 
+.B error messages
+to the file
+.IR filename "."
+The default behavior is to output error messages on
+.I stderr
+if it is
+.B not
+the same output device as the display device. For example with
+.B X
+the messages go to the terminal from where you launched groovit, and in
+.B linux consoles
+the error aren't displayed to prevent display garbling.
+.SS
+.RI "-rc " "rcfile"
+The file
+.I
+rcfile
+is read to obtain configuration parameters instead of
+.B the local configuration file
+:
+.IR ~/.groovitrc .
+The 
+.B main configuration file
+is always read first anyway.
+.SS
+-noX
+Disable forking into an Xtermish window when the
+.B DISPLAY 
+environment variable is set. Otherwise, forking in a new terminal window is the default behaviour.
+.SS
+-fakedsp
+Disable the use of
+.BR "dsp device" .
+This is useful for silent testing...
+.SS
+.RI "-raw " "filename.wav"
+.B obsolete.
+Was used to enable the
+.B raw-to-disk
+output to the file called
+.IR filename.wav "."
+Without this flag,
+.B groovit
+couldn't raw to disk, and pressing the
+.B raw
+button was useless.
+.SH FILES
+.SS
+.I here_insert_sampledir
+Location of common (shared) samples.
+.SS
+.IB "here_insert_mainrc" " (main configuration file)"
+Settings here are read first, and thus may be changed by
+.B local configuration files
+or command line options. Thus, those settings are defaults when not
+overidden.
+.SS
+.IB ~/.groovitrc " (local configuration files)"
+Settings here are read after
+.B main configuration file
+so they can override any of them. Most of these settings can be changed
+and saved to this file internally in groovit. Any of them can be overidden 
+by command line options.
+.SH SEE ALSO
+.SS
+.B
+(5)grov
+the
+.I .grov
+file format specifications.
+.SH BUGS
+There are probably plenty. Please report them to
+.B groovit@disjunkt.com
+or if you are a 
+.IR "registered alpha user" ","
+send them to the
+.BR "groovit-alpha mailing list" "."
+.SH AUTHOR
+Jean-Daniel Pauget (groovit@disjunkt.com)
+.SH MANPAGE VERSION
+$Id: groovit.man1,v 1.2 2003/03/19 16:45:47 jd Exp $

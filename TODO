@@ -1,0 +1,141 @@
+o rajouter l'ascenseur en haut de la pattern entre les fleches
+
+o add a sox interface ???
+o add a saturation warning on the main output (l+r)
+o add a saturation warning on every effect channel ?
+o add a text sample in HTML on the official page
+o the FAQ page ???
+   o explain what a groovit-Jbox is
+   o add a bpm/coffee converter
+o check terms size before displaying...
+o better handling of xterm resize
+o add a fade to silent 
+    - very speed for small halts
+    - slow one for endings...
+
+o general sounds
+   o add a mixer panel
+   o check about SOUND_MIXER_BASS and TREBLE settings for accuracy in comparison
+     with HiFi CD players...
+
+o controls
+   o add a pred and next for TAB handling.....
+   o add an explaination for the "no more free controls !!!?" message and a hack for it
+   o add a status that says the # of used/free controls/context mem etc....
+
+o fileselect
+   o use fnmatch for the regesp matching
+   o when coming back from a dir, try to retrieve the last position in DIR...
+
+o alerts
+   o missing destructor....
+
+BUGS
+   o correct multiple access to an analogic pattern...
+   o check special keys in linux-console    (some are added in 1.2.0.24)
+   o possibly bugs when 8bits mode and rawing to disk
+   o should use ntohl for endianness...
+   o when reloading a song, the curpattern seems doomed...
+
+IMPROVEMENTS ASKED
+
+From jd@univ-lyon1.fr Mon Dec 21 17:55:23 1998
+Date: Sun, 13 Dec 1998 21:17:29 +0100 (MET)
+From: Jean-Daniel Pauget <jd@univ-lyon1.fr>
+To: groovit alpha list <groovit-alpha@univ-lyon1.fr>
+Subject: Re: improvements (long)
+
+   thanks for all your suggestions about improving groovit.
+
+   here's a global answer :
+   (if you answer, please quote the exact and minimal part of this message
+    please)
+
+   - (Jim Peters and others) Could we have some kind of RESET button to use
+     when all the sequences get out of sync.
+
+     Why not, okay for a resync button that arbitrarly restart voices with
+     first tick at the same time as the first tick of drum pattern (when the
+     next drum pattern first tick occurs)
+
+
+   - (Jim Peters and others) pitches on the analogue synths, you could arrange
+     a piano-style keyboard on the computer keyboard.
+
+     That's difficult (many keys moves with keyboards' language) but why not.
+     First I will make a "scorish" screen for them. (in progress)
+
+
+   - (Jim Peters) How about having some kind of marker or highlight that shows
+     which step of the track is currently being played.
+
+     I can, but because of buffering it will be unaccurate most of the time,
+     (like the leds, for example...) but it will give an idea (not urgent in my
+     timetable).
+
+
+   - (Jim Peters) interactive keyboard :
+
+     Groovit isn't really real-time : depending on the buffer size (the play
+     ahead question in "make advanced") it has about 0.096s of latency or more.
+     musically it's enormous. that's why groovit looks like a sequencer that
+     keeps on running and why it's not yet a real soft synth. to come to a soft
+     synth I need to map the DMA buffer and have a reliable way to be sure
+     having some CPU time at the precise moment I need to. I'm working that way
+     but it's far in the timetable.
+     strong CPU can try to have small buffers (please experiment !) and thus
+     a much more real-time groovit. linuxRT may also be the answer, later !
+
+
+   - (Jim Peters)  switch around the screen using the keyboard rather than 
+     the mouse.
+
+     That's in progress, I aim to do that.
+
+
+   - (Chris "ramen" Brainerd and others) likes the sequencer in ReBirth
+
+     That's a simple starting point very near from Jim Peters point of vue.
+     I might start that way.
+
+
+   - (Neale Pickett) to decouple the sound-generating part from the interface.
+
+     That's allready done internally. I must check deeply the midi format
+     that would be the necessary way of sharing sequence with others, with
+     cat, network or midi wires... This will also help (limits ?) designing
+     the sequencer.
+
+
+   - (Neale Pickett) I'll take a look at the code tonight
+
+     Did you ? did you survive my ugly coding ? :)
+
+
+   - (Paul Winkler) labelling of the sliders on screen
+
+     I will label them so that when focused their names appear somewhere...
+
+
+   - (Paul Winkler) the number of ticks per pattern to be change-able
+
+     Of course, and the screen would scroll for patterns.
+
+
+   - (Paul Winkler)  Tcl/TK, Perl/TK, C/GTK+, Java, C/Qt, C/ncurses,
+     shell scripts... anything!
+
+     Jean-Charles Delepine told me that users would instantly want to make
+     ugly and heavy interfaces when they see groovit :) I should beleive him.
+     well why not ?
+
+     
+     that's a lot of things to think about, I keep collecting any idea and
+     there should be a new release of groovit soon...
+     thanks again for your contributions.
+
+   - (Per-Erik Nilsson) going back to the last visited dir in file selection windows.
+
+   - (jodis) Play/stop buttons to save your ears while thinking...
+  
+ 
