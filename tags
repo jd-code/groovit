@@ -54,12 +54,14 @@ AGTD_H_GLOBINST	/usr/local/include/grapefruit/tdstring.h	31;"	d
 AGTD_H_INC	/home/jd/bzoums/grapefruit/src/include/grapefruit/td.h	37;"	d
 AGTD_H_INC	/usr/local/include/grapefruit/td.h	37;"	d
 AIFFBUFSIZE	./readsample.c	69;"	d	file:
+ALARMHANDLER	./config.h	14;"	d
 ALERTERA	./groovit.h	91;"	d
 ALERTGPL	./groovit.h	87;"	d
 ALERTLANY	./groovit.h	89;"	d
 ALERTNONE	./groovit.h	86;"	d
 ALERTQUIT	./groovit.h	88;"	d
 ALERTSAVEQUIT	./groovit.h	90;"	d
+AMPTESTMASK	./config.h	44;"	d
 APattern	./resoanlog.h	/^APattern;$/;"	t	typeref:struct:STAPattern
 Aactionboard	./menu_board.c	/^int Aactionboard (int lastpressed)$/;"	f
 Aalert_era	./dialogs.c	/^int     Aalert_era (int c)$/;"	f
@@ -197,6 +199,8 @@ CHUNKwavdata	./readsample.c	89;"	d	file:
 CHUNKwavfact	./readsample.c	92;"	d	file:
 CHUNKwavplst	./readsample.c	94;"	d	file:
 CHUNKwavslnt	./readsample.c	91;"	d	file:
+CONFEDBY	./config.h	33;"	d
+CONSTDIRENT	./config.h	54;"	d
 CONTBGND	./controls.h	43;"	d
 CONTBLACK	./controls.h	70;"	d
 CONTBLUE	./controls.h	74;"	d
@@ -298,6 +302,7 @@ DIF_TIME	./gpm-xterm.c	260;"	d	file:
 DIF_TIME	./gpm-xterm.c	90;"	d	file:
 DPHIMULT	/usr/local/include/caroube/audio.h	85;"	d
 DPHISHIFT	/usr/local/include/caroube/audio.h	86;"	d
+DSP	./config.h	9;"	d
 DefaultOrthScene	/home/jd/bzoums/grapefruit/src/include/grapefruit/td.h	/^    GRAPEFRUIT_H_SCOPE Scene DefaultOrthScene;$/;"	v
 DefaultOrthScene	/usr/local/include/grapefruit/td.h	/^    GRAPEFRUIT_H_SCOPE Scene DefaultOrthScene;$/;"	v
 DefaultPixelFormat	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.h	/^    GRAPEFRUIT_H_SCOPE SDL_PixelFormat DefaultPixelFormat = initDefaultPixelFormat ();$/;"	v
@@ -363,6 +368,8 @@ FTOK_MAXFILE	./tokenio.h	54;"	d
 FTOK_NOSPACE	./tokenio.h	57;"	d
 FTOK_READ	./tokenio.h	62;"	d
 FTOK_WRITE	./tokenio.h	63;"	d
+F__JS1	./config.h	18;"	d
+F__JS2	./config.h	19;"	d
 FloatToUnsigned	./conv_ieee_ext.c	44;"	d	file:
 GET	./gpm-xterm.c	87;"	d	file:
 GET_TIME	./gpm-xterm.c	259;"	d	file:
@@ -468,8 +475,10 @@ GrapeRouteEvent	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/
 GrapeRouteEvent	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^    int GrapeRouteEvent (SDL_Event const & event);$/;"	p	namespace:grapefruit
 GrapeRouteEvent	/usr/local/include/grapefruit/graperoute.h	/^	friend int GrapeRouteEvent (SDL_Event const & event);$/;"	p	class:grapefruit::EventCB
 GrapeRouteEvent	/usr/local/include/grapefruit/graperoute.h	/^    int GrapeRouteEvent (SDL_Event const & event);$/;"	p	namespace:grapefruit
+HANDLE_JOY	./config.h	17;"	d
 HAUTFILESEL	./placement.h	82;"	d
 HAUTSTTG	./placement.h	88;"	d
+HAVENCURSES	./config.h	12;"	d
 HAVE_DLFCN_H	/home/jd/bzoums/grapefruit/src/config.h	8;"	d
 HAVE_INTTYPES_H	/home/jd/bzoums/grapefruit/src/config.h	11;"	d
 HAVE_MEMORY_H	/home/jd/bzoums/grapefruit/src/config.h	14;"	d
@@ -484,6 +493,9 @@ HIPjeuchar	/home/jd/bzoums/grapefruit/src/jeuchar.c	/^int HIPjeuchar[256][16] = 
 HIPjeucharA	/home/jd/bzoums/grapefruit/src/jeuchar.c	/^int HIPjeucharA[256][16] = {$/;"	v
 HIPjeucharA_PC	/home/jd/bzoums/grapefruit/src/jeuchar.c	/^int HIPjeucharA_PC[256][16] = {$/;"	v
 HIPjeuchar_OLDOLD	/home/jd/bzoums/grapefruit/src/jeuchar.c	/^int HIPjeuchar_OLDOLD [257][16] = {$/;"	v
+HOPEDRESO	./config.h	45;"	d
+HOPEDRESO16	./config.h	46;"	d
+HOPEDSPRATE	./config.h	41;"	d
 HUGE_VAL	./conv_ieee_ext.c	142;"	d	file:
 HUGE_VAL	./conv_ieee_ext.c	41;"	d	file:
 IDENT	/usr/local/include/matcalc/matcalc.h	/^	typedef enum {ZERO, IDENT, ROT} Build;$/;"	e	enum:Matrix4::__anon13
@@ -604,26 +616,39 @@ Lpoint	/home/jd/bzoums/grapefruit/src/include/grapefruit/graphprim.h	/^    class
 Lpoint	/usr/local/include/grapefruit/graphprim.h	/^    class Lpoint : public list<point>$/;"	c	namespace:grapefruit
 MAINCONTR	./controls.c	105;"	d	file:
 MATCALC_H_INC	/usr/local/include/matcalc/matcalc.h	7;"	d
+MAXANALOG	./config.h	22;"	d
 MAXBACKSTR	./controls.h	109;"	d
 MAXBPM	./constants.h	59;"	d
 MAXCONTEXTS	./controls.h	33;"	d
+MAXDIRSIZE	./config.h	39;"	d
 MAXDIRSIZE	./fileselect.h	48;"	d
 MAXDIRSIZE	./grov_io.c	95;"	d	file:
+MAXDISPLAYROW	./config.h	30;"	d
+MAXDISPLEVELS	./config.h	27;"	d
 MAXDISPLEVELS	./grlevels.h	60;"	d
+MAXDYFILT	./config.h	23;"	d
 MAXERRTOLERATE	./groovit.c	160;"	d	file:
 MAXHEADROOM	./controls.c	285;"	d	file:
 MAXKEYHANDLER	./controls.h	107;"	d
+MAXLEVELS	./config.h	26;"	d
 MAXLEVELS	./grlevels.h	65;"	d
 MAXMENUITEM	./menu_board.h	71;"	d
 MAXMENULARG	./menu_board.h	72;"	d
 MAXMETAMEMBER	./controls.h	38;"	d
+MAXMODULES	./config.h	25;"	d
 MAXNBCONTROLS	./controls.h	36;"	d
 MAXNBFONT	./settings.c	92;"	d	file:
 MAXNBPREVCHAR	./gpm-xterm.c	62;"	d	file:
+MAXPATTERN	./config.h	29;"	d
+MAXPATTERNROW	./config.h	31;"	d
+MAXPLAYAHEAD	./config.h	34;"	d
 MAXREADLINE	./settings.h	60;"	d
+MAXREV	./config.h	38;"	d
 MAXREVERB	./grdelay.h	65;"	d
+MAXSAMPLE	./config.h	21;"	d
 MAXSCREENHEIGHT	./controls.h	35;"	d
 MAXSCREENWIDTH	./controls.h	34;"	d
+MAXVOICES	./config.h	24;"	d
 MENUMAIN	./menu_board.h	70;"	d
 MENU_MAIN	./menu_board.h	78;"	d
 MGrabber	/home/jd/bzoums/grapefruit/src/graperoute.cpp	/^MGrabber::MGrabber (void)$/;"	f	class:grapefruit::MGrabber
@@ -631,10 +656,12 @@ MGrabber	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^	    M
 MGrabber	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^    class MGrabber : public virtual EventCB$/;"	c	namespace:grapefruit
 MGrabber	/usr/local/include/grapefruit/graperoute.h	/^	    MGrabber (void);$/;"	p	class:grapefruit::MGrabber
 MGrabber	/usr/local/include/grapefruit/graperoute.h	/^    class MGrabber : public virtual EventCB$/;"	c	namespace:grapefruit
+MINBPM	./config.h	37;"	d
 MINIPOLLTIME	./groovit.c	169;"	d	file:
 MINIPOLLTIME	./groovit.c	173;"	d	file:
 MINLEVRESERVED	./grlevels.h	68;"	d
 MINREV	./grdelay.h	64;"	d
+MIXER	./config.h	10;"	d
 MOUSEBUTTONDOWN	/home/jd/bzoums/grapefruit/src/grapefruit.cpp	/^int PushButton::MOUSEBUTTONDOWN (SDL_Event const & event)$/;"	f	class:grapefruit::PushButton
 MOUSEBUTTONDOWN	/home/jd/bzoums/grapefruit/src/grapefruit.cpp	/^int SwitchButton::MOUSEBUTTONDOWN (SDL_Event const & event)$/;"	f	class:grapefruit::SwitchButton
 MOUSEBUTTONDOWN	/home/jd/bzoums/grapefruit/src/graperoute.cpp	/^int MGrabber::MOUSEBUTTONDOWN (SDL_Event const & event)$/;"	f	class:grapefruit::MGrabber
@@ -759,7 +786,9 @@ NBBUTSTR	./controls.h	59;"	d
 NBDIRSTOSHOW	./fileselect.h	47;"	d
 NBDPHI	/usr/local/include/caroube/audio.h	84;"	d
 NBMAXALERT	./alert.h	46;"	d
+NBMIXMAX	./config.h	28;"	d
 NBMIXMAX	./grmixeur.h	56;"	d
+NEVERINTER	./config.h	36;"	d
 Note	./goodies/orig-tb.c	/^char Note[16]=$/;"	v
 NoteLength	./goodies/orig-tb.c	/^char NoteLength[16]=$/;"	v
 ONECLICK	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    ONECLICK,   	\/\/!< disappears after click$/;"	e	enum:grapefruit::TDMenu::__anon16
@@ -820,6 +849,7 @@ RCFILENAME	./settings.h	67;"	d
 READSAMPLE_H_INC	/usr/local/include/caroube/readsample.h	38;"	d
 RELEASE	./gpm-xterm.c	59;"	d	file:
 RESOANLOGH	./resoanlog.h	49;"	d
+RESOFREQCUT	./config.h	43;"	d
 RGBAColor	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.h	/^	    RGBAColor (RGBColor const & c, Uint8 a=255U)$/;"	f	class:grapefruit::RGBAColor
 RGBAColor	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.h	/^	    RGBAColor (Uint32 c = 0)	\/\/!< this one is machine-independent (not related to SDL_BYTEORDER)$/;"	f	class:grapefruit::RGBAColor
 RGBAColor	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.h	/^	    RGBAColor (Uint8 r, Uint8 g, Uint8 b, Uint8 a=255U)$/;"	f	class:grapefruit::RGBAColor
@@ -903,6 +933,7 @@ RotButton	/usr/local/include/grapefruit/grapefruit.h	/^	    RotButton (int* Pval
 RotButton	/usr/local/include/grapefruit/grapefruit.h	/^    class RotButton : public virtual MGrabber$/;"	c	namespace:grapefruit
 S	/home/jd/bzoums/grapefruit/src/include/grapefruit/agrume.h	/^	    SDL_Surface *S;$/;"	m	class:grapefruit::Agrume
 S	/usr/local/include/grapefruit/agrume.h	/^	    SDL_Surface *S;$/;"	m	class:grapefruit::Agrume
+SAMPLEPATH	./config.h	11;"	d
 SAMPLESONGE_H_INC	/usr/local/include/caroube/samplesonge.h	31;"	d
 SDLF_putpixel	/home/jd/bzoums/grapefruit/src/graphutils.c	/^void SDLF_putpixel (SDL_Surface *surface, int x, int y, Uint32 pixel)	    \/\/ JDJDJDJD le test vis à vis du clipping est manquant$/;"	f
 SDLF_putpixel	/home/jd/bzoums/grapefruit/src/include/grapefruit/graphutils.h	/^void SDLF_putpixel (SDL_Surface *surface, int x, int y, Uint32 pixel);$/;"	p	namespace:grapefruit
@@ -940,6 +971,7 @@ SHOW_CONVEX_ENVELOPP	/usr/local/include/grapefruit/menu.h	39;"	d
 SIMPLE_MEMPROFILE	./controls.c	70;"	d	file:
 SINT16_MAX	/usr/local/include/caroube/audio.h	54;"	d
 SINT16_MIN	/usr/local/include/caroube/audio.h	58;"	d
+SLICEDOUT	./config.h	35;"	d
 SMOOTHFONT	/home/jd/bzoums/grapefruit/src/tdstring.cpp	37;"	d	file:
 STAPattern	./resoanlog.h	/^typedef struct STAPattern      \/* pattern analogique           *\/$/;"	s
 STAPattern::freqbase	./resoanlog.h	/^            freqbase[MAXPATTERNROW];	\/* datas                        *\/$/;"	m	struct:STAPattern
@@ -1183,8 +1215,12 @@ TranspFunc	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.h	/^    
 TranspFunc	/usr/local/include/grapefruit/grapecolor.h	/^	    TranspFunc (Uint32 combined = TRANSP_DEF)$/;"	f	class:grapefruit::TranspFunc
 TranspFunc	/usr/local/include/grapefruit/grapecolor.h	/^	    TranspFunc (int transpS, int transpD)$/;"	f	class:grapefruit::TranspFunc
 TranspFunc	/usr/local/include/grapefruit/grapecolor.h	/^    class TranspFunc$/;"	c	namespace:grapefruit
+UNAMED	./config.h	32;"	d
 UNJBPM	./constants.h	57;"	d
 UN_JHZ	./constants.h	56;"	d
+USEERRNOH	./config.h	16;"	d
+USELOCKMEM	./config.h	20;"	d
+USETERMIOS	./config.h	55;"	d
 UnsignedToFloat	./conv_ieee_ext.c	145;"	d	file:
 VERSION	/home/jd/bzoums/grapefruit/src/config.h	59;"	d
 VONCBYTE_ORDER	/usr/local/include/caroube/voncendian.h	39;"	d
@@ -1244,11 +1280,13 @@ ViewOrtho	/home/jd/bzoums/grapefruit/src/include/grapefruit/td.h	/^	    ViewOrth
 ViewOrtho	/home/jd/bzoums/grapefruit/src/include/grapefruit/td.h	/^    class ViewOrtho : public View$/;"	c	namespace:grapefruit
 ViewOrtho	/usr/local/include/grapefruit/td.h	/^	    ViewOrtho (Scene & s = cur_scene) : View (s)$/;"	f	class:grapefruit::ViewOrtho
 ViewOrtho	/usr/local/include/grapefruit/td.h	/^    class ViewOrtho : public View$/;"	c	namespace:grapefruit
+XTERMCMD	./config.h	47;"	d
 XTERM_MOUSE_OFF	./goodies/rampe.c	6;"	d	file:
 XTERM_MOUSE_OFF	./goodies/testchar.c	6;"	d	file:
 XTERM_MOUSE_ON	./goodies/rampe.c	5;"	d	file:
 XTERM_MOUSE_ON	./goodies/testchar.c	5;"	d	file:
 ZERO	/usr/local/include/matcalc/matcalc.h	/^	typedef enum {ZERO, IDENT, ROT} Build;$/;"	e	enum:Matrix4::__anon13
+ZEROINGINPUT	./config.h	15;"	d
 ZoneMap	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^    typedef map<long, PEventCB> ZoneMap;$/;"	t	namespace:grapefruit
 ZoneMap	/usr/local/include/grapefruit/graperoute.h	/^    typedef map<long, PEventCB> ZoneMap;$/;"	t	namespace:grapefruit
 _GPM_XTERM_H_	./gpm-xterm.h	31;"	d

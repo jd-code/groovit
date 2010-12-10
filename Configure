@@ -687,6 +687,18 @@ else
 	CURSESLIB=" "
 fi
 
+echo looking for jack ...
+if pkg-config --exists jack
+then
+    echo will build with jack.
+    JACKLIBS=" "`pkg-config --cflags --libs jack`" "
+    HAVE_JACK='Y'
+else
+    echo pkg-config didn"'"t find jack.
+    JACKLIBS=" "
+    HAVE_JACK='N'
+fi
+
 echo -n "checking termios, "
 rm -f testtermios.c testtermios.out testtermios
 echo -e "#include <termios.h>\n#define JDCTRL(x) (x&037)\nint main (void)\n{ char c;\nstruct termios caracs;\ntcgetattr (0, &caracs);\nc=caracs.c_cc[3];\ncaracs.c_cc[3]=JDCTRL('H');\nif(tcsetattr (0, TCSANOW, &caracs))return 1;\ncaracs.c_cc[3]=c;\nif(tcsetattr (0, TCSANOW, &caracs))return 1;\nreturn 0;\n}"> testtermios.c
@@ -1014,6 +1026,12 @@ else
 		echo "#define HAVECURSES"
 	fi
 fi
+if [ $HAVE_JACK = "y" ]
+then
+    echo "#define HAVE_JACK 1"
+else
+    echo "/* #define HAVE_JACK 1 */"
+fi
 if [ $HAVE_LIBGPM = "y" ]
 then
 	echo "#define HAVE_LIBGPM 1"
@@ -1146,7 +1164,8 @@ echo -n "generating additlib ...    "
 		echo -n " -lgpm "
 	fi
 
-	echo -n $CURSESLIB
+	echo -n "$CURSESLIB"
+	echo -n "$JACKLIBS"
 ) > ./additlib
 echo "    ...done : will link with " `cat ./additlib`
 echo

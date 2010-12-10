@@ -110,6 +110,8 @@
 #include <math.h>
 #include <string.h>
 
+#include <jack/jack.h>
+
 #include <linux/soundcard.h>
 /* #include <sys/soundcard.h> */
 
@@ -393,8 +395,8 @@ int     initmixer (void)
     fmixer = open (MIXER, O_WRONLY);
 
     if (fmixer == -1)
-    {
-	fprintf (stderr, "impossible d'ouvrir %s\n", MIXER);
+    {	int e = errno;
+	fprintf (stderr, "impossible d'ouvrir %s : %s\n", MIXER, strerror (e));
 	return (-1);
     }
 
@@ -704,446 +706,47 @@ void    showusage (void)
     fprintf (stderr,   "          the last valid `startfile' is opened\n");
 }
 
-int     main (int nbcm, char **cmde)
-{
-#ifdef RINGMODULATOR
-/* RING MODULATOR TEST */
-    int     lring = 1, rring = 1;
-
-#endif
-
-    int     fdsp,	       /* dsp file handle pour ecriture                */
-            forcedfakedsp = 0, /* mode fakedsp force                           */
-            nbconterr = 0,     /* nombre d'erreur cumulees                     */
-            passe,	       /* compteur de passe pour la ligne de commande  */
-            i,		       /* compteur a tout faire                        */
-            voice;	       /* compteur de voix                             */
-
-    int     noX = 0,	       /* on ne veut pas forker de X                   */
-            usage = 0,	       /* afficher l'usage                             */
-            letsreadfile = 0;  /* on nous demande de lire un fichier           */
-    int     lastpressed = -1;  /* dernier controle presse                      */
-
+int     fdsp,	       /* dsp file handle pour ecriture                */
+	nbconterr = 0;     /* nombre d'erreur cumulees                     */
 #ifdef HANDLE_JOY
-    int     fjs1,	       /* joystick #1                                  */
-            fjs2;	       /* joystick #2                                  */
-    struct JS_DATA_TYPE js;    /* buffer de lecture des joysticks              */
-
+int     fjs1,	       /* joystick #1                                  */
+	fjs2;	       /* joystick #2                                  */
 #endif
-
-    char   *fixedpos = NULL;   /* coordonnees de la fenetre en position fixee  */
-    char   *nftobeload = NULL; /* le fichier a lire au demarrage               */
-    char   *rcfile = NULL;     /* le rcfile en cours (null=default)            */
 
 #ifdef ALARMHANDLER
     struct sigaction signal_alrm;	/* structure de gestion du timer de polling     */
-
 #endif
 
-#ifdef DDD_DEBUG
-    fprintf (stderr, "debugging with ddd my PID is %d !\n", getpid ());
-    getchar ();
-#endif
+jack_port_t *output_portl, /* les sorties jackd                            */
+	    *output_portr;
 
-  /* JDJDJDJD il faudrait enlever ca au plus vite ... */
-    rustine ();
-    nfoutbis[0] = 0;
+jack_client_t *client;     /* le handle client aupres du serveur jackd     */
 
-/* analyse de la ligne de commande */
-    for (passe = 0; passe < 2; passe++)
-    {
-      /* passe -1 : la plus prioritaire : redirection de stderr */
-      /* passe  0 : rcfile overide ? */
-      /* passe  1 : les affaire courantes */
-	for (i = 1; i < nbcm; i++)
-	{
-	    switch (cmde[i][0])
-	    {
-		case '-':
-		    if (strncmp (cmde[i], "--h", 3) == 0)
-		    {
-			usage = 1;
-		    }
-		    else if (strncmp (cmde[i], "-h", 2) == 0)
-		    {
-			usage = 1;
-		    }
-		    else if (strncmp (cmde[i], "-noX", 4) == 0)
-		    {
-			if (passe == 1)
-			    noX = 1;
-		    }
-		    else if (strncmp (cmde[i], "-err", 4) == 0)
-		    {
-			if (passe == 0)
-			    freopen (cmde[i] + 4, "a", stderr);
-		    }
-		    else if (strncmp (cmde[i], "-rc", 3) == 0)
-		    {
-			if (passe == 0)
-			    rcfile = cmde[i + 1];
-			i++;
-		    }
-		    else if (strncmp (cmde[i], "-raw", 4) == 0)
-		    {
-			if (passe == 1)
-			{
-			    strcpy (nfoutbis, cmde[i + 1]);
-			    foutbis = genrawname (nfoutbis, &numoutbis);
-			    if (foutbis == NULL)
-				rawing2disk = BUT_DIS;
-			    else
-				rawing2disk = BUT_OFF;
-			}
-			i++;
-		    }
-		    else if (strncmp (cmde[i], "-fakedsp", 8) == 0)
-		    {
-			if (passe == 1)
-			    forcedfakedsp = 1;
-		    }
-		    else if (strncmp (cmde[i], "-fixedpos", 9) == 0)
-		    {
-			if (passe == 1)
-			    fixedpos = cmde[i + 1];
-			i++;
-		    }
-		    else if (passe == 1)
-			fprintf (stderr, "unrecognised option %s\n", cmde[i]);
-		    break;
-		default:
-		    if (passe == 1)
-		    {
-			letsreadfile++;
-			if (isreallyafile (cmde[i]) == 0)
-			{
-			    if (nftobeload == NULL)
-				fprintf (stderr, "let's load %s to start...\n", cmde[i]);
-			    else
-				fprintf (stderr, "no finally, i'll load %s instead of %s\n", cmde[i], nftobeload);
-			    nftobeload = cmde[i];
-			}
-		    }
-	    }
-	}
-	if (passe == 0)
-	{
-	    if (init_grov_io (rcsid))
-		exit (-1);
-	    reset_settings (rcfile);
-	}
-    }
+int usejack = 0;	   /* shall we use jack ?                          */
+int leavenow = 0;	   /* should we leave groovit now (when usejack)   */
 
-#ifndef CCUNAMED
-#error possibly incorrect use of Makefile
-#endif
-    fprintf (stderr, "%s\n", rcsid);
-    fprintf (stderr, "configured on %s by %s\n", UNAMED, CONFEDBY);
-    fprintf (stderr, "  compiled on %s by %s\n", CCUNAMED, CCCONFEDBY);
-    if (usage)
-    {
-	showusage ();
-	exit (0);
-    }
-    if (letsreadfile && (nftobeload == NULL))
-    {
-	fprintf (stderr, "none of the %d files could be read, quiting.\n", letsreadfile);
-	exit (-1);
-    }
+void jack_shutdown (void *arg)
+{
+    client = NULL;
+}
 
-/* on teste une premiere fois le dsp */
-    if (!forcedfakedsp)
-    {
-	fdsp = initoutdsp ();
-	if (fdsp == -1)
-	{
-	    exit (1);
-	}
-	resetdsp (fdsp);
-    }
 
-    if ((getenv ("DISPLAY") != NULL) && !noX)
-    {
-	char   *gnob = XTERMCMD, *xtermcmd = NULL, *morearg = NULL, *argv[JDMAXARGV], localbuf[1024],
-	       *p, *q;
-	int     argc = 0;
+int     mainloop (jack_nframes_t nframes, void *jack_arg)
+{
 
-	xtermcmd = malloc (strlen (gnob) + 2);
-	if (xtermcmd == NULL)
-	{
-	    fprintf (stderr, "unable to alloc 'xtermcmd'... no more memory ??? big shame !\n");
-	    exit (-1);
-	}
-	strcpy (xtermcmd, gnob);
-	q = p = xtermcmd;
-	while (*p != 0)
-	{
-	    if ((*p == ' ') && (argc < JDMAXARGV - 4))
-	    {
-		argv[argc++] = q;
-		*p = 0;
-		q = p + 1;
-	    }
-	    p++;
-	}
-	if (isatty (2))		/* isatty (stderr) */
-	{
-	    morearg = malloc (strlen (ttyname (2)) + 6);
-	    if (morearg == NULL)
-	    {
-		fprintf (stderr, "unable to alloc 'morearg'... no more memory ??? big shame !\n");
-		exit (-1);
-	    }
-	    strcpy (morearg, "-err");
-	    strcat (morearg, ttyname (2));
-	}
-	argv[argc++] = "-geometry";
-	argv[argc] = localbuf;
-	sprintf (argv[argc], "%dx%d", 80 + MAXDISPLAYROW - 32, 5 + MAXSAMPLE + MAXANALOG * 2 + MAXDYFILT * 2);
-	if (fixedpos != NULL)
-	{
-	    strcat (argv[argc], "+");
-	    strcat (argv[argc], fixedpos);
-	}
-	argc++;
-      /* argv [argc++] = "80x24"; *//* JDJDJD add a modulable size */
-	argv[argc++] = "-e";
-	/* tries to check around ldpreload : LD_PRELOAD=libpulsedsp.so */
-	if (getenv("LD_PRELOAD") != NULL) {
-	    fprintf (stderr, "some preloaded libraruies ? let's check ...\n");
-	    char * ldpreload = getenv("LD_PRELOAD");
-	    if (strstr (ldpreload, "pulse") != NULL) {
-		fprintf (stderr, "seems to be using pulse tweaking, will fork with padsp\n");
-		unsetenv ("LD_PRELOAD");
-		argv[argc++] = "padsp";
-	    }
-	}
-	argv[argc++] = cmde[0];
-	argv[argc++] = "-noX";
-	argv[argc++] = morearg;
-	for (i = 1; i < nbcm; i++)
-	    argv[argc++] = cmde[i];
-	argv[argc++] = NULL;
-      /* {    int i; for (i=0 ; i<argc-1 ; i++) printf ("%s ",argv[i]); printf("\n"); } */
-	execvp (argv[0], argv);
-	fprintf (stderr, "execlp failed, trying to continue anyway ...\n");
-	free (morearg);
-	free (xtermcmd);
-    }
+    int     i,		       /* compteur a tout faire                        */
+            voice;	       /* compteur de voix                             */
 
-  /* this is for avoiding the stderr output over the stdout !!!! */
-    {
-	if (isatty (2) && isatty (1))
-	{
-	    char   *a = malloc (strlen (ttyname (1)) + 1);
-
-	    if (a == NULL)
-		fprintf (stderr, "warning: allocation problems ???\n");
-	    else
-		strcpy (a, ttyname (1));
-	    if (strcmp (a, ttyname (2)) == 0)
-		freopen ("/dev/null", "a", stderr);
-	    free (a);
-	}
-    }
-
+    int     lastpressed = -1;  /* dernier controle presse                      */
 #ifdef HANDLE_JOY
-    fjs1 = open (F__JS1, O_RDONLY);
-    if (fjs1 == -1)
-    {
-	switch (errno)
-	{
-	    case ENODEV:
-		fprintf (stderr, "%s isn't handled by your kernel, continuing without it.\n\ncheck the joystick/Jbox part of groovit man-page\n\n", F__JS1);
-		break;
-	    default:
-		fprintf (stderr, "could not open %s, continuing without joysticks\n", F__JS1);
-	}
-    }
-    fjs2 = open (F__JS2, O_RDONLY);
-    if (fjs2 == -1)
-    {
-	switch (errno)
-	{
-	    case ENODEV:
-		fprintf (stderr, "%s isn't handled by your kernel, continuing without it.\n\ncheck the joystick/Jbox part of groovit man-page\n\n", F__JS2);
-		break;
-	    default:
-		fprintf (stderr, "could not open %s, continuing without joysticks\n", F__JS2);
-	}
-    }
+    struct JS_DATA_TYPE js;    /* buffer de lecture des joysticks              */
 #endif
 
-/* on met a jour les niveaux de sortie */
-    switch (initmixer ())
-    {
-	case -1:
-	    fprintf (stderr, "probleme avec le mixer\n");
-	    break;
-	case -2:
-	    fprintf (stderr, "no mixer available on this device\n");
-	    break;
-	default:
-	    ;
-    }
+    jack_default_audio_sample_t *jackoutr =
+	(jack_default_audio_sample_t *) jack_port_get_buffer (output_portr, nframes);
+    jack_default_audio_sample_t *jackoutl =
+	(jack_default_audio_sample_t *) jack_port_get_buffer (output_portl, nframes);
 
-/* initialisation du lock des pages en memoire */
-/* JDJDJD pourrait eventuellement etre affine ??? */
-/* devrait etre liberer des que l'on ne joue pas */
-    if (uselockmem)
-    {
-	if (mlockall (MCL_FUTURE))
-	    switch (errno)
-	    {
-		case ENOMEM:
-		    fprintf (stderr, "could not lock memory (too much mem) will continue without lock\n");
-		    break;
-		case EPERM:
-		    fprintf (stderr, "this process cannot lock memory (need to be suid root) will continue without locking\n");
-		    break;
-		case EINVAL:
-		default:
-		    fprintf (stderr, "bad value transmitted to memory-lock or unknown error, I'm trying to ignore...\n");
-	    }
-    }
-
-/* initialisation des controls */
-    {
-	char   *err1 = "no mouse connection ?\nending.\n", *err2 = "unknown error in initcontrols ?\nending.\n";
-
-	switch (initcontrols ())
-	{
-	    case 0:
-		break;
-	    case -2:		/* on ecrit stdout ET stderr au cas stderr=/dev/null */
-		fprintf (stderr, err1);
-		fprintf (stdout, err1);
-		exit (1);
-	    default:
-		fprintf (stderr, err2);
-		fprintf (stdout, err2);
-		exit (1);
-	}
-    }
-    if (ftok_init ())
-    {
-	resetcontrols ();
-	exit (1);
-    }
-    if (init_grov_io (rcsid))
-    {
-	resetcontrols ();
-	exit (1);
-    }
-
-/* mise a zero initiale : analog part -------------------------------------------------- */
-    for (i = 0; i < 257; i++)
-	tabfreq[i] = pow (2, (double) (i - 255) / 24.0) * LA_MAX_JHZ;
-
-    initallvoices ();
-    if (nftobeload != NULL)
-    {
-	fprintf (stderr, "loading song %s to current\n", nftobeload);
-	if (load_cur_song (nftobeload, 1) != 0)
-#ifndef NOFILECONTINUES
-	{
-	    fprintf (stderr, "could not load song %s, quiting\n", nftobeload);
-	    resetcontrols ();
-	    exit (1);
-	}
-#else
-	{
-	    fprintf (stderr, "error song %s not loaded !\n", nftobeload);
-	  /* JDJDJDJD come sanity jobs needed here !!! */
-	    strcpy (cursongfile, "no-title");
-	    shortcursongfile = cursongfile;
-	    settitle (gname, shortcursongfile);
-	}
-#endif
-	else
-	{
-	    wasmodified = 0;
-	    strcpy (cursongfile, nftobeload);
-	    shortcursongfile = strrchr (cursongfile, '/');
-	    if (shortcursongfile == NULL)
-		shortcursongfile = cursongfile;
-	    else
-		shortcursongfile++;
-	    settitle (gname, shortcursongfile);
-	}
-    }
-
-    if (forcedfakedsp)
-    {
-	fdsp = enterfakedsp (-1);
-    }
-    else
-    {
-	fdsp = initoutdsp ();
-	if (fdsp == -1)
-	{
-	    resetcontrols ();
-	    exit (1);
-	}
-    }
-    nbconterr = 0;
-
-    settitle (gname, shortcursongfile);
-    init_mixeur ();
-    initboard (rcsid);
-    resync_displaypatterns ();
-
-    initgrsel ();
-    initdialogs ();
-    initmenu ();
-    initsettings ();
-
-  /* JDJDJDJD this is probably not needed... */
-    for (i = 0; i < MAXSAMPLE; i++)
-	cursamp[i] = 0;
-
-    if (fdsp == -1)		/* we set the button according to the mode */
-	opendsp = BUT_OFF;
-    else
-	opendsp = BUT_ON;
-    isopendsp = opendsp;
-
-    pollcontrols (0);		/* to force a first redraw... */
-
-    if (!gpl_accepted)
-	alert_gpl ();
-
-/*---------------------------------------------------------------------*/
-/* boucle principale - main loop */
-
-#ifdef ALARMHANDLER
-    if (usetimer)
-    {
-	polltime.it_interval.tv_sec = 0;
-	polltime.it_interval.tv_usec = STDPOLLTIME;
-	setitimer (ITIMER_REAL, &polltime, NULL);
-	signal_alrm.sa_flags = SA_NODEFER;
-	signal_alrm.sa_handler = catchALRM;
-	sigemptyset (&signal_alrm.sa_mask);
-	sigaction (SIGALRM, &signal_alrm, NULL);
-    }
-#endif
-
-    if ((kplayahead < 0) || (kplayahead > (MAXPLAYAHEAD >> 10)))
-	kplayahead = (MAXPLAYAHEAD >> 10);
-
-    playahead = (kplayahead << 10);
-#ifdef HOPEDRESO16
-    sizebufahead = (playahead << 2);
-#endif
-#ifdef HOPEDRESO8
-    sizebufahead = (playahead << 1);
-#endif
-#ifdef HOPEDMONO16
-    sizebufahead = (playahead << 1);
-#endif
-
-    for (ts = 0; 1; ts += playahead)
     {
 #ifdef HOPEDMONO16
 	pbuf = (unsigned short *) &reserve[0][0];
@@ -1160,7 +763,13 @@ int     main (int nbcm, char **cmde)
 	maxright = 0;
 	if (isplayin == BUT_ON)
 	{
-	    for (tss = ts, endtss = playahead; endtss; endtss--, tss++, nss--)
+	    long theplayahead;
+	    if (usejack)
+		theplayahead = nframes;
+	    else
+		theplayahead = playahead;
+
+	    for (tss = ts, endtss = theplayahead; endtss; endtss--, tss++, nss--)
 	    {
 		if (!nss)	/* la on passe d'un tick a l'autre */
 		{
@@ -1252,6 +861,10 @@ int     main (int nbcm, char **cmde)
 		    r = -32766;
 		else if (r > 32767)
 		    r = 32767;
+	    if (usejack) {
+		*jackoutl ++ = ((jack_default_audio_sample_t) l)/32768.0;
+		*jackoutr ++ = ((jack_default_audio_sample_t) r)/32768.0;
+	    } else {
 #ifdef HOPEDMONO16
 		absl = iabs ((short) l);
 		absr = iabs ((short) r);
@@ -1280,8 +893,10 @@ int     main (int nbcm, char **cmde)
 		    maxleft = absl;
 		if (absr > maxright)
 		    maxright = absr;
+	    } /* else if usejack ....*/
 	    }
 
+	if (!usejack) {
 #ifdef NEVERINTER		/* JDJDJDJD a enlever car c'est du debug... */
 #ifdef ALARMHANDLER		/* stopping the timer */
 	    if (usetimer)
@@ -1395,6 +1010,7 @@ int     main (int nbcm, char **cmde)
 		    refreshcontrols (hrawing2disk);
 		}
 	    }
+	} /* if not usejack */
 
 	  /* affichage de la diode de pattern */
 #ifdef DIODEINPAT
@@ -1430,45 +1046,45 @@ int     main (int nbcm, char **cmde)
 	if ((fjs1 != -1) && (fjs2 != -1))
 	{			/* on fait 4 mesures pour chaques histoire de faire une
 				   moyenne */
-	    int     x1 = 0, y1 = 0, x2 = 0, y2 = 0;
+	    int     x1 = 0, y1 = 0, n1 = 0, x2 = 0, y2 = 0 , n2 = 0;
 
-	    read (fjs1, &js, JS_RETURN);
-	    x1 += js.x;
-	    y1 += js.y;
-	    read (fjs2, &js, JS_RETURN);
-	    x2 += js.x;
-	    y2 += js.y;
-	    read (fjs1, &js, JS_RETURN);
-	    x1 += js.x;
-	    y1 += js.y;
-	    read (fjs2, &js, JS_RETURN);
-	    x2 += js.x;
-	    y2 += js.y;
-	    read (fjs1, &js, JS_RETURN);
-	    x1 += js.x;
-	    y1 += js.y;
-	    read (fjs2, &js, JS_RETURN);
-	    x2 += js.x;
-	    y2 += js.y;
-	    read (fjs1, &js, JS_RETURN);
-	    x1 += js.x;
-	    y1 += js.y;
-	    read (fjs2, &js, JS_RETURN);
-	    x2 += js.x;
-	    y2 += js.y;
+	    if (read (fjs1, &js, JS_RETURN) == JS_RETURN)
+		x1 += js.x, y1 += js.y, n1++;
+	    if (read (fjs2, &js, JS_RETURN) == JS_RETURN)
+		x2 += js.x, y2 += js.y, n2++;
+	    if (read (fjs1, &js, JS_RETURN) == JS_RETURN)
+		x1 += js.x, y1 += js.y, n1++;
+	    if (read (fjs2, &js, JS_RETURN) == JS_RETURN)
+		x2 += js.x, y2 += js.y, n2++;
+	    if (read (fjs1, &js, JS_RETURN) == JS_RETURN)
+		x1 += js.x, y1 += js.y, n1++;
+	    if (read (fjs2, &js, JS_RETURN) == JS_RETURN)
+		x2 += js.x, y2 += js.y, n2++;
+	    if (read (fjs1, &js, JS_RETURN) == JS_RETURN)
+		x1 += js.x, y1 += js.y, n1++;
+	    if (read (fjs2, &js, JS_RETURN) == JS_RETURN)
+		x2 += js.x, y2 += js.y, n2++;
 
 	  /* JDJDJDJD */
 	  /* ces affectations sont pour le moins arbitraires... */
-	    dyfilter[0].reso.ctfreqcut = (256 * (x1 - 80)) / 1950;
-	    dyfilter[0].reso.ctfreqcut2 = (256 * (y1 - 80)) / 1950;
-	    dyfilter[0].reso.ctreso = (256 * (y2 - 80)) / 1950;
-	    dyfilter[0].reso.ctdecay = (256 * (x2 - 80)) / 1950;
+	    if (n1 == 4) {
+		dyfilter[0].reso.ctfreqcut = (256 * (x1 - 80)) / 1950;
+		dyfilter[0].reso.ctfreqcut2 = (256 * (y1 - 80)) / 1950;
+	    }
+	    if (n2 == 4) {
+		dyfilter[0].reso.ctreso = (256 * (y2 - 80)) / 1950;
+		dyfilter[0].reso.ctdecay = (256 * (x2 - 80)) / 1950;
+	    }
 	}
 #endif
 
 	lastpressed = pollcontrols (isplayin == BUT_ON ? minipolltime : LONGPOLLTIME);
 	if (allpower == BUT_OFF)
-	    break;
+	{   if (usejack)
+		leavenow = 1;
+	    else
+		return 1;	/* when it was inside a loop, it was :  break; */
+	}
 
       /* because of its immediate action on outputs, it is kept here */
 	if ((rawing2disk != BUT_OFF) && (foutbis != NULL))
@@ -1499,6 +1115,488 @@ int     main (int nbcm, char **cmde)
 		default:
 		    fprintf (stderr, "warning: internal error for treating \"opendsp\", continuing anyway\n");
 		    isopendsp = opendsp;
+	    }
+	}
+    }
+    return 0;
+}
+
+int     main (int nbcm, char **cmde)
+{
+#ifdef RINGMODULATOR
+/* RING MODULATOR TEST */
+    int     lring = 1, rring = 1;
+
+#endif
+
+    int     forcedfakedsp = 0, /* mode fakedsp force                           */
+            passe,	       /* compteur de passe pour la ligne de commande  */
+            i;		       /* compteur a tout faire                        */
+
+    int     noX = 0,	       /* on ne veut pas forker de X                   */
+            usage = 0,	       /* afficher l'usage                             */
+            letsreadfile = 0;  /* on nous demande de lire un fichier           */
+
+
+    char   *fixedpos = NULL;   /* coordonnees de la fenetre en position fixee  */
+    char   *nftobeload = NULL; /* le fichier a lire au demarrage               */
+    char   *rcfile = NULL;     /* le rcfile en cours (null=default)            */
+
+#ifdef DDD_DEBUG
+    fprintf (stderr, "debugging with ddd my PID is %d !\n", getpid ());
+    getchar ();
+#endif
+
+  /* JDJDJDJD il faudrait enlever ca au plus vite ... */
+    rustine ();
+    nfoutbis[0] = 0;
+
+/* analyse de la ligne de commande */
+    for (passe = 0; passe < 2; passe++)
+    {
+      /* passe -1 : la plus prioritaire : redirection de stderr */
+      /* passe  0 : rcfile overide ? */
+      /* passe  1 : les affaire courantes */
+	for (i = 1; i < nbcm; i++)
+	{
+	    switch (cmde[i][0])
+	    {
+		case '-':
+		    if (strncmp (cmde[i], "--h", 3) == 0)
+		    {
+			usage = 1;
+		    }
+		    else if (strncmp (cmde[i], "-h", 2) == 0)
+		    {
+			usage = 1;
+		    }
+		    else if (strncmp (cmde[i], "-noX", 4) == 0)
+		    {
+			if (passe == 1)
+			    noX = 1;
+		    }
+		    else if (strncmp (cmde[i], "-err", 4) == 0)
+		    {
+			if (passe == 0) {
+			    if (freopen (cmde[i] + 4, "a", stderr) == NULL) {
+				int e = errno;
+				fprintf (stderr, "could not open %s : %s\n", cmde[i] + 4, strerror(e));
+			    }
+			}
+		    }
+		    else if (strncmp (cmde[i], "-rc", 3) == 0)
+		    {
+			if (passe == 0)
+			    rcfile = cmde[i + 1];
+			i++;
+		    }
+		    else if (strncmp (cmde[i], "-raw", 4) == 0)
+		    {
+			if (passe == 1)
+			{
+			    strcpy (nfoutbis, cmde[i + 1]);
+			    foutbis = genrawname (nfoutbis, &numoutbis);
+			    if (foutbis == NULL)
+				rawing2disk = BUT_DIS;
+			    else
+				rawing2disk = BUT_OFF;
+			}
+			i++;
+		    }
+		    else if (strncmp (cmde[i], "-jack", 5) == 0)
+		    {
+			usejack = 1;
+		    }
+		    else if (strncmp (cmde[i], "-fakedsp", 8) == 0)
+		    {
+			if (passe == 1)
+			    forcedfakedsp = 1;
+		    }
+		    else if (strncmp (cmde[i], "-fixedpos", 9) == 0)
+		    {
+			if (passe == 1)
+			    fixedpos = cmde[i + 1];
+			i++;
+		    }
+		    else if (passe == 1)
+			fprintf (stderr, "unrecognised option %s\n", cmde[i]);
+		    break;
+		default:
+		    if (passe == 1)
+		    {
+			letsreadfile++;
+			if (isreallyafile (cmde[i]) == 0)
+			{
+			    if (nftobeload == NULL)
+				fprintf (stderr, "let's load %s to start...\n", cmde[i]);
+			    else
+				fprintf (stderr, "no finally, i'll load %s instead of %s\n", cmde[i], nftobeload);
+			    nftobeload = cmde[i];
+			}
+		    }
+	    }
+	}
+	if (passe == 0)
+	{
+	    if (init_grov_io (rcsid))
+		exit (-1);
+	    reset_settings (rcfile);
+	}
+    }
+
+#ifndef CCUNAMED
+#error possibly incorrect use of Makefile
+#endif
+    fprintf (stderr, "%s\n", rcsid);
+    fprintf (stderr, "configured on %s by %s\n", UNAMED, CONFEDBY);
+    fprintf (stderr, "  compiled on %s by %s\n", CCUNAMED, CCCONFEDBY);
+    if (usage)
+    {
+	showusage ();
+	exit (0);
+    }
+    if (letsreadfile && (nftobeload == NULL))
+    {
+	fprintf (stderr, "none of the %d files could be read, quiting.\n", letsreadfile);
+	exit (-1);
+    }
+
+/* on teste une premiere fois le dsp */
+    if (!forcedfakedsp)
+    {
+	if (usejack) {
+	    if ((client = jack_client_new ("groovit")) == NULL) {
+		fprintf (stderr, "could not connect to jackd server\n");
+	    }
+	    jack_client_close (client);
+	    client = NULL;
+	} else {
+	    fdsp = initoutdsp ();
+	    if (fdsp == -1)
+	    {
+		exit (1);
+	    }
+	    resetdsp (fdsp);
+	}
+    }
+
+    if ((getenv ("DISPLAY") != NULL) && !noX)
+    {
+	char   *gnob = XTERMCMD, *xtermcmd = NULL, *morearg = NULL, *argv[JDMAXARGV], localbuf[1024],
+	       *p, *q;
+	int     argc = 0;
+
+	xtermcmd = malloc (strlen (gnob) + 2);
+	if (xtermcmd == NULL)
+	{
+	    fprintf (stderr, "unable to alloc 'xtermcmd'... no more memory ??? big shame !\n");
+	    exit (-1);
+	}
+	strcpy (xtermcmd, gnob);
+	q = p = xtermcmd;
+	while (*p != 0)
+	{
+	    if ((*p == ' ') && (argc < JDMAXARGV - 4))
+	    {
+		argv[argc++] = q;
+		*p = 0;
+		q = p + 1;
+	    }
+	    p++;
+	}
+	if (isatty (2))		/* isatty (stderr) */
+	{
+	    morearg = malloc (strlen (ttyname (2)) + 6);
+	    if (morearg == NULL)
+	    {
+		fprintf (stderr, "unable to alloc 'morearg'... no more memory ??? big shame !\n");
+		exit (-1);
+	    }
+	    strcpy (morearg, "-err");
+	    strcat (morearg, ttyname (2));
+	}
+	argv[argc++] = "-geometry";
+	argv[argc] = localbuf;
+	sprintf (argv[argc], "%dx%d", 80 + MAXDISPLAYROW - 32, 5 + MAXSAMPLE + MAXANALOG * 2 + MAXDYFILT * 2);
+	if (fixedpos != NULL)
+	{
+	    strcat (argv[argc], "+");
+	    strcat (argv[argc], fixedpos);
+	}
+	argc++;
+      /* argv [argc++] = "80x24"; *//* JDJDJD add a modulable size */
+	argv[argc++] = "-e";
+	/* tries to check around ldpreload : LD_PRELOAD=libpulsedsp.so */
+	if (getenv("LD_PRELOAD") != NULL) {
+	    fprintf (stderr, "some preloaded libraruies ? let's check ...\n");
+	    char * ldpreload = getenv("LD_PRELOAD");
+	    if (strstr (ldpreload, "pulse") != NULL) {
+		fprintf (stderr, "seems to be using pulse tweaking, will fork with padsp\n");
+		unsetenv ("LD_PRELOAD");
+		argv[argc++] = "padsp";
+	    }
+	}
+	argv[argc++] = cmde[0];
+	argv[argc++] = "-noX";
+	if (morearg != NULL)
+	    argv[argc++] = morearg;
+	for (i = 1; i < nbcm; i++)
+	    argv[argc++] = cmde[i];
+	argv[argc++] = NULL;
+      /* {    int i; for (i=0 ; i<argc-1 ; i++) printf ("%s ",argv[i]); printf("\n"); } */
+	execvp (argv[0], argv);
+	fprintf (stderr, "execlp failed, trying to continue anyway ...\n");
+	free (morearg);
+	free (xtermcmd);
+    }
+
+  /* this is for avoiding the stderr output over the stdout !!!! */
+    {
+	if (isatty (2) && isatty (1))
+	{
+	    char   *a = malloc (strlen (ttyname (1)) + 1);
+
+	    if (a == NULL)
+		fprintf (stderr, "warning: allocation problems ???\n");
+	    else
+		strcpy (a, ttyname (1));
+	    if (strcmp (a, ttyname (2)) == 0) {
+		if (freopen ("/dev/null", "a", stderr) == NULL) {
+		    int e = errno;
+		    fprintf (stderr, "could not open %s : %s\n", "/dev/null", strerror(e));
+		}
+	    }
+	    free (a);
+	}
+    }
+
+#ifdef HANDLE_JOY
+    fjs1 = open (F__JS1, O_RDONLY);
+    if (fjs1 == -1)
+    {
+	switch (errno)
+	{
+	    case ENODEV:
+		fprintf (stderr, "%s isn't handled by your kernel, continuing without it.\n\ncheck the joystick/Jbox part of groovit man-page\n\n", F__JS1);
+		break;
+	    default:
+		fprintf (stderr, "could not open %s, continuing without joysticks\n", F__JS1);
+	}
+    }
+    fjs2 = open (F__JS2, O_RDONLY);
+    if (fjs2 == -1)
+    {
+	switch (errno)
+	{
+	    case ENODEV:
+		fprintf (stderr, "%s isn't handled by your kernel, continuing without it.\n\ncheck the joystick/Jbox part of groovit man-page\n\n", F__JS2);
+		break;
+	    default:
+		fprintf (stderr, "could not open %s, continuing without joysticks\n", F__JS2);
+	}
+    }
+#endif
+
+/* on met a jour les niveaux de sortie */
+
+    switch (initmixer ())
+    {
+	case -1:
+	    fprintf (stderr, "probleme avec le mixer\n");
+	    break;
+	case -2:
+	    fprintf (stderr, "no mixer available on this device\n");
+	    break;
+	default:
+	    ;
+    }
+
+
+/* initialisation du lock des pages en memoire */
+/* JDJDJD pourrait eventuellement etre affine ??? */
+/* devrait etre liberer des que l'on ne joue pas */
+    if (uselockmem)
+    {
+	if (mlockall (MCL_FUTURE))
+	    switch (errno)
+	    {
+		case ENOMEM:
+		    fprintf (stderr, "could not lock memory (too much mem) will continue without lock\n");
+		    break;
+		case EPERM:
+		    fprintf (stderr, "this process cannot lock memory (need to be suid root) will continue without locking\n");
+		    break;
+		case EINVAL:
+		default:
+		    fprintf (stderr, "bad value transmitted to memory-lock or unknown error, I'm trying to ignore...\n");
+	    }
+    }
+
+/* initialisation des controls */
+    {
+	char   *err1 = "no mouse connection ?\nending.\n", *err2 = "unknown error in initcontrols ?\nending.\n";
+
+	switch (initcontrols ())
+	{
+	    case 0:
+		break;
+	    case -2:		/* on ecrit stdout ET stderr au cas stderr=/dev/null */
+		fprintf (stderr, "%s", err1);
+		fprintf (stdout, "%s", err1);
+		exit (1);
+	    default:
+		fprintf (stderr, "%s", err2);
+		fprintf (stdout, "%s", err2);
+		exit (1);
+	}
+    }
+    if (ftok_init ())
+    {
+	resetcontrols ();
+	exit (1);
+    }
+    if (init_grov_io (rcsid))
+    {
+	resetcontrols ();
+	exit (1);
+    }
+
+/* mise a zero initiale : analog part -------------------------------------------------- */
+    for (i = 0; i < 257; i++)
+	tabfreq[i] = pow (2, (double) (i - 255) / 24.0) * LA_MAX_JHZ;
+
+    initallvoices ();
+    if (nftobeload != NULL)
+    {
+	fprintf (stderr, "loading song %s to current\n", nftobeload);
+	if (load_cur_song (nftobeload, 1) != 0)
+#ifndef NOFILECONTINUES
+	{
+	    fprintf (stderr, "could not load song %s, quiting\n", nftobeload);
+	    resetcontrols ();
+	    exit (1);
+	}
+#else
+	{
+	    fprintf (stderr, "error song %s not loaded !\n", nftobeload);
+	  /* JDJDJDJD come sanity jobs needed here !!! */
+	    strcpy (cursongfile, "no-title");
+	    shortcursongfile = cursongfile;
+	    settitle (gname, shortcursongfile);
+	}
+#endif
+	else
+	{
+	    wasmodified = 0;
+	    strcpy (cursongfile, nftobeload);
+	    shortcursongfile = strrchr (cursongfile, '/');
+	    if (shortcursongfile == NULL)
+		shortcursongfile = cursongfile;
+	    else
+		shortcursongfile++;
+	    settitle (gname, shortcursongfile);
+	}
+    }
+
+    if (forcedfakedsp)
+    {
+	fdsp = enterfakedsp (-1);
+    }
+    else
+    {
+	if (usejack) {
+	    if ((client = jack_client_new ("groovit")) == NULL) {
+		fprintf (stderr, "could not connect to jackd server\n");
+	    }
+	    if (client != NULL) {
+		jack_set_process_callback (client, mainloop, 0);
+		jack_on_shutdown (client, jack_shutdown, 0);
+
+		fprintf (stderr, "engine sample rate: %" PRIu32 "\n", jack_get_sample_rate (client));
+
+		output_portl = jack_port_register (client, "outputl", JACK_DEFAULT_AUDIO_TYPE, JackPortIsOutput, 0);
+		output_portr = jack_port_register (client, "outputr", JACK_DEFAULT_AUDIO_TYPE, JackPortIsOutput, 0);
+	    }
+	} else {
+	    fdsp = initoutdsp ();
+	    if (fdsp == -1)
+	    {
+		resetcontrols ();
+		exit (1);
+	    }
+	}
+    }
+    nbconterr = 0;
+
+    settitle (gname, shortcursongfile);
+    init_mixeur ();
+    initboard (rcsid);
+    resync_displaypatterns ();
+
+    initgrsel ();
+    initdialogs ();
+    initmenu ();
+    initsettings ();
+
+  /* JDJDJDJD this is probably not needed... */
+    for (i = 0; i < MAXSAMPLE; i++)
+	cursamp[i] = 0;
+
+    if (fdsp == -1)		/* we set the button according to the mode */
+	opendsp = BUT_OFF;
+    else
+	opendsp = BUT_ON;
+    isopendsp = opendsp;
+
+    pollcontrols (0);		/* to force a first redraw... */
+
+    if (!gpl_accepted)
+	alert_gpl ();
+
+/*---------------------------------------------------------------------*/
+/* boucle principale - main loop */
+
+#ifdef ALARMHANDLER
+    if (usetimer)
+    {
+	polltime.it_interval.tv_sec = 0;
+	polltime.it_interval.tv_usec = STDPOLLTIME;
+	setitimer (ITIMER_REAL, &polltime, NULL);
+	signal_alrm.sa_flags = SA_NODEFER;
+	signal_alrm.sa_handler = catchALRM;
+	sigemptyset (&signal_alrm.sa_mask);
+	sigaction (SIGALRM, &signal_alrm, NULL);
+    }
+#endif
+
+    if ((kplayahead < 0) || (kplayahead > (MAXPLAYAHEAD >> 10)))
+	kplayahead = (MAXPLAYAHEAD >> 10);
+
+    playahead = (kplayahead << 10);
+#ifdef HOPEDRESO16
+    sizebufahead = (playahead << 2);
+#endif
+#ifdef HOPEDRESO8
+    sizebufahead = (playahead << 1);
+#endif
+#ifdef HOPEDMONO16
+    sizebufahead = (playahead << 1);
+#endif
+
+    if (usejack) {
+	if (jack_activate (client)) {
+	    fprintf (stderr, "cannot activate jack as client");
+	}
+    }
+
+    leavenow = 0;
+    {	useconds_t usleeptime = 100 * 1000;
+	for (ts = 0; 1; ts += playahead) {
+	    if (!usejack) {
+		if (mainloop (0, NULL)) break;
+	    } else {
+		usleep (usleeptime);
+		if (leavenow) break;
 	    }
 	}
     }

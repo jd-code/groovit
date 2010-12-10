@@ -396,7 +396,7 @@ int     scan_rcfile (char *rcfile, int mode, void **liste)
 		    {
 			case SETT_WRITEALL:
 			case SETT_WRITEMATCH:
-			    fprintf (new, buf);
+			    fprintf (new, "%s", buf);
 			    break;
 		    }
 		    continue;
@@ -423,7 +423,7 @@ int     scan_rcfile (char *rcfile, int mode, void **liste)
 		{
 		    case SETT_WRITEALL:
 		    case SETT_WRITEMATCH:
-			fprintf (new, orig);
+			fprintf (new, "%s", orig);
 		}
 		continue;	/* on passe a la ligne suivante */
 	    }
@@ -461,14 +461,14 @@ int     scan_rcfile (char *rcfile, int mode, void **liste)
 			    case SETT_WRITEMATCH:
 				if (match->checked == 0)
 				{
-				    fprintf (new, orig);
+				    fprintf (new, "%s", orig);
 				    break;
 				}
 			    case SETT_WRITEALL:
 				if (vernumber > lv)
 				    fprintf (new, "%s:\t%s\n", buf, ltover (vernumber));
 				else
-				    fprintf (new, orig);
+				    fprintf (new, "%s", orig);
 				break;
 			    case SETT_READMATCH:
 				if (match->checked == 0)
@@ -494,7 +494,7 @@ int     scan_rcfile (char *rcfile, int mode, void **liste)
 			case SETT_WRITEMATCH:
 			    if (match->checked == 0)
 			    {
-				fprintf (new, orig);
+				fprintf (new, "%s", orig);
 				break;
 			    }
 			case SETT_WRITEALL:
@@ -502,7 +502,7 @@ int     scan_rcfile (char *rcfile, int mode, void **liste)
 				fprintf (new, "%s:\t%s\n", buf,
 					 (*(int *) match->v) ? "TRUE" : "FALSE");
 			    else
-				fprintf (new, orig);
+				fprintf (new, "%s", orig);
 			    break;
 			case SETT_READMATCH:
 			    if (match->checked == 0)
@@ -520,7 +520,7 @@ int     scan_rcfile (char *rcfile, int mode, void **liste)
 			case SETT_WRITEMATCH:
 			    if (match->checked == 0)
 			    {
-				fprintf (new, orig);
+				fprintf (new, "%s", orig);
 				break;
 			    }
 			case SETT_WRITEALL:
@@ -530,7 +530,7 @@ int     scan_rcfile (char *rcfile, int mode, void **liste)
 			    }
 			    else
 			    {
-				fprintf (new, orig);
+				fprintf (new, "%s", orig);
 			    }
 			    break;
 			case SETT_READMATCH:
@@ -549,14 +549,14 @@ int     scan_rcfile (char *rcfile, int mode, void **liste)
 			case SETT_WRITEMATCH:
 			    if (match->checked == 0)
 			    {
-				fprintf (new, orig);
+				fprintf (new, "%s", orig);
 				break;
 			    }
 			case SETT_WRITEALL:
 			    if (*(long *) match->v != lv)
 				fprintf (new, "%s:\t%ld\n", buf, *(long *) match->v);
 			    else
-				fprintf (new, orig);
+				fprintf (new, "%s", orig);
 			    break;
 			case SETT_READMATCH:
 			    if (match->checked == 0)
@@ -589,14 +589,14 @@ int     scan_rcfile (char *rcfile, int mode, void **liste)
 			case SETT_WRITEMATCH:
 			    if (match->checked == 0)
 			    {
-				fprintf (new, orig);
+				fprintf (new, "%s", orig);
 				break;
 			    }
 			case SETT_WRITEALL:
 			    if (strcmp ((char *) match->v, r) != 0)
 				fprintf (new, "%s:\t%s\n", buf, (char *) match->v);
 			    else
-				fprintf (new, orig);
+				fprintf (new, "%s", orig);
 			    break;
 			case SETT_READMATCH:
 			    if (match->checked == 0)
@@ -613,7 +613,7 @@ int     scan_rcfile (char *rcfile, int mode, void **liste)
 		    {
 			case SETT_WRITEMATCH:
 			case SETT_WRITEALL:
-			    fprintf (new, orig);
+			    fprintf (new, "%s", orig);
 		    }
 	    }
 	    match->checked = -1;
@@ -649,7 +649,7 @@ int     scan_rcfile (char *rcfile, int mode, void **liste)
 			{
 			    case SETT_WRITEMATCH:
 			    case SETT_WRITEALL:
-				fprintf (new, orig);
+				fprintf (new, "%s", orig);
 			}
 		}
 	    i++;
