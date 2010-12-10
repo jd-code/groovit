@@ -270,7 +270,7 @@ typedef struct tjmeta		/* la structure de jmeta controls    */
 }
 JMeta;
 
-JMeta   jmeta[6];		/* les handles des jmeta            */
+JMeta   jmeta[8];		/* les handles des jmeta            */
 
 #ifdef SIMPLE_MEMPROFILE
 static long totdivs = 0;
@@ -651,7 +651,7 @@ void    initjmeta (void)
 {
     int     i;
 
-    for (i = 0; i < 6; i++)
+    for (i = 0; i < 8; i++)
 	clearjmeta (i);
     keyhandler[CONTKEY_F1] = 0;
     keyhandler[CONTKEY_F2] = 0;
@@ -1165,7 +1165,7 @@ int     clickcontrols (int h, int x, int y, int buttons, int focuschanged)
 		if (focuschanged && sauveh)
 		    addjmeta (0, h);
 		else
-		    addjmeta ((sauveh + 1) % 6, h);
+		    addjmeta ((sauveh + 1) % 8, h);
 		break;
 	    }
 	    if (focuschanged && (buttons != 4))

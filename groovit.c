@@ -759,7 +759,7 @@ int     mainloop (jack_nframes_t nframes, void *jack_arg)
 		if (event.size > 0) {
 		    if ( (((unsigned char *)event.buffer)[0] & 0xf0 ) == 0xb0 )	{   /* a continuous midi control */
 			int control = ((unsigned char *)event.buffer)[1];
-			if ((control >= 1) && (control <=5)) {
+			if ((control >= 1) && (control <=7)) {
 			    actionnedirectjmeta (control, (((unsigned char *)event.buffer)[2]) << 1);	/* value are 7 bits, multiply them ... */
 			}
 			else if (control == 8) {
@@ -893,6 +893,14 @@ int     mainloop (jack_nframes_t nframes, void *jack_arg)
 	    if (usejack) {
 		*jackoutl ++ = ((jack_default_audio_sample_t) l)/32768.0;
 		*jackoutr ++ = ((jack_default_audio_sample_t) r)/32768.0;
+		absl = iabs ((short) l);
+		absr = iabs ((short) r);
+		totleft += absl;
+		totright += absr;
+		if (absl > maxleft)
+		    maxleft = absl;
+		if (absr > maxright)
+		    maxright = absr;
 	    } else {
 #ifdef HOPEDMONO16
 		absl = iabs ((short) l);
