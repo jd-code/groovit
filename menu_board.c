@@ -373,12 +373,12 @@ void init_volumeandbalance (void)
 	int l;
 
 	if ((l = register_levels_as (0, " output ", &vlevel[0])) != 0)
-	{	fprintf (stderr, surprise);
+	{	fprintf (stderr, "%s", surprise);
 		l = register_levels (" output ", &vlevel[0]);
 	}
 	show_levels (0, l);
 	if ((l = register_levels_as (1, "  pan   ", &vpan[0])) != 1)
-	{	fprintf (stderr, surprise);
+	{	fprintf (stderr, "%s", surprise);
 		l = register_levels ("  pan   ", &vpan[0]);
 	}
 	show_levels (1, l);

@@ -91,8 +91,10 @@
 #     CTAGS = ccproc -t
       SHELL = /bin/sh
 
-.h.c:
-	ls $@ | grep $@ > /dev/null 2> /dev/null || co $@
+default: $(FINAL)
+
+# .h.c:
+# 	ls $@ | grep $@ > /dev/null 2> /dev/null || co $@
 
 .c.o:	
 	@echo
@@ -108,6 +110,10 @@ test: all
 	@echo -e "\033[44m-------------end of compilation-------------------------------------------------\033[m"
 	@echo
 	./$(FINAL) -fixedpos 40+40 test.grov && echo fini || ./$(FINAL) -fixedpos 40+40 test.grov -fakedsp
+
+vimtest: all
+	# xterm +lc +u8 -fn 10x20 -bg black -fg white -geometry 80x25+40+40 -e ./groovit -noX
+	./$(FINAL) -fixedpos 40+40 -jack 2>&1 | tr ':' '='
 
 $(FINAL): $(OBJ) additlib $(OBJBIS)
 	@echo

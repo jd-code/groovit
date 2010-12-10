@@ -442,7 +442,7 @@ short  *readsample_wav (char *nomfile, Sample *sample)
 		       buf[1] >= 32 ? buf[1] : '?',
 		       buf[2] >= 32 ? buf[2] : '?',
 		       buf[3] >= 32 ? buf[3] : '?',
-		       *(Sint32 *) buf,
+		       (long unsigned int) *(Sint32 *) buf,
 		       taille);
 	      skipped = 1;
 	  }
