@@ -54,14 +54,12 @@ AGTD_H_GLOBINST	/usr/local/include/grapefruit/tdstring.h	31;"	d
 AGTD_H_INC	/home/jd/bzoums/grapefruit/src/include/grapefruit/td.h	37;"	d
 AGTD_H_INC	/usr/local/include/grapefruit/td.h	37;"	d
 AIFFBUFSIZE	./readsample.c	69;"	d	file:
-ALARMHANDLER	./config.h	14;"	d
 ALERTERA	./groovit.h	91;"	d
 ALERTGPL	./groovit.h	87;"	d
 ALERTLANY	./groovit.h	89;"	d
 ALERTNONE	./groovit.h	86;"	d
 ALERTQUIT	./groovit.h	88;"	d
 ALERTSAVEQUIT	./groovit.h	90;"	d
-AMPTESTMASK	./config.h	44;"	d
 APattern	./resoanlog.h	/^APattern;$/;"	t	typeref:struct:STAPattern
 Aactionboard	./menu_board.c	/^int Aactionboard (int lastpressed)$/;"	f
 Aalert_era	./dialogs.c	/^int     Aalert_era (int c)$/;"	f
@@ -133,7 +131,7 @@ BlitTo	/usr/local/include/grapefruit/agrume.h	/^	    void BlitTo (SDL_Rect & rds
 BrightToAlpha	/home/jd/bzoums/grapefruit/src/graphutils.c	/^void BrightToAlpha (SDL_Surface *s)$/;"	f
 BrightToAlpha	/home/jd/bzoums/grapefruit/src/include/grapefruit/graphutils.h	/^void BrightToAlpha (SDL_Surface *s);$/;"	p	namespace:grapefruit
 BrightToAlpha	/usr/local/include/grapefruit/graphutils.h	/^void BrightToAlpha (SDL_Surface *s);$/;"	p	namespace:grapefruit
-Build	/usr/local/include/matcalc/matcalc.h	/^	typedef enum {ZERO, IDENT, ROT} Build;$/;"	t	class:Matrix4	typeref:enum:Matrix4::__anon13
+Build	/usr/local/include/matcalc/matcalc.h	/^	typedef enum {ZERO, IDENT, ROT} Build;$/;"	t	class:Matrix4	typeref:enum:Matrix4::__anon20
 Button	/home/jd/bzoums/grapefruit/src/grapefruit.cpp	/^Button::Button (int w, int h, const string & s, ButtonStyle & style, bool *Pvalue)$/;"	f	class:grapefruit::Button
 Button	/home/jd/bzoums/grapefruit/src/grapefruit.cpp	/^Button::Button (int w, int h, const string & s, ButtonStyle & style, bool value)$/;"	f	class:grapefruit::Button
 Button	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^	    Button (int w, int h, const string & s, ButtonStyle & style, bool value = false);$/;"	p	class:grapefruit::Button
@@ -148,8 +146,8 @@ ButtonStyle	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^   
 ButtonStyle	/usr/local/include/grapefruit/grapefruit.h	/^	    inline ButtonStyle () { button = NULL; }$/;"	f	class:grapefruit::ButtonStyle
 ButtonStyle	/usr/local/include/grapefruit/grapefruit.h	/^	    inline ButtonStyle (Button * b) { button = b; }$/;"	f	class:grapefruit::ButtonStyle
 ButtonStyle	/usr/local/include/grapefruit/grapefruit.h	/^    class ButtonStyle$/;"	c	namespace:grapefruit
-CALL_LIST_REL	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CALL_LIST_REL	= -204,	    \/\/!< calls another chars description, usefull for creating composed chars. the biggest of all offsets will be kept$/;"	e	enum:grapefruit::__anon14	file:
-CALL_LIST_REL	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CALL_LIST_REL	= -204,	    \/\/!< calls another chars description, usefull for creating composed chars. the biggest of all offsets will be kept$/;"	e	enum:grapefruit::__anon17	file:
+CALL_LIST_REL	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CALL_LIST_REL	= -204,	    \/\/!< calls another chars description, usefull for creating composed chars. the biggest of all offsets will be kept$/;"	e	enum:grapefruit::__anon21	file:
+CALL_LIST_REL	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CALL_LIST_REL	= -204,	    \/\/!< calls another chars description, usefull for creating composed chars. the biggest of all offsets will be kept$/;"	e	enum:grapefruit::__anon24	file:
 CAROUBE_H_INC	/usr/local/include/caroube/caroube.h	27;"	d
 CAROUBE_H_SCOPE	/usr/local/include/caroube/caroube.h	40;"	d
 CAROUBE_H_SCOPE	/usr/local/include/caroube/caroube.h	42;"	d
@@ -158,12 +156,12 @@ CAROUBE_H_SCOPE	/usr/local/include/caroube/caroube.h	53;"	d
 CAROUBE_H_SCOPE	/usr/local/include/caroube/caroube.h	55;"	d
 CAROUBE_H_SCOPE	/usr/local/include/caroube/caroube.h	62;"	d
 CAROUBE_H_SCOPE	/usr/local/include/caroube/caroube.h	64;"	d
-CHAR_REWIND	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_REWIND 	= -201,	    \/\/!< triggers the offsets to go back to the beginning of the line$/;"	e	enum:grapefruit::__anon14	file:
-CHAR_REWIND	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_REWIND 	= -201,	    \/\/!< triggers the offsets to go back to the beginning of the line$/;"	e	enum:grapefruit::__anon17	file:
-CHAR_STEP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_STEP   	= -200,	    \/\/!< the step of the char (where to put the next following char)$/;"	e	enum:grapefruit::__anon14	file:
-CHAR_STEP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_STEP   	= -200,	    \/\/!< the step of the char (where to put the next following char)$/;"	e	enum:grapefruit::__anon17	file:
-CHAR_WIDTH	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_WIDTH	= -203,	    \/\/!< DOES NOT work yet ! is supposed to give the char witdth when it is not equal to CHAR_STEP$/;"	e	enum:grapefruit::__anon14	file:
-CHAR_WIDTH	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_WIDTH	= -203,	    \/\/!< DOES NOT work yet ! is supposed to give the char witdth when it is not equal to CHAR_STEP$/;"	e	enum:grapefruit::__anon17	file:
+CHAR_REWIND	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_REWIND 	= -201,	    \/\/!< triggers the offsets to go back to the beginning of the line$/;"	e	enum:grapefruit::__anon21	file:
+CHAR_REWIND	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_REWIND 	= -201,	    \/\/!< triggers the offsets to go back to the beginning of the line$/;"	e	enum:grapefruit::__anon24	file:
+CHAR_STEP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_STEP   	= -200,	    \/\/!< the step of the char (where to put the next following char)$/;"	e	enum:grapefruit::__anon21	file:
+CHAR_STEP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_STEP   	= -200,	    \/\/!< the step of the char (where to put the next following char)$/;"	e	enum:grapefruit::__anon24	file:
+CHAR_WIDTH	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_WIDTH	= -203,	    \/\/!< DOES NOT work yet ! is supposed to give the char witdth when it is not equal to CHAR_STEP$/;"	e	enum:grapefruit::__anon21	file:
+CHAR_WIDTH	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_WIDTH	= -203,	    \/\/!< DOES NOT work yet ! is supposed to give the char witdth when it is not equal to CHAR_STEP$/;"	e	enum:grapefruit::__anon24	file:
 CHUNKAESD	./readsample.c	78;"	d	file:
 CHUNKAIFF	./readsample.c	71;"	d	file:
 CHUNKANNO	./readsample.c	75;"	d	file:
@@ -199,8 +197,6 @@ CHUNKwavdata	./readsample.c	89;"	d	file:
 CHUNKwavfact	./readsample.c	92;"	d	file:
 CHUNKwavplst	./readsample.c	94;"	d	file:
 CHUNKwavslnt	./readsample.c	91;"	d	file:
-CONFEDBY	./config.h	33;"	d
-CONSTDIRENT	./config.h	54;"	d
 CONTBGND	./controls.h	43;"	d
 CONTBLACK	./controls.h	70;"	d
 CONTBLUE	./controls.h	74;"	d
@@ -302,7 +298,6 @@ DIF_TIME	./gpm-xterm.c	260;"	d	file:
 DIF_TIME	./gpm-xterm.c	90;"	d	file:
 DPHIMULT	/usr/local/include/caroube/audio.h	85;"	d
 DPHISHIFT	/usr/local/include/caroube/audio.h	86;"	d
-DSP	./config.h	9;"	d
 DefaultOrthScene	/home/jd/bzoums/grapefruit/src/include/grapefruit/td.h	/^    GRAPEFRUIT_H_SCOPE Scene DefaultOrthScene;$/;"	v
 DefaultOrthScene	/usr/local/include/grapefruit/td.h	/^    GRAPEFRUIT_H_SCOPE Scene DefaultOrthScene;$/;"	v
 DefaultPixelFormat	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.h	/^    GRAPEFRUIT_H_SCOPE SDL_PixelFormat DefaultPixelFormat = initDefaultPixelFormat ();$/;"	v
@@ -310,12 +305,12 @@ DefaultPixelFormat	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.
 DefaultPixelFormat	/usr/local/include/grapefruit/grapecolor.h	/^    GRAPEFRUIT_H_SCOPE SDL_PixelFormat DefaultPixelFormat = initDefaultPixelFormat ();$/;"	v
 DefaultPixelFormat	/usr/local/include/grapefruit/grapecolor.h	/^    GRAPEFRUIT_H_SCOPE SDL_PixelFormat DefaultPixelFormat;$/;"	v
 DyFilter	./grdyfilter.h	/^DyFilter;$/;"	t	typeref:struct:STCtDyFilter
-END	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		END	    	= -101,	    \/\/!< end of some GL-Object$/;"	e	enum:grapefruit::__anon14	file:
-END	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		END	    	= -101,	    \/\/!< end of some GL-Object$/;"	e	enum:grapefruit::__anon17	file:
-ENDLIST	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^typedef enum {	ENDLIST		= -100,	    \/\/!< end of the description$/;"	e	enum:grapefruit::__anon14	file:
-ENDLIST	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^typedef enum {	ENDLIST		= -100,	    \/\/!< end of the description$/;"	e	enum:grapefruit::__anon17	file:
-ENVEL_LIN	/usr/local/include/caroube/audio.h	/^    typedef enum { ENVEL_LIN, ENVEL_LOG } EnvElType;	\/\/ vnature of an enveloppe segment$/;"	e	enum:caroube::__anon9
-ENVEL_LOG	/usr/local/include/caroube/audio.h	/^    typedef enum { ENVEL_LIN, ENVEL_LOG } EnvElType;	\/\/ vnature of an enveloppe segment$/;"	e	enum:caroube::__anon9
+END	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		END	    	= -101,	    \/\/!< end of some GL-Object$/;"	e	enum:grapefruit::__anon21	file:
+END	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		END	    	= -101,	    \/\/!< end of some GL-Object$/;"	e	enum:grapefruit::__anon24	file:
+ENDLIST	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^typedef enum {	ENDLIST		= -100,	    \/\/!< end of the description$/;"	e	enum:grapefruit::__anon21	file:
+ENDLIST	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^typedef enum {	ENDLIST		= -100,	    \/\/!< end of the description$/;"	e	enum:grapefruit::__anon24	file:
+ENVEL_LIN	/usr/local/include/caroube/audio.h	/^    typedef enum { ENVEL_LIN, ENVEL_LOG } EnvElType;	\/\/ vnature of an enveloppe segment$/;"	e	enum:caroube::__anon16
+ENVEL_LOG	/usr/local/include/caroube/audio.h	/^    typedef enum { ENVEL_LIN, ENVEL_LOG } EnvElType;	\/\/ vnature of an enveloppe segment$/;"	e	enum:caroube::__anon16
 EV_ANVO	./grevents.h	54;"	d
 EV_ANVO_DK	./grevents.h	58;"	d
 EV_ANVO_F1	./grevents.h	55;"	d
@@ -336,8 +331,9 @@ EV_RYVO_PI	./grevents.h	73;"	d
 EV_RYVO_PN	./grevents.h	74;"	d
 EV_RYVO_PT	./grevents.h	72;"	d
 EV_SIGNS	./grevents.h	51;"	d
-EnvEl	/usr/local/include/caroube/audio.h	/^    } EnvEl;$/;"	t	namespace:caroube	typeref:struct:caroube::__anon10
-EnvElType	/usr/local/include/caroube/audio.h	/^    typedef enum { ENVEL_LIN, ENVEL_LOG } EnvElType;	\/\/ vnature of an enveloppe segment$/;"	t	namespace:caroube	typeref:enum:caroube::__anon9
+EXTENDED_TIME_INFO	/usr/include/jack/transport.h	75;"	d
+EnvEl	/usr/local/include/caroube/audio.h	/^    } EnvEl;$/;"	t	namespace:caroube	typeref:struct:caroube::__anon17
+EnvElType	/usr/local/include/caroube/audio.h	/^    typedef enum { ENVEL_LIN, ENVEL_LOG } EnvElType;	\/\/ vnature of an enveloppe segment$/;"	t	namespace:caroube	typeref:enum:caroube::__anon16
 EnvGen	/usr/local/include/caroube/audio.h	/^	    inline EnvGen (const EnvGen & eg) {$/;"	f	class:caroube::EnvGen
 EnvGen	/usr/local/include/caroube/audio.h	/^	    inline EnvGen() : Envelope () {$/;"	f	class:caroube::EnvGen
 EnvGen	/usr/local/include/caroube/audio.h	/^	    inline EnvGen(Envelope & env) : Envelope (env) {$/;"	f	class:caroube::EnvGen
@@ -350,7 +346,7 @@ Event	./grevents.h	/^Event;$/;"	t	typeref:struct:STevent
 EventBuf	./grevents.h	/^EventBuf;$/;"	t	typeref:struct:STeventbuf
 EventCB	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^    class EventCB	\/\/ event callback$/;"	c	namespace:grapefruit
 EventCB	/usr/local/include/grapefruit/graperoute.h	/^    class EventCB	\/\/ event callback$/;"	c	namespace:grapefruit
-FAKEPOLLTIME	./groovit.c	164;"	d	file:
+FAKEPOLLTIME	./groovit.c	166;"	d	file:
 FFT_H	/usr/local/include/caroube/fft.h	12;"	d
 FLtmp	./groovit.h	/^        FLtmp,		       \/* construction de l'entree du filtre           *\/$/;"	v
 FS_CLOSED	./groovit.h	94;"	d
@@ -368,8 +364,6 @@ FTOK_MAXFILE	./tokenio.h	54;"	d
 FTOK_NOSPACE	./tokenio.h	57;"	d
 FTOK_READ	./tokenio.h	62;"	d
 FTOK_WRITE	./tokenio.h	63;"	d
-F__JS1	./config.h	18;"	d
-F__JS2	./config.h	19;"	d
 FloatToUnsigned	./conv_ieee_ext.c	44;"	d	file:
 GET	./gpm-xterm.c	87;"	d	file:
 GET_TIME	./gpm-xterm.c	259;"	d	file:
@@ -378,8 +372,8 @@ GLCOMP_H_HEADER	/home/jd/bzoums/grapefruit/src/include/grapefruit/glcomp.h	35;"	
 GLCOMP_H_HEADER	/usr/local/include/grapefruit/glcomp.h	35;"	d
 GLCOMP_H_INSTGLOB	/home/jd/bzoums/grapefruit/src/include/grapefruit/glcomp.h	30;"	d
 GLCOMP_H_INSTGLOB	/usr/local/include/grapefruit/glcomp.h	30;"	d
-GLMarks	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^	     } GLMarks;$/;"	t	namespace:grapefruit	typeref:enum:grapefruit::__anon14	file:
-GLMarks	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^	     } GLMarks;$/;"	t	namespace:grapefruit	typeref:enum:grapefruit::__anon17	file:
+GLMarks	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^	     } GLMarks;$/;"	t	namespace:grapefruit	typeref:enum:grapefruit::__anon21	file:
+GLMarks	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^	     } GLMarks;$/;"	t	namespace:grapefruit	typeref:enum:grapefruit::__anon24	file:
 GLOBALRCFILE	./settings.h	63;"	d
 GLReInit	/home/jd/bzoums/grapefruit/src/include/grapefruit/glreinit.h	/^    class GLReInit$/;"	c	namespace:grapefruit
 GLReInit	/usr/local/include/grapefruit/glreinit.h	/^    class GLReInit$/;"	c	namespace:grapefruit
@@ -475,10 +469,8 @@ GrapeRouteEvent	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/
 GrapeRouteEvent	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^    int GrapeRouteEvent (SDL_Event const & event);$/;"	p	namespace:grapefruit
 GrapeRouteEvent	/usr/local/include/grapefruit/graperoute.h	/^	friend int GrapeRouteEvent (SDL_Event const & event);$/;"	p	class:grapefruit::EventCB
 GrapeRouteEvent	/usr/local/include/grapefruit/graperoute.h	/^    int GrapeRouteEvent (SDL_Event const & event);$/;"	p	namespace:grapefruit
-HANDLE_JOY	./config.h	17;"	d
 HAUTFILESEL	./placement.h	82;"	d
 HAUTSTTG	./placement.h	88;"	d
-HAVENCURSES	./config.h	12;"	d
 HAVE_DLFCN_H	/home/jd/bzoums/grapefruit/src/config.h	8;"	d
 HAVE_INTTYPES_H	/home/jd/bzoums/grapefruit/src/config.h	11;"	d
 HAVE_MEMORY_H	/home/jd/bzoums/grapefruit/src/config.h	14;"	d
@@ -493,28 +485,25 @@ HIPjeuchar	/home/jd/bzoums/grapefruit/src/jeuchar.c	/^int HIPjeuchar[256][16] = 
 HIPjeucharA	/home/jd/bzoums/grapefruit/src/jeuchar.c	/^int HIPjeucharA[256][16] = {$/;"	v
 HIPjeucharA_PC	/home/jd/bzoums/grapefruit/src/jeuchar.c	/^int HIPjeucharA_PC[256][16] = {$/;"	v
 HIPjeuchar_OLDOLD	/home/jd/bzoums/grapefruit/src/jeuchar.c	/^int HIPjeuchar_OLDOLD [257][16] = {$/;"	v
-HOPEDRESO	./config.h	45;"	d
-HOPEDRESO16	./config.h	46;"	d
-HOPEDSPRATE	./config.h	41;"	d
 HUGE_VAL	./conv_ieee_ext.c	142;"	d	file:
 HUGE_VAL	./conv_ieee_ext.c	41;"	d	file:
-IDENT	/usr/local/include/matcalc/matcalc.h	/^	typedef enum {ZERO, IDENT, ROT} Build;$/;"	e	enum:Matrix4::__anon13
+IDENT	/usr/local/include/matcalc/matcalc.h	/^	typedef enum {ZERO, IDENT, ROT} Build;$/;"	e	enum:Matrix4::__anon20
 INALERTMAIN	./alert.c	51;"	d	file:
-INARRAY	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    INARRAY,$/;"	e	enum:grapefruit::TDMenu::__anon15
-INARRAY	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    INARRAY,$/;"	e	enum:grapefruit::TDMenu::__anon18
-INARRAY	/usr/local/include/grapefruit/menu.h	/^			    INARRAY,$/;"	e	enum:grapefruit::TDMenu::__anon11
-INCOLUMN	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    INCOLUMN,$/;"	e	enum:grapefruit::TDMenu::__anon15
-INCOLUMN	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    INCOLUMN,$/;"	e	enum:grapefruit::TDMenu::__anon18
-INCOLUMN	/usr/local/include/grapefruit/menu.h	/^			    INCOLUMN,$/;"	e	enum:grapefruit::TDMenu::__anon11
-INLINE	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    typedef enum {  INLINE,$/;"	e	enum:grapefruit::TDMenu::__anon15
-INLINE	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    typedef enum {  INLINE,$/;"	e	enum:grapefruit::TDMenu::__anon18
-INLINE	/usr/local/include/grapefruit/menu.h	/^	    typedef enum {  INLINE,$/;"	e	enum:grapefruit::TDMenu::__anon11
+INARRAY	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    INARRAY,$/;"	e	enum:grapefruit::TDMenu::__anon22
+INARRAY	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    INARRAY,$/;"	e	enum:grapefruit::TDMenu::__anon25
+INARRAY	/usr/local/include/grapefruit/menu.h	/^			    INARRAY,$/;"	e	enum:grapefruit::TDMenu::__anon18
+INCOLUMN	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    INCOLUMN,$/;"	e	enum:grapefruit::TDMenu::__anon22
+INCOLUMN	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    INCOLUMN,$/;"	e	enum:grapefruit::TDMenu::__anon25
+INCOLUMN	/usr/local/include/grapefruit/menu.h	/^			    INCOLUMN,$/;"	e	enum:grapefruit::TDMenu::__anon18
+INLINE	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    typedef enum {  INLINE,$/;"	e	enum:grapefruit::TDMenu::__anon22
+INLINE	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    typedef enum {  INLINE,$/;"	e	enum:grapefruit::TDMenu::__anon25
+INLINE	/usr/local/include/grapefruit/menu.h	/^	    typedef enum {  INLINE,$/;"	e	enum:grapefruit::TDMenu::__anon18
 INMAINGRAPATT	./granalogik.c	64;"	d	file:
 INMAINGRDELAY	./grdelay.c	64;"	d	file:
 INMAINGRDERIV	./grderiv.c	50;"	d	file:
 INMAINGRDYFILTER	./grdyfilter.c	72;"	d	file:
 INMAINGREVENT	./grevents.c	45;"	d	file:
-INMAINGROOVIT	./groovit.c	150;"	d	file:
+INMAINGROOVIT	./groovit.c	152;"	d	file:
 INMAINGRPATT	./grpattern.c	63;"	d	file:
 INMAINLEVELS	./grlevels.c	69;"	d	file:
 INMAINMENU	./menu_board.c	80;"	d	file:
@@ -528,6 +517,11 @@ ITEMPREF	./menu_board.h	90;"	d
 ITEMQUIT	./menu_board.h	94;"	d
 ITEMSAVE	./menu_board.h	88;"	d
 ITEMSRAW	./menu_board.h	92;"	d
+JACK_DEFAULT_AUDIO_TYPE	/usr/include/jack/types.h	202;"	d
+JACK_DEFAULT_MIDI_TYPE	/usr/include/jack/types.h	203;"	d
+JACK_LOAD_INIT_LIMIT	/usr/include/jack/types.h	49;"	d
+JACK_MAX_FRAMES	/usr/include/jack/types.h	36;"	d
+JACK_POSITION_MASK	/usr/include/jack/transport.h	74;"	d
 JDCONTROLSH	./controls.h	31;"	d
 JDFILESELECT	./fileselect.c	61;"	d	file:
 JDGPM_DRAWPOINTER	./gpm-xterm.h	140;"	d
@@ -553,7 +547,7 @@ JDGpm_Repeat	./gpm-xterm.c	/^int JDGpm_Repeat(int msec)$/;"	f
 JDGpm_Repeat	./gpm-xterm.h	/^extern int JDGpm_Repeat (int millisec);$/;"	p
 JDGpm_Wgetch	./gpm-xterm.c	/^int JDGpm_Wgetch(WINDOW *win)$/;"	f
 JDGpm_Wgetch	./gpm-xterm.h	/^extern int JDGpm_Wgetch ();$/;"	p
-JDMAXARGV	./groovit.c	153;"	d	file:
+JDMAXARGV	./groovit.c	155;"	d	file:
 JDRADIODECL	./radio.h	47;"	d
 JDgpm_convert_event	./gpm-xterm.c	/^static int JDgpm_convert_event(char *mdata, Gpm_Event *ePtr)$/;"	f	file:
 JDgpm_convert_event	./gpm-xterm.c	/^static int JDgpm_convert_event(char *mdata, Gpm_Event *ePtr);$/;"	p	file:
@@ -568,6 +562,60 @@ JDgpm_tried	./gpm-xterm.c	/^int JDgpm_flag=0, JDgpm_tried=0, JDgpm_fd=-1, JDgpm_
 JDgpm_visiblepointer	./gpm-xterm.c	/^int JDgpm_zerobased=0, JDgpm_visiblepointer=0, JDgpm_morekeys=0;$/;"	v
 JDgpm_zerobased	./gpm-xterm.c	/^int JDgpm_zerobased=0, JDgpm_visiblepointer=0, JDgpm_morekeys=0;$/;"	v
 JMeta	./controls.c	/^JMeta;$/;"	t	typeref:struct:tjmeta	file:
+JackAudioVideoRatio	/usr/include/jack/transport.h	/^	JackAudioVideoRatio =     0x80, \/**< audio frames per video frame *\/$/;"	e	enum:__anon12
+JackBBTFrameOffset	/usr/include/jack/transport.h	/^	JackBBTFrameOffset =      0x40,	\/**< Frame offset of BBT information *\/$/;"	e	enum:__anon12
+JackBufferSizeCallback	/usr/include/jack/types.h	/^typedef int  (*JackBufferSizeCallback)(jack_nframes_t nframes, void *arg);$/;"	t
+JackClientRegistrationCallback	/usr/include/jack/types.h	/^typedef void (*JackClientRegistrationCallback)(const char* name, int register, void *arg);$/;"	t
+JackFailure	/usr/include/jack/types.h	/^     JackFailure = 0x01,$/;"	e	enum:JackStatus
+JackFreewheelCallback	/usr/include/jack/types.h	/^typedef void (*JackFreewheelCallback)(int starting, void *arg);$/;"	t
+JackGraphOrderCallback	/usr/include/jack/types.h	/^typedef int  (*JackGraphOrderCallback)(void *arg);$/;"	t
+JackInitFailure	/usr/include/jack/types.h	/^     JackInitFailure = 0x100,$/;"	e	enum:JackStatus
+JackInvalidOption	/usr/include/jack/types.h	/^     JackInvalidOption = 0x02,$/;"	e	enum:JackStatus
+JackLoadFailure	/usr/include/jack/types.h	/^     JackLoadFailure = 0x80,$/;"	e	enum:JackStatus
+JackLoadInit	/usr/include/jack/types.h	/^     JackLoadInit = 0x10$/;"	e	enum:JackOptions
+JackLoadName	/usr/include/jack/types.h	/^     JackLoadName = 0x08,$/;"	e	enum:JackOptions
+JackLoadOptions	/usr/include/jack/types.h	316;"	d
+JackNameNotUnique	/usr/include/jack/types.h	/^     JackNameNotUnique = 0x04,$/;"	e	enum:JackStatus
+JackNoStartServer	/usr/include/jack/types.h	/^     JackNoStartServer = 0x01,$/;"	e	enum:JackOptions
+JackNoSuchClient	/usr/include/jack/types.h	/^     JackNoSuchClient = 0x40,$/;"	e	enum:JackStatus
+JackNullOption	/usr/include/jack/types.h	/^     JackNullOption = 0x00,$/;"	e	enum:JackOptions
+JackOpenOptions	/usr/include/jack/types.h	313;"	d
+JackOptions	/usr/include/jack/types.h	/^enum JackOptions {$/;"	g
+JackPortCanMonitor	/usr/include/jack/types.h	/^     JackPortCanMonitor = 0x8,$/;"	e	enum:JackPortFlags
+JackPortConnectCallback	/usr/include/jack/types.h	/^typedef void (*JackPortConnectCallback)(jack_port_id_t a, jack_port_id_t b, int connect, void* arg);$/;"	t
+JackPortFlags	/usr/include/jack/types.h	/^enum JackPortFlags {$/;"	g
+JackPortIsInput	/usr/include/jack/types.h	/^     JackPortIsInput = 0x1,$/;"	e	enum:JackPortFlags
+JackPortIsOutput	/usr/include/jack/types.h	/^     JackPortIsOutput = 0x2,$/;"	e	enum:JackPortFlags
+JackPortIsPhysical	/usr/include/jack/types.h	/^     JackPortIsPhysical = 0x4, $/;"	e	enum:JackPortFlags
+JackPortIsTerminal	/usr/include/jack/types.h	/^     JackPortIsTerminal = 0x10$/;"	e	enum:JackPortFlags
+JackPortRegistrationCallback	/usr/include/jack/types.h	/^typedef void (*JackPortRegistrationCallback)(jack_port_id_t port, int register, void *arg);$/;"	t
+JackPositionBBT	/usr/include/jack/transport.h	/^	JackPositionBBT =	  0x10,	\/**< Bar, Beat, Tick *\/$/;"	e	enum:__anon12
+JackPositionTimecode	/usr/include/jack/transport.h	/^	JackPositionTimecode =	  0x20,	\/**< External timecode *\/$/;"	e	enum:__anon12
+JackProcessCallback	/usr/include/jack/types.h	/^typedef int  (*JackProcessCallback)(jack_nframes_t nframes, void *arg);$/;"	t
+JackSampleRateCallback	/usr/include/jack/types.h	/^typedef int  (*JackSampleRateCallback)(jack_nframes_t nframes, void *arg);$/;"	t
+JackServerError	/usr/include/jack/types.h	/^     JackServerError = 0x20,$/;"	e	enum:JackStatus
+JackServerFailed	/usr/include/jack/types.h	/^     JackServerFailed = 0x10,$/;"	e	enum:JackStatus
+JackServerName	/usr/include/jack/types.h	/^     JackServerName = 0x04,$/;"	e	enum:JackOptions
+JackServerStarted	/usr/include/jack/types.h	/^     JackServerStarted = 0x08,$/;"	e	enum:JackStatus
+JackShmFailure	/usr/include/jack/types.h	/^     JackShmFailure = 0x200,$/;"	e	enum:JackStatus
+JackStatus	/usr/include/jack/types.h	/^enum JackStatus {$/;"	g
+JackSyncCallback	/usr/include/jack/transport.h	/^typedef int  (*JackSyncCallback)(jack_transport_state_t state,$/;"	t
+JackThreadCallback	/usr/include/jack/types.h	/^typedef void *(*JackThreadCallback)(void* arg);$/;"	t
+JackThreadInitCallback	/usr/include/jack/types.h	/^typedef void  (*JackThreadInitCallback)(void *arg);$/;"	t
+JackTimebaseCallback	/usr/include/jack/transport.h	/^typedef void (*JackTimebaseCallback)(jack_transport_state_t state,$/;"	t
+JackTransportBBT	/usr/include/jack/transport.h	/^	JackTransportBBT =      0x10	\/**< Bar, Beat, Tick *\/$/;"	e	enum:__anon14
+JackTransportLoop	/usr/include/jack/transport.h	/^	JackTransportLoop =     0x4,	\/**< Loop boundaries (ignored) *\/$/;"	e	enum:__anon14
+JackTransportLooping	/usr/include/jack/transport.h	/^	JackTransportLooping = 2,	\/**< For OLD_TRANSPORT, now ignored *\/$/;"	e	enum:__anon11
+JackTransportPosition	/usr/include/jack/transport.h	/^	JackTransportPosition = 0x2,	\/**< Frame number *\/$/;"	e	enum:__anon14
+JackTransportRolling	/usr/include/jack/transport.h	/^	JackTransportRolling = 1,	\/**< Transport playing *\/$/;"	e	enum:__anon11
+JackTransportSMPTE	/usr/include/jack/transport.h	/^	JackTransportSMPTE =    0x8,	\/**< SMPTE (ignored) *\/$/;"	e	enum:__anon14
+JackTransportStarting	/usr/include/jack/transport.h	/^	JackTransportStarting = 3	\/**< Waiting for sync ready *\/$/;"	e	enum:__anon11
+JackTransportState	/usr/include/jack/transport.h	/^	JackTransportState =    0x1,	\/**< Transport state *\/$/;"	e	enum:__anon14
+JackTransportStopped	/usr/include/jack/transport.h	/^	JackTransportStopped = 0,	\/**< Transport halted *\/$/;"	e	enum:__anon11
+JackUseExactName	/usr/include/jack/types.h	/^     JackUseExactName = 0x02,$/;"	e	enum:JackOptions
+JackVersionError	/usr/include/jack/types.h	/^     JackVersionError = 0x400$/;"	e	enum:JackStatus
+JackVideoFrameOffset	/usr/include/jack/transport.h	/^	JackVideoFrameOffset =   0x100  \/**< frame offset of first video frame *\/$/;"	e	enum:__anon12
+JackXRunCallback	/usr/include/jack/types.h	/^typedef int  (*JackXRunCallback)(void *arg);$/;"	t
 LARGDIRNAME	./placement.h	83;"	d
 LARGFILESEL	./placement.h	81;"	d
 LARGSTTG	./placement.h	87;"	d
@@ -581,16 +629,16 @@ LINEFILTER	./placement.h	76;"	d
 LINELEGEND	./placement.h	72;"	d
 LINEMENU	./placement.h	73;"	d
 LINERYTHM	./placement.h	74;"	d
-LINES	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINES	    	= -104,	    \/\/!< some GL lines, is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon14	file:
-LINES	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINES	    	= -104,	    \/\/!< some GL lines, is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon17	file:
+LINES	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINES	    	= -104,	    \/\/!< some GL lines, is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon21	file:
+LINES	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINES	    	= -104,	    \/\/!< some GL lines, is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon24	file:
 LINESTTG	./placement.h	86;"	d
-LINE_FEED	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_FEED   	= -202,	    \/\/!< triggers the offseast to go one line down$/;"	e	enum:grapefruit::__anon14	file:
-LINE_FEED	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_FEED   	= -202,	    \/\/!< triggers the offseast to go one line down$/;"	e	enum:grapefruit::__anon17	file:
-LINE_LOOP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_LOOP   	= -103,	    \/\/!< starts a LINE_LOOP GL-object (closed), is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon14	file:
-LINE_LOOP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_LOOP   	= -103,	    \/\/!< starts a LINE_LOOP GL-object (closed), is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon17	file:
-LINE_STRIP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_STRIP  	= -102,	    \/\/!< starts a LINE_STRIP GL-object (open), is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon14	file:
-LINE_STRIP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_STRIP  	= -102,	    \/\/!< starts a LINE_STRIP GL-object (open), is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon17	file:
-LONGPOLLTIME	./groovit.c	165;"	d	file:
+LINE_FEED	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_FEED   	= -202,	    \/\/!< triggers the offseast to go one line down$/;"	e	enum:grapefruit::__anon21	file:
+LINE_FEED	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_FEED   	= -202,	    \/\/!< triggers the offseast to go one line down$/;"	e	enum:grapefruit::__anon24	file:
+LINE_LOOP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_LOOP   	= -103,	    \/\/!< starts a LINE_LOOP GL-object (closed), is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon21	file:
+LINE_LOOP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_LOOP   	= -103,	    \/\/!< starts a LINE_LOOP GL-object (closed), is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon24	file:
+LINE_STRIP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_STRIP  	= -102,	    \/\/!< starts a LINE_STRIP GL-object (open), is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon21	file:
+LINE_STRIP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_STRIP  	= -102,	    \/\/!< starts a LINE_STRIP GL-object (open), is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon24	file:
+LONGPOLLTIME	./groovit.c	167;"	d	file:
 LOOSEMOUSEBUTTONFOCUS	/home/jd/bzoums/grapefruit/src/grapefruit.cpp	/^int PushButton::LOOSEMOUSEBUTTONFOCUS (SDL_Event const & event)$/;"	f	class:grapefruit::PushButton
 LOOSEMOUSEBUTTONFOCUS	/home/jd/bzoums/grapefruit/src/grapefruit.cpp	/^int SwitchButton::LOOSEMOUSEBUTTONFOCUS (SDL_Event const & event)$/;"	f	class:grapefruit::SwitchButton
 LOOSEMOUSEBUTTONFOCUS	/home/jd/bzoums/grapefruit/src/graperoute.cpp	/^int MGrabber::LOOSEMOUSEBUTTONFOCUS (SDL_Event const & event)    \/\/ maybe RotButton should inherit this part ???$/;"	f	class:grapefruit::MGrabber
@@ -616,39 +664,26 @@ Lpoint	/home/jd/bzoums/grapefruit/src/include/grapefruit/graphprim.h	/^    class
 Lpoint	/usr/local/include/grapefruit/graphprim.h	/^    class Lpoint : public list<point>$/;"	c	namespace:grapefruit
 MAINCONTR	./controls.c	105;"	d	file:
 MATCALC_H_INC	/usr/local/include/matcalc/matcalc.h	7;"	d
-MAXANALOG	./config.h	22;"	d
 MAXBACKSTR	./controls.h	109;"	d
 MAXBPM	./constants.h	59;"	d
 MAXCONTEXTS	./controls.h	33;"	d
-MAXDIRSIZE	./config.h	39;"	d
 MAXDIRSIZE	./fileselect.h	48;"	d
 MAXDIRSIZE	./grov_io.c	95;"	d	file:
-MAXDISPLAYROW	./config.h	30;"	d
-MAXDISPLEVELS	./config.h	27;"	d
 MAXDISPLEVELS	./grlevels.h	60;"	d
-MAXDYFILT	./config.h	23;"	d
-MAXERRTOLERATE	./groovit.c	160;"	d	file:
+MAXERRTOLERATE	./groovit.c	162;"	d	file:
 MAXHEADROOM	./controls.c	285;"	d	file:
 MAXKEYHANDLER	./controls.h	107;"	d
-MAXLEVELS	./config.h	26;"	d
 MAXLEVELS	./grlevels.h	65;"	d
 MAXMENUITEM	./menu_board.h	71;"	d
 MAXMENULARG	./menu_board.h	72;"	d
 MAXMETAMEMBER	./controls.h	38;"	d
-MAXMODULES	./config.h	25;"	d
 MAXNBCONTROLS	./controls.h	36;"	d
 MAXNBFONT	./settings.c	92;"	d	file:
 MAXNBPREVCHAR	./gpm-xterm.c	62;"	d	file:
-MAXPATTERN	./config.h	29;"	d
-MAXPATTERNROW	./config.h	31;"	d
-MAXPLAYAHEAD	./config.h	34;"	d
 MAXREADLINE	./settings.h	60;"	d
-MAXREV	./config.h	38;"	d
 MAXREVERB	./grdelay.h	65;"	d
-MAXSAMPLE	./config.h	21;"	d
 MAXSCREENHEIGHT	./controls.h	35;"	d
 MAXSCREENWIDTH	./controls.h	34;"	d
-MAXVOICES	./config.h	24;"	d
 MENUMAIN	./menu_board.h	70;"	d
 MENU_MAIN	./menu_board.h	78;"	d
 MGrabber	/home/jd/bzoums/grapefruit/src/graperoute.cpp	/^MGrabber::MGrabber (void)$/;"	f	class:grapefruit::MGrabber
@@ -656,12 +691,10 @@ MGrabber	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^	    M
 MGrabber	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^    class MGrabber : public virtual EventCB$/;"	c	namespace:grapefruit
 MGrabber	/usr/local/include/grapefruit/graperoute.h	/^	    MGrabber (void);$/;"	p	class:grapefruit::MGrabber
 MGrabber	/usr/local/include/grapefruit/graperoute.h	/^    class MGrabber : public virtual EventCB$/;"	c	namespace:grapefruit
-MINBPM	./config.h	37;"	d
-MINIPOLLTIME	./groovit.c	169;"	d	file:
-MINIPOLLTIME	./groovit.c	173;"	d	file:
+MINIPOLLTIME	./groovit.c	171;"	d	file:
+MINIPOLLTIME	./groovit.c	175;"	d	file:
 MINLEVRESERVED	./grlevels.h	68;"	d
 MINREV	./grdelay.h	64;"	d
-MIXER	./config.h	10;"	d
 MOUSEBUTTONDOWN	/home/jd/bzoums/grapefruit/src/grapefruit.cpp	/^int PushButton::MOUSEBUTTONDOWN (SDL_Event const & event)$/;"	f	class:grapefruit::PushButton
 MOUSEBUTTONDOWN	/home/jd/bzoums/grapefruit/src/grapefruit.cpp	/^int SwitchButton::MOUSEBUTTONDOWN (SDL_Event const & event)$/;"	f	class:grapefruit::SwitchButton
 MOUSEBUTTONDOWN	/home/jd/bzoums/grapefruit/src/graperoute.cpp	/^int MGrabber::MOUSEBUTTONDOWN (SDL_Event const & event)$/;"	f	class:grapefruit::MGrabber
@@ -749,25 +782,25 @@ Matrix4	/usr/local/include/matcalc/matcalc.h	/^	inline Matrix4 (Build b)$/;"	f	c
 Matrix4	/usr/local/include/matcalc/matcalc.h	/^	inline Matrix4 (Vector3 const & v, GLfloat vang)$/;"	f	class:Matrix4
 Matrix4	/usr/local/include/matcalc/matcalc.h	/^	inline Matrix4 (void)$/;"	f	class:Matrix4
 Matrix4	/usr/local/include/matcalc/matcalc.h	/^class Matrix4$/;"	c
-Matrix4::Build	/usr/local/include/matcalc/matcalc.h	/^	typedef enum {ZERO, IDENT, ROT} Build;$/;"	t	class:Matrix4	typeref:enum:Matrix4::__anon13
-Matrix4::IDENT	/usr/local/include/matcalc/matcalc.h	/^	typedef enum {ZERO, IDENT, ROT} Build;$/;"	e	enum:Matrix4::__anon13
+Matrix4::Build	/usr/local/include/matcalc/matcalc.h	/^	typedef enum {ZERO, IDENT, ROT} Build;$/;"	t	class:Matrix4	typeref:enum:Matrix4::__anon20
+Matrix4::IDENT	/usr/local/include/matcalc/matcalc.h	/^	typedef enum {ZERO, IDENT, ROT} Build;$/;"	e	enum:Matrix4::__anon20
 Matrix4::Matrix4	/usr/local/include/matcalc/matcalc.h	/^	inline Matrix4 (Build b)$/;"	f	class:Matrix4
 Matrix4::Matrix4	/usr/local/include/matcalc/matcalc.h	/^	inline Matrix4 (Vector3 const & v, GLfloat vang)$/;"	f	class:Matrix4
 Matrix4::Matrix4	/usr/local/include/matcalc/matcalc.h	/^	inline Matrix4 (void)$/;"	f	class:Matrix4
-Matrix4::ROT	/usr/local/include/matcalc/matcalc.h	/^	typedef enum {ZERO, IDENT, ROT} Build;$/;"	e	enum:Matrix4::__anon13
-Matrix4::ZERO	/usr/local/include/matcalc/matcalc.h	/^	typedef enum {ZERO, IDENT, ROT} Build;$/;"	e	enum:Matrix4::__anon13
+Matrix4::ROT	/usr/local/include/matcalc/matcalc.h	/^	typedef enum {ZERO, IDENT, ROT} Build;$/;"	e	enum:Matrix4::__anon20
+Matrix4::ZERO	/usr/local/include/matcalc/matcalc.h	/^	typedef enum {ZERO, IDENT, ROT} Build;$/;"	e	enum:Matrix4::__anon20
 Matrix4::det	/usr/local/include/matcalc/matcalc.h	/^	inline GLfloat det (void) const$/;"	f	class:Matrix4
 Matrix4::m	/usr/local/include/matcalc/matcalc.h	/^	GLfloat m[4][4] ;$/;"	m	class:Matrix4
 Matrix4::operator *	/usr/local/include/matcalc/matcalc.h	/^	inline Matrix4 operator * (Matrix4 const & b) const$/;"	f	class:Matrix4
 Matrix4::reorth	/usr/local/include/matcalc/matcalc.h	/^	inline void reorth (void)$/;"	f	class:Matrix4
 Matrix4::setident	/usr/local/include/matcalc/matcalc.h	/^	inline void setident (void)$/;"	f	class:Matrix4
 Matrix4::setnull	/usr/local/include/matcalc/matcalc.h	/^	inline void setnull (void)$/;"	f	class:Matrix4
-MenuStayType	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    } MenuStayType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon16
-MenuStayType	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    } MenuStayType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon19
-MenuStayType	/usr/local/include/grapefruit/menu.h	/^	    } MenuStayType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon12
-MenuViewType	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    } MenuViewType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon15
-MenuViewType	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    } MenuViewType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon18
-MenuViewType	/usr/local/include/grapefruit/menu.h	/^	    } MenuViewType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon11
+MenuStayType	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    } MenuStayType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon23
+MenuStayType	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    } MenuStayType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon26
+MenuStayType	/usr/local/include/grapefruit/menu.h	/^	    } MenuStayType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon19
+MenuViewType	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    } MenuViewType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon22
+MenuViewType	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    } MenuViewType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon25
+MenuViewType	/usr/local/include/grapefruit/menu.h	/^	    } MenuViewType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon18
 Mixeur	./grmixeur.h	/^Mixeur;$/;"	t	typeref:struct:STMixeur
 MultAlpha	/home/jd/bzoums/grapefruit/src/graphutils.c	/^void MultAlpha (SDL_Surface *s, Uint32 m)$/;"	f
 MultAlpha	/home/jd/bzoums/grapefruit/src/include/grapefruit/graphutils.h	/^void MultAlpha (SDL_Surface *s, Uint32 m);$/;"	p	namespace:grapefruit
@@ -786,17 +819,15 @@ NBBUTSTR	./controls.h	59;"	d
 NBDIRSTOSHOW	./fileselect.h	47;"	d
 NBDPHI	/usr/local/include/caroube/audio.h	84;"	d
 NBMAXALERT	./alert.h	46;"	d
-NBMIXMAX	./config.h	28;"	d
 NBMIXMAX	./grmixeur.h	56;"	d
-NEVERINTER	./config.h	36;"	d
 Note	./goodies/orig-tb.c	/^char Note[16]=$/;"	v
 NoteLength	./goodies/orig-tb.c	/^char NoteLength[16]=$/;"	v
-ONECLICK	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    ONECLICK,   	\/\/!< disappears after click$/;"	e	enum:grapefruit::TDMenu::__anon16
-ONECLICK	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    ONECLICK,   	\/\/!< disappears after click$/;"	e	enum:grapefruit::TDMenu::__anon19
-ONECLICK	/usr/local/include/grapefruit/menu.h	/^			    ONECLICK,   	\/\/!< disappears after click$/;"	e	enum:grapefruit::TDMenu::__anon12
-ONESHOT	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    ONESHOT		\/\/!< disappears and is deleted after click$/;"	e	enum:grapefruit::TDMenu::__anon16
-ONESHOT	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    ONESHOT		\/\/!< disappears and is deleted after click$/;"	e	enum:grapefruit::TDMenu::__anon19
-ONESHOT	/usr/local/include/grapefruit/menu.h	/^			    ONESHOT		\/\/!< disappears and is deleted after click$/;"	e	enum:grapefruit::TDMenu::__anon12
+ONECLICK	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    ONECLICK,   	\/\/!< disappears after click$/;"	e	enum:grapefruit::TDMenu::__anon23
+ONECLICK	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    ONECLICK,   	\/\/!< disappears after click$/;"	e	enum:grapefruit::TDMenu::__anon26
+ONECLICK	/usr/local/include/grapefruit/menu.h	/^			    ONECLICK,   	\/\/!< disappears after click$/;"	e	enum:grapefruit::TDMenu::__anon19
+ONESHOT	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    ONESHOT		\/\/!< disappears and is deleted after click$/;"	e	enum:grapefruit::TDMenu::__anon23
+ONESHOT	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    ONESHOT		\/\/!< disappears and is deleted after click$/;"	e	enum:grapefruit::TDMenu::__anon26
+ONESHOT	/usr/local/include/grapefruit/menu.h	/^			    ONESHOT		\/\/!< disappears and is deleted after click$/;"	e	enum:grapefruit::TDMenu::__anon19
 OnePressButton	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^	    OnePressButton (int w, int h, const string & s, ButtonStyle & style, bool value = false)$/;"	f	class:grapefruit::OnePressButton
 OnePressButton	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^	    OnePressButton (int w, int h, const string & s, ButtonStyle & style, bool* Pvalue)$/;"	f	class:grapefruit::OnePressButton
 OnePressButton	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^    class OnePressButton : public SwitchButton$/;"	c	namespace:grapefruit
@@ -817,8 +848,9 @@ PEventCB	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^    ty
 PEventCB	/usr/local/include/grapefruit/graperoute.h	/^    typedef EventCB * PEventCB;$/;"	t	namespace:grapefruit
 PEventHandler	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^    typedef bool (*PEventHandler) (SDL_Event const & event);$/;"	t	namespace:grapefruit
 PEventHandler	/usr/local/include/grapefruit/graperoute.h	/^    typedef bool (*PEventHandler) (SDL_Event const & event);$/;"	t	namespace:grapefruit
-POINTS	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		POINTS	    	= -105,	    \/\/!< some GL points, is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon14	file:
-POINTS	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		POINTS	    	= -105,	    \/\/!< some GL points, is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon17	file:
+POINTS	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		POINTS	    	= -105,	    \/\/!< some GL points, is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon21	file:
+POINTS	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		POINTS	    	= -105,	    \/\/!< some GL points, is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon24	file:
+POST_PACKED_STRUCTURE	/usr/include/jack/transport.h	39;"	d
 PSDL_Surface	/home/jd/bzoums/grapefruit/src/grapefruit.cpp	/^typedef SDL_Surface * PSDL_Surface;$/;"	t	namespace:grapefruit	file:
 Patbut	./grsequence.h	/^Patbut;$/;"	t	typeref:struct:STPatbut
 Pattern	./grpattern.h	/^Pattern;$/;"	t	typeref:struct:STPattern
@@ -849,7 +881,6 @@ RCFILENAME	./settings.h	67;"	d
 READSAMPLE_H_INC	/usr/local/include/caroube/readsample.h	38;"	d
 RELEASE	./gpm-xterm.c	59;"	d	file:
 RESOANLOGH	./resoanlog.h	49;"	d
-RESOFREQCUT	./config.h	43;"	d
 RGBAColor	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.h	/^	    RGBAColor (RGBColor const & c, Uint8 a=255U)$/;"	f	class:grapefruit::RGBAColor
 RGBAColor	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.h	/^	    RGBAColor (Uint32 c = 0)	\/\/!< this one is machine-independent (not related to SDL_BYTEORDER)$/;"	f	class:grapefruit::RGBAColor
 RGBAColor	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.h	/^	    RGBAColor (Uint8 r, Uint8 g, Uint8 b, Uint8 a=255U)$/;"	f	class:grapefruit::RGBAColor
@@ -894,7 +925,7 @@ RGB_WHITE	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.h	110;"	d
 RGB_WHITE	/usr/local/include/grapefruit/grapecolor.h	110;"	d
 RGB_YELLOW	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.h	114;"	d
 RGB_YELLOW	/usr/local/include/grapefruit/grapecolor.h	114;"	d
-ROT	/usr/local/include/matcalc/matcalc.h	/^	typedef enum {ZERO, IDENT, ROT} Build;$/;"	e	enum:Matrix4::__anon13
+ROT	/usr/local/include/matcalc/matcalc.h	/^	typedef enum {ZERO, IDENT, ROT} Build;$/;"	e	enum:Matrix4::__anon20
 ROWDECAY	./placement.h	69;"	d
 ROWFILESEL	./placement.h	79;"	d
 ROWFREQ1	./placement.h	66;"	d
@@ -933,7 +964,6 @@ RotButton	/usr/local/include/grapefruit/grapefruit.h	/^	    RotButton (int* Pval
 RotButton	/usr/local/include/grapefruit/grapefruit.h	/^    class RotButton : public virtual MGrabber$/;"	c	namespace:grapefruit
 S	/home/jd/bzoums/grapefruit/src/include/grapefruit/agrume.h	/^	    SDL_Surface *S;$/;"	m	class:grapefruit::Agrume
 S	/usr/local/include/grapefruit/agrume.h	/^	    SDL_Surface *S;$/;"	m	class:grapefruit::Agrume
-SAMPLEPATH	./config.h	11;"	d
 SAMPLESONGE_H_INC	/usr/local/include/caroube/samplesonge.h	31;"	d
 SDLF_putpixel	/home/jd/bzoums/grapefruit/src/graphutils.c	/^void SDLF_putpixel (SDL_Surface *surface, int x, int y, Uint32 pixel)	    \/\/ JDJDJDJD le test vis à vis du clipping est manquant$/;"	f
 SDLF_putpixel	/home/jd/bzoums/grapefruit/src/include/grapefruit/graphutils.h	/^void SDLF_putpixel (SDL_Surface *surface, int x, int y, Uint32 pixel);$/;"	p	namespace:grapefruit
@@ -971,7 +1001,6 @@ SHOW_CONVEX_ENVELOPP	/usr/local/include/grapefruit/menu.h	39;"	d
 SIMPLE_MEMPROFILE	./controls.c	70;"	d	file:
 SINT16_MAX	/usr/local/include/caroube/audio.h	54;"	d
 SINT16_MIN	/usr/local/include/caroube/audio.h	58;"	d
-SLICEDOUT	./config.h	35;"	d
 SMOOTHFONT	/home/jd/bzoums/grapefruit/src/tdstring.cpp	37;"	d	file:
 STAPattern	./resoanlog.h	/^typedef struct STAPattern      \/* pattern analogique           *\/$/;"	s
 STAPattern::freqbase	./resoanlog.h	/^            freqbase[MAXPATTERNROW];	\/* datas                        *\/$/;"	m	struct:STAPattern
@@ -1015,10 +1044,10 @@ STCtDyFilter::genfreq2	./grdyfilter.h	/^            genfreq2,		\/* ioncrementeur
 STCtDyFilter::patbut	./grdyfilter.h	/^    Patbut  patbut;		\/* de quoi gerer le no de pattern               *\/$/;"	m	struct:STCtDyFilter
 STCtDyFilter::reso	./grdyfilter.h	/^    AnReso  reso;		\/* le resonateur analogique de la voie          *\/$/;"	m	struct:STCtDyFilter
 STDC_HEADERS	/home/jd/bzoums/grapefruit/src/config.h	56;"	d
-STDPOLLTIME	./groovit.c	163;"	d	file:
-STICKY	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    typedef enum {  STICKY,		\/\/!< stays on the screen$/;"	e	enum:grapefruit::TDMenu::__anon16
-STICKY	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    typedef enum {  STICKY,		\/\/!< stays on the screen$/;"	e	enum:grapefruit::TDMenu::__anon19
-STICKY	/usr/local/include/grapefruit/menu.h	/^	    typedef enum {  STICKY,		\/\/!< stays on the screen$/;"	e	enum:grapefruit::TDMenu::__anon12
+STDPOLLTIME	./groovit.c	165;"	d	file:
+STICKY	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    typedef enum {  STICKY,		\/\/!< stays on the screen$/;"	e	enum:grapefruit::TDMenu::__anon23
+STICKY	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    typedef enum {  STICKY,		\/\/!< stays on the screen$/;"	e	enum:grapefruit::TDMenu::__anon26
+STICKY	/usr/local/include/grapefruit/menu.h	/^	    typedef enum {  STICKY,		\/\/!< stays on the screen$/;"	e	enum:grapefruit::TDMenu::__anon19
 STLevels	./grlevels.h	/^typedef struct STLevels	       \/* la structure d'un levels arbitraire  *\/$/;"	s
 STLevels::data	./grlevels.h	/^    int    *data;	       \/* un ptr sur le tableau de valeurs     *\/$/;"	m	struct:STLevels
 STLevels::nom	./grlevels.h	/^    char   *nom;	       \/* son nom (JDJDJD a voir....)          *\/$/;"	m	struct:STLevels
@@ -1190,6 +1219,7 @@ TDrender	/usr/local/include/grapefruit/td.h	/^    void TDrender (void);$/;"	p	na
 TDrenderclickablezone	/home/jd/bzoums/grapefruit/src/include/grapefruit/td.h	/^    EventCB * TDrenderclickablezone (int xe, int ye);$/;"	p	namespace:grapefruit
 TDrenderclickablezone	/home/jd/bzoums/grapefruit/src/td.cpp	/^EventCB * TDrenderclickablezone (int xe, int ye)$/;"	f	namespace:grapefruit
 TDrenderclickablezone	/usr/local/include/grapefruit/td.h	/^    EventCB * TDrenderclickablezone (int xe, int ye);$/;"	p	namespace:grapefruit
+THREAD_STACK	/usr/include/jack/thread.h	31;"	d
 TRANSP_DEF	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.h	176;"	d
 TRANSP_DEF	/usr/local/include/grapefruit/grapecolor.h	176;"	d
 TRANSP_DEFB	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.h	175;"	d
@@ -1215,12 +1245,8 @@ TranspFunc	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.h	/^    
 TranspFunc	/usr/local/include/grapefruit/grapecolor.h	/^	    TranspFunc (Uint32 combined = TRANSP_DEF)$/;"	f	class:grapefruit::TranspFunc
 TranspFunc	/usr/local/include/grapefruit/grapecolor.h	/^	    TranspFunc (int transpS, int transpD)$/;"	f	class:grapefruit::TranspFunc
 TranspFunc	/usr/local/include/grapefruit/grapecolor.h	/^    class TranspFunc$/;"	c	namespace:grapefruit
-UNAMED	./config.h	32;"	d
 UNJBPM	./constants.h	57;"	d
 UN_JHZ	./constants.h	56;"	d
-USEERRNOH	./config.h	16;"	d
-USELOCKMEM	./config.h	20;"	d
-USETERMIOS	./config.h	55;"	d
 UnsignedToFloat	./conv_ieee_ext.c	145;"	d	file:
 VERSION	/home/jd/bzoums/grapefruit/src/config.h	59;"	d
 VONCBYTE_ORDER	/usr/local/include/caroube/voncendian.h	39;"	d
@@ -1280,17 +1306,69 @@ ViewOrtho	/home/jd/bzoums/grapefruit/src/include/grapefruit/td.h	/^	    ViewOrth
 ViewOrtho	/home/jd/bzoums/grapefruit/src/include/grapefruit/td.h	/^    class ViewOrtho : public View$/;"	c	namespace:grapefruit
 ViewOrtho	/usr/local/include/grapefruit/td.h	/^	    ViewOrtho (Scene & s = cur_scene) : View (s)$/;"	f	class:grapefruit::ViewOrtho
 ViewOrtho	/usr/local/include/grapefruit/td.h	/^    class ViewOrtho : public View$/;"	c	namespace:grapefruit
-XTERMCMD	./config.h	47;"	d
 XTERM_MOUSE_OFF	./goodies/rampe.c	6;"	d	file:
 XTERM_MOUSE_OFF	./goodies/testchar.c	6;"	d	file:
 XTERM_MOUSE_ON	./goodies/rampe.c	5;"	d	file:
 XTERM_MOUSE_ON	./goodies/testchar.c	5;"	d	file:
-ZERO	/usr/local/include/matcalc/matcalc.h	/^	typedef enum {ZERO, IDENT, ROT} Build;$/;"	e	enum:Matrix4::__anon13
-ZEROINGINPUT	./config.h	15;"	d
+ZERO	/usr/local/include/matcalc/matcalc.h	/^	typedef enum {ZERO, IDENT, ROT} Build;$/;"	e	enum:Matrix4::__anon20
 ZoneMap	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^    typedef map<long, PEventCB> ZoneMap;$/;"	t	namespace:grapefruit
 ZoneMap	/usr/local/include/grapefruit/graperoute.h	/^    typedef map<long, PEventCB> ZoneMap;$/;"	t	namespace:grapefruit
 _GPM_XTERM_H_	./gpm-xterm.h	31;"	d
+_RINGBUFFER_H	/usr/include/jack/ringbuffer.h	22;"	d
+__JACK_MIDIPORT_H	/usr/include/jack/midiport.h	22;"	d
+__anon10::buf	/usr/include/jack/ringbuffer.h	/^  char		 *buf;$/;"	m	struct:__anon10
+__anon10::mlocked	/usr/include/jack/ringbuffer.h	/^  int		  mlocked;$/;"	m	struct:__anon10
+__anon10::read_ptr	/usr/include/jack/ringbuffer.h	/^  volatile size_t read_ptr;$/;"	m	struct:__anon10
+__anon10::size	/usr/include/jack/ringbuffer.h	/^  size_t	  size;$/;"	m	struct:__anon10
+__anon10::size_mask	/usr/include/jack/ringbuffer.h	/^  size_t	  size_mask;$/;"	m	struct:__anon10
+__anon10::write_ptr	/usr/include/jack/ringbuffer.h	/^  volatile size_t write_ptr;$/;"	m	struct:__anon10
+__anon13::audio_frames_per_video_frame	/usr/include/jack/transport.h	/^    float               audio_frames_per_video_frame; \/**< number of audio frames$/;"	m	struct:__anon13
+__anon13::bar	/usr/include/jack/transport.h	/^    int32_t		bar;		\/**< current bar *\/$/;"	m	struct:__anon13
+__anon13::bar_start_tick	/usr/include/jack/transport.h	/^    double		bar_start_tick;            $/;"	m	struct:__anon13
+__anon13::bbt_offset	/usr/include/jack/transport.h	/^    jack_nframes_t	bbt_offset;	\/**< frame offset for the BBT fields$/;"	m	struct:__anon13
+__anon13::beat	/usr/include/jack/transport.h	/^    int32_t		beat;		\/**< current beat-within-bar *\/$/;"	m	struct:__anon13
+__anon13::beat_type	/usr/include/jack/transport.h	/^    float		beat_type;	\/**< time signature "denominator" *\/$/;"	m	struct:__anon13
+__anon13::beats_per_bar	/usr/include/jack/transport.h	/^    float		beats_per_bar;	\/**< time signature "numerator" *\/$/;"	m	struct:__anon13
+__anon13::beats_per_minute	/usr/include/jack/transport.h	/^    double		beats_per_minute;$/;"	m	struct:__anon13
+__anon13::frame	/usr/include/jack/transport.h	/^    jack_nframes_t	frame;		\/**< frame number, always present *\/$/;"	m	struct:__anon13
+__anon13::frame_rate	/usr/include/jack/transport.h	/^    jack_nframes_t	frame_rate;	\/**< current frame rate (per second) *\/$/;"	m	struct:__anon13
+__anon13::frame_time	/usr/include/jack/transport.h	/^    double		frame_time;	\/**< current time in seconds *\/$/;"	m	struct:__anon13
+__anon13::next_time	/usr/include/jack/transport.h	/^    double		next_time;	\/**< next sequential frame_time$/;"	m	struct:__anon13
+__anon13::padding	/usr/include/jack/transport.h	/^    int32_t		padding[7];$/;"	m	struct:__anon13
+__anon13::tick	/usr/include/jack/transport.h	/^    int32_t		tick;		\/**< current tick-within-beat *\/$/;"	m	struct:__anon13
+__anon13::ticks_per_beat	/usr/include/jack/transport.h	/^    double		ticks_per_beat;$/;"	m	struct:__anon13
+__anon13::unique_1	/usr/include/jack/transport.h	/^    jack_unique_t	unique_1;	\/**< unique ID *\/$/;"	m	struct:__anon13
+__anon13::unique_2	/usr/include/jack/transport.h	/^    jack_unique_t	unique_2;	\/**< unique ID *\/$/;"	m	struct:__anon13
+__anon13::usecs	/usr/include/jack/transport.h	/^    jack_time_t		usecs;		\/**< monotonic, free-rolling *\/$/;"	m	struct:__anon13
+__anon13::valid	/usr/include/jack/transport.h	/^    jack_position_bits_t valid;		\/**< which other fields are valid *\/$/;"	m	struct:__anon13
+__anon13::video_offset	/usr/include/jack/transport.h	/^    jack_nframes_t      video_offset;   \/**< audio frame at which the first video$/;"	m	struct:__anon13
+__anon15::bar	/usr/include/jack/transport.h	/^    int            bar;$/;"	m	struct:__anon15
+__anon15::bar_start_tick	/usr/include/jack/transport.h	/^    double         bar_start_tick;            $/;"	m	struct:__anon15
+__anon15::beat	/usr/include/jack/transport.h	/^    int            beat;$/;"	m	struct:__anon15
+__anon15::beat_type	/usr/include/jack/transport.h	/^    float          beat_type;$/;"	m	struct:__anon15
+__anon15::beats_per_bar	/usr/include/jack/transport.h	/^    float          beats_per_bar;$/;"	m	struct:__anon15
+__anon15::beats_per_minute	/usr/include/jack/transport.h	/^    double         beats_per_minute;$/;"	m	struct:__anon15
+__anon15::frame	/usr/include/jack/transport.h	/^    jack_nframes_t         frame;$/;"	m	struct:__anon15
+__anon15::frame_rate	/usr/include/jack/transport.h	/^    jack_nframes_t frame_rate;		\/**< current frame rate (per second) *\/$/;"	m	struct:__anon15
+__anon15::loop_end	/usr/include/jack/transport.h	/^    jack_nframes_t         loop_end;$/;"	m	struct:__anon15
+__anon15::loop_start	/usr/include/jack/transport.h	/^    jack_nframes_t         loop_start;$/;"	m	struct:__anon15
+__anon15::smpte_frame_rate	/usr/include/jack/transport.h	/^    float          smpte_frame_rate;	\/**< 29.97, 30, 24 etc. *\/$/;"	m	struct:__anon15
+__anon15::smpte_offset	/usr/include/jack/transport.h	/^    long           smpte_offset;	\/**< SMPTE offset (from frame 0) *\/$/;"	m	struct:__anon15
+__anon15::tick	/usr/include/jack/transport.h	/^    int            tick;$/;"	m	struct:__anon15
+__anon15::ticks_per_beat	/usr/include/jack/transport.h	/^    double         ticks_per_beat;$/;"	m	struct:__anon15
+__anon15::transport_state	/usr/include/jack/transport.h	/^    jack_transport_state_t transport_state;         $/;"	m	struct:__anon15
+__anon15::usecs	/usr/include/jack/transport.h	/^    jack_time_t    usecs;		\/**< monotonic, free-rolling *\/$/;"	m	struct:__anon15
+__anon15::valid	/usr/include/jack/transport.h	/^    jack_transport_bits_t  valid;	\/**< which fields are legal to read *\/$/;"	m	struct:__anon15
+__anon9::buf	/usr/include/jack/ringbuffer.h	/^  char  *buf;$/;"	m	struct:__anon9
+__anon9::len	/usr/include/jack/ringbuffer.h	/^  size_t len;$/;"	m	struct:__anon9
 __buf	./semaphore.c	/^        struct seminfo *__buf;      \/* buffer for IPC_INFO *\/$/;"	m	union:semun	typeref:struct:semun::seminfo	file:
+__jack_h__	/usr/include/jack/jack.h	22;"	d
+__jack_intclient_h__	/usr/include/jack/intclient.h	21;"	d
+__jack_thread_h__	/usr/include/jack/thread.h	21;"	d
+__jack_timestamps_h__	/usr/include/jack/timestamps.h	21;"	d
+__jack_transport_h__	/usr/include/jack/transport.h	22;"	d
+__jack_types_h__	/usr/include/jack/types.h	22;"	d
+__statistics_h__	/usr/include/jack/statistics.h	22;"	d
 _csetting	./settings.h	71;"	d
 _csetting	./settings.h	73;"	d
 _granalogik	./granalogik.h	58;"	d
@@ -1309,6 +1387,10 @@ _groovitc	./groovit.h	78;"	d
 _groovitc	./groovit.h	80;"	d
 _grpatternc	./grpattern.h	58;"	d
 _grpatternc	./grpattern.h	60;"	d
+_jack_midi_event	/usr/include/jack/midiport.h	/^typedef struct _jack_midi_event$/;"	s
+_jack_midi_event::buffer	/usr/include/jack/midiport.h	/^	jack_midi_data_t *buffer; \/**< Raw MIDI data *\/$/;"	m	struct:_jack_midi_event
+_jack_midi_event::size	/usr/include/jack/midiport.h	/^	size_t            size;   \/**< Number of bytes of data in \\a buffer *\/$/;"	m	struct:_jack_midi_event
+_jack_midi_event::time	/usr/include/jack/midiport.h	/^	jack_nframes_t    time;   \/**< Sample index at which event is valid *\/$/;"	m	struct:_jack_midi_event
 _mainmenuc	./menu_board.h	64;"	d
 _mainmenuc	./menu_board.h	66;"	d
 _sequencec	./grsequence.h	45;"	d
@@ -1424,6 +1506,7 @@ apattern	./granalogik.h	/^APattern apattern[MAXPATTERN];		\/* patterns analogiqu
 arevlevel	./groovit.h	/^        arevlevel[MAXANALOG],  \/* niveau d'injection en reverb de la ieme voie analogique *\/$/;"	v
 array	./semaphore.c	/^        unsigned short int *array;  \/* array for GETALL, SETALL *\/$/;"	m	union:semun	file:
 associated	./controls.c	/^    int     associated;		\/* handle d'un eventuel controls associe *\/$/;"	m	struct:tcontrol	file:
+audio_frames_per_video_frame	/usr/include/jack/transport.h	/^    float               audio_frames_per_video_frame; \/**< number of audio frames$/;"	m	struct:__anon13
 axis	/home/jd/bzoums/grapefruit/src/include/grapefruit/cinetic.h	/^	    Vector3 axis;	\/\/!< the axis of the spin movement$/;"	m	class:grapefruit::Mv_Spin
 axis	/usr/local/include/grapefruit/cinetic.h	/^	    Vector3 axis;	\/\/!< the axis of the spin movement$/;"	m	class:grapefruit::Mv_Spin
 b	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.h	/^	    Uint8 r,g,b,a;$/;"	m	class:grapefruit::RGBAColor
@@ -1431,7 +1514,20 @@ b	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.h	/^	    Uint8 r,
 b	/usr/local/include/grapefruit/grapecolor.h	/^	    Uint8 r,g,b,a;$/;"	m	class:grapefruit::RGBAColor
 b	/usr/local/include/grapefruit/grapecolor.h	/^	    Uint8 r,g,b;$/;"	m	class:grapefruit::RGBColor
 backstr	./controls.c	/^static char *backstr[MAXBACKSTR];	\/* les chaines de char de background *\/$/;"	v	file:
+bar	/usr/include/jack/transport.h	/^    int            bar;$/;"	m	struct:__anon15
+bar	/usr/include/jack/transport.h	/^    int32_t		bar;		\/**< current bar *\/$/;"	m	struct:__anon13
+bar_start_tick	/usr/include/jack/transport.h	/^    double		bar_start_tick;            $/;"	m	struct:__anon13
+bar_start_tick	/usr/include/jack/transport.h	/^    double         bar_start_tick;            $/;"	m	struct:__anon15
 barlevel	./groovit.c	/^char   *barlevel[17] =$/;"	v
+bbt_offset	/usr/include/jack/transport.h	/^    jack_nframes_t	bbt_offset;	\/**< frame offset for the BBT fields$/;"	m	struct:__anon13
+beat	/usr/include/jack/transport.h	/^    int            beat;$/;"	m	struct:__anon15
+beat	/usr/include/jack/transport.h	/^    int32_t		beat;		\/**< current beat-within-bar *\/$/;"	m	struct:__anon13
+beat_type	/usr/include/jack/transport.h	/^    float		beat_type;	\/**< time signature "denominator" *\/$/;"	m	struct:__anon13
+beat_type	/usr/include/jack/transport.h	/^    float          beat_type;$/;"	m	struct:__anon15
+beats_per_bar	/usr/include/jack/transport.h	/^    float		beats_per_bar;	\/**< time signature "numerator" *\/$/;"	m	struct:__anon13
+beats_per_bar	/usr/include/jack/transport.h	/^    float          beats_per_bar;$/;"	m	struct:__anon15
+beats_per_minute	/usr/include/jack/transport.h	/^    double		beats_per_minute;$/;"	m	struct:__anon13
+beats_per_minute	/usr/include/jack/transport.h	/^    double         beats_per_minute;$/;"	m	struct:__anon15
 bg	/home/jd/bzoums/grapefruit/src/include/grapefruit/agrume.h	/^	    RGBAColor	bg, \/\/!< the background base color$/;"	m	class:grapefruit::StyleDef
 bg	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^	    RGBAColor bg, sr, txt;$/;"	m	class:grapefruit::Currant
 bg	/usr/local/include/grapefruit/agrume.h	/^	    RGBAColor	bg, \/\/!< the background base color$/;"	m	class:grapefruit::StyleDef
@@ -1459,6 +1555,9 @@ bucketComp	/usr/local/include/caroube/audio.h	/^	    virtual inline Uint16 bucke
 bucketComp	/usr/local/include/caroube/samplesonge.h	/^	    virtual inline Uint16 bucketComp (void) {$/;"	f	class:caroube::SampleSonGe
 bucketCompNoErase	/usr/local/include/caroube/audio.h	/^	    inline Uint16 bucketCompNoErase (void) {$/;"	f	class:caroube::EnvOsc
 buf	./semaphore.c	/^        struct semid_ds *buf;       \/* buffer for IPC_STAT, IPC_SET *\/$/;"	m	union:semun	typeref:struct:semun::semid_ds	file:
+buf	/usr/include/jack/ringbuffer.h	/^  char		 *buf;$/;"	m	struct:__anon10
+buf	/usr/include/jack/ringbuffer.h	/^  char  *buf;$/;"	m	struct:__anon9
+buffer	/usr/include/jack/midiport.h	/^	jack_midi_data_t *buffer; \/**< Raw MIDI data *\/$/;"	m	struct:_jack_midi_event
 buildtext	/home/jd/bzoums/grapefruit/src/grapefruit.cpp	/^void Currant::buildtext (int w, int h, const string & s)$/;"	f	class:grapefruit::Currant
 buildtext	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^	    virtual inline void buildtext (int w, int h, const string & s) {}$/;"	f	class:grapefruit::ButtonStyle
 buildtext	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^	    virtual void buildtext (int w, int h, const string & s);$/;"	p	class:grapefruit::Currant
@@ -1478,10 +1577,10 @@ caroube	/usr/local/include/caroube/asequencer.h	/^namespace caroube$/;"	n
 caroube	/usr/local/include/caroube/audio.h	/^namespace caroube$/;"	n
 caroube	/usr/local/include/caroube/readsample.h	/^namespace caroube$/;"	n
 caroube	/usr/local/include/caroube/samplesonge.h	/^namespace caroube$/;"	n
-caroube::ENVEL_LIN	/usr/local/include/caroube/audio.h	/^    typedef enum { ENVEL_LIN, ENVEL_LOG } EnvElType;	\/\/ vnature of an enveloppe segment$/;"	e	enum:caroube::__anon9
-caroube::ENVEL_LOG	/usr/local/include/caroube/audio.h	/^    typedef enum { ENVEL_LIN, ENVEL_LOG } EnvElType;	\/\/ vnature of an enveloppe segment$/;"	e	enum:caroube::__anon9
-caroube::EnvEl	/usr/local/include/caroube/audio.h	/^    } EnvEl;$/;"	t	namespace:caroube	typeref:struct:caroube::__anon10
-caroube::EnvElType	/usr/local/include/caroube/audio.h	/^    typedef enum { ENVEL_LIN, ENVEL_LOG } EnvElType;	\/\/ vnature of an enveloppe segment$/;"	t	namespace:caroube	typeref:enum:caroube::__anon9
+caroube::ENVEL_LIN	/usr/local/include/caroube/audio.h	/^    typedef enum { ENVEL_LIN, ENVEL_LOG } EnvElType;	\/\/ vnature of an enveloppe segment$/;"	e	enum:caroube::__anon16
+caroube::ENVEL_LOG	/usr/local/include/caroube/audio.h	/^    typedef enum { ENVEL_LIN, ENVEL_LOG } EnvElType;	\/\/ vnature of an enveloppe segment$/;"	e	enum:caroube::__anon16
+caroube::EnvEl	/usr/local/include/caroube/audio.h	/^    } EnvEl;$/;"	t	namespace:caroube	typeref:struct:caroube::__anon17
+caroube::EnvElType	/usr/local/include/caroube/audio.h	/^    typedef enum { ENVEL_LIN, ENVEL_LOG } EnvElType;	\/\/ vnature of an enveloppe segment$/;"	t	namespace:caroube	typeref:enum:caroube::__anon16
 caroube::EnvGen	/usr/local/include/caroube/audio.h	/^    class EnvGen : public Envelope$/;"	c	namespace:caroube
 caroube::EnvGen::EnvGen	/usr/local/include/caroube/audio.h	/^	    inline EnvGen (const EnvGen & eg) {$/;"	f	class:caroube::EnvGen
 caroube::EnvGen::EnvGen	/usr/local/include/caroube/audio.h	/^	    inline EnvGen() : Envelope () {$/;"	f	class:caroube::EnvGen
@@ -1583,9 +1682,9 @@ caroube::SonGeSeq::setbpm	/usr/local/include/caroube/asequencer.h	/^	    bool se
 caroube::SonGeSeq::ttt	/usr/local/include/caroube/asequencer.h	/^	    int ttt;			\/\/!< decounter : time to (next) 'tick'...$/;"	m	class:caroube::SonGeSeq
 caroube::SonGeSeq::vo	/usr/local/include/caroube/asequencer.h	/^	    vector<SonGe *> vo;		\/\/!< the list of SonGe matching the channels$/;"	m	class:caroube::SonGeSeq
 caroube::SonGeSeq::~SonGeSeq	/usr/local/include/caroube/asequencer.h	/^	    ~SonGeSeq ();$/;"	p	class:caroube::SonGeSeq
-caroube::__anon10::tamp	/usr/local/include/caroube/audio.h	/^	Uint16 tamp;	    \/\/ target amplitude$/;"	m	struct:caroube::__anon10
-caroube::__anon10::tta	/usr/local/include/caroube/audio.h	/^	Sint32 tta;		    \/\/ time length left to reach the target amplitude (in samples-length)$/;"	m	struct:caroube::__anon10
-caroube::__anon10::type	/usr/local/include/caroube/audio.h	/^	EnvElType type;  \/\/ nature of the segment$/;"	m	struct:caroube::__anon10
+caroube::__anon17::tamp	/usr/local/include/caroube/audio.h	/^	Uint16 tamp;	    \/\/ target amplitude$/;"	m	struct:caroube::__anon17
+caroube::__anon17::tta	/usr/local/include/caroube/audio.h	/^	Sint32 tta;		    \/\/ time length left to reach the target amplitude (in samples-length)$/;"	m	struct:caroube::__anon17
+caroube::__anon17::type	/usr/local/include/caroube/audio.h	/^	EnvElType type;  \/\/ nature of the segment$/;"	m	struct:caroube::__anon17
 caroube::dphi	/usr/local/include/caroube/audio.h	/^    CAROUBE_H_SCOPE Sint32 dphi [NBDPHI];\/*!< \\brief   the phase incrementators themselves				*\/$/;"	v
 caroube::get_caroube_version	/usr/local/include/caroube/audio.h	/^    const char * get_caroube_version (void);$/;"	p	namespace:caroube
 caroube::initaudio	/usr/local/include/caroube/audio.h	/^    bool initaudio(size_t nbsamples = 1024);$/;"	p	namespace:caroube
@@ -1640,6 +1739,7 @@ clearscreen	./controls.c	/^void    clearscreen (void)$/;"	f
 clearscreen	./controls.h	/^void    clearscreen (void);$/;"	p
 clickcontrols	./controls.c	/^int     clickcontrols (int h, int x, int y, int buttons, int focuschanged)$/;"	f
 clicks	./gpm-xterm.h	/^    int     clicks;$/;"	m	struct:Gpm_Event
+client	./groovit.c	/^jack_client_t *client;     \/* le handle client aupres du serveur jackd     *\/$/;"	v
 close_menu_levels	./grlevels.c	/^int     close_menu_levels (void)$/;"	f
 close_menu_main	./menu_board.c	/^int close_menu_main (void)$/;"	f
 closebutton	/home/jd/bzoums/grapefruit/src/include/grapefruit/agrume.h	/^	    CloseButton * closebutton;$/;"	m	class:grapefruit::AgrumeStyle
@@ -1890,6 +1990,7 @@ evtype	./controls.c	/^    int     evtype;		\/* type d'evenement *\/$/;"	m	struct
 f	./tokenio.h	/^    FILE   *f;$/;"	m	struct:STtokfile
 far_val	/home/jd/bzoums/grapefruit/src/include/grapefruit/td.h	/^		far_val;			    	    \/\/!< Specify the distance to the farther depth clipping plane$/;"	m	class:grapefruit::View
 far_val	/usr/local/include/grapefruit/td.h	/^		far_val;			    	    \/\/!< Specify the distance to the farther depth clipping plane$/;"	m	class:grapefruit::View
+fdsp	./groovit.c	/^int     fdsp,	       \/* dsp file handle pour ecriture                *\/$/;"	v
 feedbk	./resoanlog.h	/^    long    hig, mid, low, feedbk, hig2, mid2, low2, freq;$/;"	m	struct:STAnReso
 feedraw	/usr/local/include/caroube/asequencer.h	/^	    size_t feedraw (vector <int> & row);	\/\/!< feeding a raw$/;"	p	class:caroube::SonGeSeq
 fft	/usr/local/include/caroube/fft.h	/^void fft(double *re, double *im, unsigned int exp, int inv);$/;"	p
@@ -1930,6 +2031,8 @@ firstuse	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^	    s
 firstuse	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^	GRAPEFRUIT_H_SCOPE bool RotButton::firstuse = true;$/;"	m	class:grapefruit::RotButton
 firstuse	/usr/local/include/grapefruit/grapefruit.h	/^	    static bool firstuse;$/;"	m	class:grapefruit::RotButton
 firstuse	/usr/local/include/grapefruit/grapefruit.h	/^	GRAPEFRUIT_H_SCOPE bool RotButton::firstuse = true;$/;"	m	class:grapefruit::RotButton
+fjs1	./groovit.c	/^int     fjs1,	       \/* joystick #1                                  *\/$/;"	v
+fjs2	./groovit.c	/^	fjs2;	       \/* joystick #2                                  *\/$/;"	v
 flapmenu	./menu_board.c	/^    flapmenu;			\/* le bouton d'activation du menu		*\/$/;"	v	file:
 flevell	./groovit.h	/^        flevell[MAXDYFILT],    \/* niveau de mixage du ieme filtre a gauche     *\/$/;"	v
 flevelr	./groovit.h	/^        flevelr[MAXDYFILT],    \/* niveau de mixage du ieme filtre a droite     *\/$/;"	v
@@ -1941,6 +2044,11 @@ focus	./controls.c	/^int     focus = 0;$/;"	v
 fontindex	./settings.c	/^int     fontindex = 8,	       \/* fonte en cours d'usage                       *\/$/;"	v
 foutbis	./groovit.h	/^_groovitc FILE *foutbis;       \/* sortie secondaire pour faire du raw-to-disk *\/$/;"	v
 fpattern	./grdyfilter.h	/^APattern fpattern[MAXPATTERN];		\/* patterns de filtres                          *\/$/;"	v
+frame	/usr/include/jack/transport.h	/^    jack_nframes_t	frame;		\/**< frame number, always present *\/$/;"	m	struct:__anon13
+frame	/usr/include/jack/transport.h	/^    jack_nframes_t         frame;$/;"	m	struct:__anon15
+frame_rate	/usr/include/jack/transport.h	/^    jack_nframes_t	frame_rate;	\/**< current frame rate (per second) *\/$/;"	m	struct:__anon13
+frame_rate	/usr/include/jack/transport.h	/^    jack_nframes_t frame_rate;		\/**< current frame rate (per second) *\/$/;"	m	struct:__anon15
+frame_time	/usr/include/jack/transport.h	/^    double		frame_time;	\/**< current time in seconds *\/$/;"	m	struct:__anon13
 free	/usr/local/include/caroube/readsample.h	/^	    void free (void);$/;"	p	class:caroube::Sample
 freesample	./readsample.c	/^int     freesample (Sample *sample)$/;"	f
 freesample	./readsample.h	/^int     freesample (Sample *sample);$/;"	p
@@ -2647,14 +2755,14 @@ grapefruit::ButtonStyle::show	/home/jd/bzoums/grapefruit/src/include/grapefruit/
 grapefruit::ButtonStyle::show	/usr/local/include/grapefruit/grapefruit.h	/^	    virtual inline void show (Agrume &agrume, int x, int y) {}$/;"	f	class:grapefruit::ButtonStyle
 grapefruit::ButtonStyle::~ButtonStyle	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^	    virtual ~ButtonStyle () {}$/;"	f	class:grapefruit::ButtonStyle
 grapefruit::ButtonStyle::~ButtonStyle	/usr/local/include/grapefruit/grapefruit.h	/^	    virtual ~ButtonStyle () {}$/;"	f	class:grapefruit::ButtonStyle
-grapefruit::CALL_LIST_REL	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CALL_LIST_REL	= -204,	    \/\/!< calls another chars description, usefull for creating composed chars. the biggest of all offsets will be kept$/;"	e	enum:grapefruit::__anon14	file:
-grapefruit::CALL_LIST_REL	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CALL_LIST_REL	= -204,	    \/\/!< calls another chars description, usefull for creating composed chars. the biggest of all offsets will be kept$/;"	e	enum:grapefruit::__anon17	file:
-grapefruit::CHAR_REWIND	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_REWIND 	= -201,	    \/\/!< triggers the offsets to go back to the beginning of the line$/;"	e	enum:grapefruit::__anon14	file:
-grapefruit::CHAR_REWIND	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_REWIND 	= -201,	    \/\/!< triggers the offsets to go back to the beginning of the line$/;"	e	enum:grapefruit::__anon17	file:
-grapefruit::CHAR_STEP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_STEP   	= -200,	    \/\/!< the step of the char (where to put the next following char)$/;"	e	enum:grapefruit::__anon14	file:
-grapefruit::CHAR_STEP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_STEP   	= -200,	    \/\/!< the step of the char (where to put the next following char)$/;"	e	enum:grapefruit::__anon17	file:
-grapefruit::CHAR_WIDTH	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_WIDTH	= -203,	    \/\/!< DOES NOT work yet ! is supposed to give the char witdth when it is not equal to CHAR_STEP$/;"	e	enum:grapefruit::__anon14	file:
-grapefruit::CHAR_WIDTH	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_WIDTH	= -203,	    \/\/!< DOES NOT work yet ! is supposed to give the char witdth when it is not equal to CHAR_STEP$/;"	e	enum:grapefruit::__anon17	file:
+grapefruit::CALL_LIST_REL	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CALL_LIST_REL	= -204,	    \/\/!< calls another chars description, usefull for creating composed chars. the biggest of all offsets will be kept$/;"	e	enum:grapefruit::__anon21	file:
+grapefruit::CALL_LIST_REL	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CALL_LIST_REL	= -204,	    \/\/!< calls another chars description, usefull for creating composed chars. the biggest of all offsets will be kept$/;"	e	enum:grapefruit::__anon24	file:
+grapefruit::CHAR_REWIND	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_REWIND 	= -201,	    \/\/!< triggers the offsets to go back to the beginning of the line$/;"	e	enum:grapefruit::__anon21	file:
+grapefruit::CHAR_REWIND	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_REWIND 	= -201,	    \/\/!< triggers the offsets to go back to the beginning of the line$/;"	e	enum:grapefruit::__anon24	file:
+grapefruit::CHAR_STEP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_STEP   	= -200,	    \/\/!< the step of the char (where to put the next following char)$/;"	e	enum:grapefruit::__anon21	file:
+grapefruit::CHAR_STEP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_STEP   	= -200,	    \/\/!< the step of the char (where to put the next following char)$/;"	e	enum:grapefruit::__anon24	file:
+grapefruit::CHAR_WIDTH	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_WIDTH	= -203,	    \/\/!< DOES NOT work yet ! is supposed to give the char witdth when it is not equal to CHAR_STEP$/;"	e	enum:grapefruit::__anon21	file:
+grapefruit::CHAR_WIDTH	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		CHAR_WIDTH	= -203,	    \/\/!< DOES NOT work yet ! is supposed to give the char witdth when it is not equal to CHAR_STEP$/;"	e	enum:grapefruit::__anon24	file:
 grapefruit::CaptionZone	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^    class CaptionZone : public virtual MGrabber$/;"	c	namespace:grapefruit
 grapefruit::CaptionZone	/usr/local/include/grapefruit/graperoute.h	/^    class CaptionZone : public virtual MGrabber$/;"	c	namespace:grapefruit
 grapefruit::CaptionZone::CaptionZone	/home/jd/bzoums/grapefruit/src/graperoute.cpp	/^CaptionZone::CaptionZone (int* x, int *y) : MGrabber ()$/;"	f	class:grapefruit::CaptionZone
@@ -2743,10 +2851,10 @@ grapefruit::DefaultPixelFormat	/home/jd/bzoums/grapefruit/src/include/grapefruit
 grapefruit::DefaultPixelFormat	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.h	/^    GRAPEFRUIT_H_SCOPE SDL_PixelFormat DefaultPixelFormat;$/;"	v
 grapefruit::DefaultPixelFormat	/usr/local/include/grapefruit/grapecolor.h	/^    GRAPEFRUIT_H_SCOPE SDL_PixelFormat DefaultPixelFormat = initDefaultPixelFormat ();$/;"	v
 grapefruit::DefaultPixelFormat	/usr/local/include/grapefruit/grapecolor.h	/^    GRAPEFRUIT_H_SCOPE SDL_PixelFormat DefaultPixelFormat;$/;"	v
-grapefruit::END	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		END	    	= -101,	    \/\/!< end of some GL-Object$/;"	e	enum:grapefruit::__anon14	file:
-grapefruit::END	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		END	    	= -101,	    \/\/!< end of some GL-Object$/;"	e	enum:grapefruit::__anon17	file:
-grapefruit::ENDLIST	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^typedef enum {	ENDLIST		= -100,	    \/\/!< end of the description$/;"	e	enum:grapefruit::__anon14	file:
-grapefruit::ENDLIST	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^typedef enum {	ENDLIST		= -100,	    \/\/!< end of the description$/;"	e	enum:grapefruit::__anon17	file:
+grapefruit::END	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		END	    	= -101,	    \/\/!< end of some GL-Object$/;"	e	enum:grapefruit::__anon21	file:
+grapefruit::END	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		END	    	= -101,	    \/\/!< end of some GL-Object$/;"	e	enum:grapefruit::__anon24	file:
+grapefruit::ENDLIST	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^typedef enum {	ENDLIST		= -100,	    \/\/!< end of the description$/;"	e	enum:grapefruit::__anon21	file:
+grapefruit::ENDLIST	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^typedef enum {	ENDLIST		= -100,	    \/\/!< end of the description$/;"	e	enum:grapefruit::__anon24	file:
 grapefruit::EventCB	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^    class EventCB	\/\/ event callback$/;"	c	namespace:grapefruit
 grapefruit::EventCB	/usr/local/include/grapefruit/graperoute.h	/^    class EventCB	\/\/ event callback$/;"	c	namespace:grapefruit
 grapefruit::EventCB::GrapeRouteEvent	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^	friend int GrapeRouteEvent (SDL_Event const & event);$/;"	p	class:grapefruit::EventCB
@@ -2777,8 +2885,8 @@ grapefruit::EventCB::ownergrabmouse	/usr/local/include/grapefruit/graperoute.h	/
 grapefruit::EventCB::ownergrabmouse	/usr/local/include/grapefruit/graperoute.h	/^	GRAPEFRUIT_H_SCOPE PEventCB EventCB::ownergrabmouse = NULL;$/;"	m	class:grapefruit::EventCB
 grapefruit::EventCB::~EventCB	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^	    virtual ~EventCB (void) {}$/;"	f	class:grapefruit::EventCB
 grapefruit::EventCB::~EventCB	/usr/local/include/grapefruit/graperoute.h	/^	    virtual ~EventCB (void) {}$/;"	f	class:grapefruit::EventCB
-grapefruit::GLMarks	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^	     } GLMarks;$/;"	t	namespace:grapefruit	typeref:enum:grapefruit::__anon14	file:
-grapefruit::GLMarks	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^	     } GLMarks;$/;"	t	namespace:grapefruit	typeref:enum:grapefruit::__anon17	file:
+grapefruit::GLMarks	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^	     } GLMarks;$/;"	t	namespace:grapefruit	typeref:enum:grapefruit::__anon21	file:
+grapefruit::GLMarks	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^	     } GLMarks;$/;"	t	namespace:grapefruit	typeref:enum:grapefruit::__anon24	file:
 grapefruit::GLReInit	/home/jd/bzoums/grapefruit/src/include/grapefruit/glreinit.h	/^    class GLReInit$/;"	c	namespace:grapefruit
 grapefruit::GLReInit	/usr/local/include/grapefruit/glreinit.h	/^    class GLReInit$/;"	c	namespace:grapefruit
 grapefruit::GLReInit::glreinit	/home/jd/bzoums/grapefruit/src/include/grapefruit/glreinit.h	/^	friend int glreinit (void);$/;"	p	class:grapefruit::GLReInit
@@ -2821,14 +2929,14 @@ grapefruit::GrapeKeyMapKey::trigger_action	/usr/local/include/grapefruit/grapeke
 grapefruit::GrapeRouteEvent	/home/jd/bzoums/grapefruit/src/graperoute.cpp	/^int GrapeRouteEvent (SDL_Event const & event)$/;"	f	namespace:grapefruit
 grapefruit::GrapeRouteEvent	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^    int GrapeRouteEvent (SDL_Event const & event);$/;"	p	namespace:grapefruit
 grapefruit::GrapeRouteEvent	/usr/local/include/grapefruit/graperoute.h	/^    int GrapeRouteEvent (SDL_Event const & event);$/;"	p	namespace:grapefruit
-grapefruit::LINES	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINES	    	= -104,	    \/\/!< some GL lines, is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon14	file:
-grapefruit::LINES	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINES	    	= -104,	    \/\/!< some GL lines, is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon17	file:
-grapefruit::LINE_FEED	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_FEED   	= -202,	    \/\/!< triggers the offseast to go one line down$/;"	e	enum:grapefruit::__anon14	file:
-grapefruit::LINE_FEED	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_FEED   	= -202,	    \/\/!< triggers the offseast to go one line down$/;"	e	enum:grapefruit::__anon17	file:
-grapefruit::LINE_LOOP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_LOOP   	= -103,	    \/\/!< starts a LINE_LOOP GL-object (closed), is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon14	file:
-grapefruit::LINE_LOOP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_LOOP   	= -103,	    \/\/!< starts a LINE_LOOP GL-object (closed), is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon17	file:
-grapefruit::LINE_STRIP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_STRIP  	= -102,	    \/\/!< starts a LINE_STRIP GL-object (open), is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon14	file:
-grapefruit::LINE_STRIP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_STRIP  	= -102,	    \/\/!< starts a LINE_STRIP GL-object (open), is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon17	file:
+grapefruit::LINES	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINES	    	= -104,	    \/\/!< some GL lines, is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon21	file:
+grapefruit::LINES	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINES	    	= -104,	    \/\/!< some GL lines, is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon24	file:
+grapefruit::LINE_FEED	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_FEED   	= -202,	    \/\/!< triggers the offseast to go one line down$/;"	e	enum:grapefruit::__anon21	file:
+grapefruit::LINE_FEED	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_FEED   	= -202,	    \/\/!< triggers the offseast to go one line down$/;"	e	enum:grapefruit::__anon24	file:
+grapefruit::LINE_LOOP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_LOOP   	= -103,	    \/\/!< starts a LINE_LOOP GL-object (closed), is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon21	file:
+grapefruit::LINE_LOOP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_LOOP   	= -103,	    \/\/!< starts a LINE_LOOP GL-object (closed), is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon24	file:
+grapefruit::LINE_STRIP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_STRIP  	= -102,	    \/\/!< starts a LINE_STRIP GL-object (open), is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon21	file:
+grapefruit::LINE_STRIP	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		LINE_STRIP  	= -102,	    \/\/!< starts a LINE_STRIP GL-object (open), is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon24	file:
 grapefruit::LPAgrume	/home/jd/bzoums/grapefruit/src/include/grapefruit/agrume.h	/^    typedef list<PAgrume> LPAgrume;$/;"	t	namespace:grapefruit
 grapefruit::LPAgrume	/usr/local/include/grapefruit/agrume.h	/^    typedef list<PAgrume> LPAgrume;$/;"	t	namespace:grapefruit
 grapefruit::LPMvmt	/home/jd/bzoums/grapefruit/src/include/grapefruit/cinetic.h	/^    typedef list<Mvmt*> LPMvmt;$/;"	t	namespace:grapefruit
@@ -2972,8 +3080,8 @@ grapefruit::PEventCB	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperout
 grapefruit::PEventCB	/usr/local/include/grapefruit/graperoute.h	/^    typedef EventCB * PEventCB;$/;"	t	namespace:grapefruit
 grapefruit::PEventHandler	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^    typedef bool (*PEventHandler) (SDL_Event const & event);$/;"	t	namespace:grapefruit
 grapefruit::PEventHandler	/usr/local/include/grapefruit/graperoute.h	/^    typedef bool (*PEventHandler) (SDL_Event const & event);$/;"	t	namespace:grapefruit
-grapefruit::POINTS	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		POINTS	    	= -105,	    \/\/!< some GL points, is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon14	file:
-grapefruit::POINTS	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		POINTS	    	= -105,	    \/\/!< some GL points, is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon17	file:
+grapefruit::POINTS	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		POINTS	    	= -105,	    \/\/!< some GL points, is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon21	file:
+grapefruit::POINTS	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^		POINTS	    	= -105,	    \/\/!< some GL points, is followed by couples of coordinates until END$/;"	e	enum:grapefruit::__anon24	file:
 grapefruit::PSDL_Surface	/home/jd/bzoums/grapefruit/src/grapefruit.cpp	/^typedef SDL_Surface * PSDL_Surface;$/;"	t	namespace:grapefruit	file:
 grapefruit::PushButton	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^    class PushButton : public Button$/;"	c	namespace:grapefruit
 grapefruit::PushButton	/usr/local/include/grapefruit/grapefruit.h	/^    class PushButton : public Button$/;"	c	namespace:grapefruit
@@ -3241,30 +3349,30 @@ grapefruit::TDCompound::~TDCompound	/home/jd/bzoums/grapefruit/src/td.cpp	/^TDCo
 grapefruit::TDCompound::~TDCompound	/usr/local/include/grapefruit/td.h	/^	    virtual ~TDCompound (void);$/;"	p	class:grapefruit::TDCompound
 grapefruit::TDMenu	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^    class TDMenu : public TDCompound, public TDObjSHable$/;"	c	namespace:grapefruit
 grapefruit::TDMenu	/usr/local/include/grapefruit/menu.h	/^    class TDMenu : public TDCompound, public TDObjSHable$/;"	c	namespace:grapefruit
-grapefruit::TDMenu::INARRAY	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    INARRAY,$/;"	e	enum:grapefruit::TDMenu::__anon15
-grapefruit::TDMenu::INARRAY	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    INARRAY,$/;"	e	enum:grapefruit::TDMenu::__anon18
-grapefruit::TDMenu::INARRAY	/usr/local/include/grapefruit/menu.h	/^			    INARRAY,$/;"	e	enum:grapefruit::TDMenu::__anon11
-grapefruit::TDMenu::INCOLUMN	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    INCOLUMN,$/;"	e	enum:grapefruit::TDMenu::__anon15
-grapefruit::TDMenu::INCOLUMN	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    INCOLUMN,$/;"	e	enum:grapefruit::TDMenu::__anon18
-grapefruit::TDMenu::INCOLUMN	/usr/local/include/grapefruit/menu.h	/^			    INCOLUMN,$/;"	e	enum:grapefruit::TDMenu::__anon11
-grapefruit::TDMenu::INLINE	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    typedef enum {  INLINE,$/;"	e	enum:grapefruit::TDMenu::__anon15
-grapefruit::TDMenu::INLINE	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    typedef enum {  INLINE,$/;"	e	enum:grapefruit::TDMenu::__anon18
-grapefruit::TDMenu::INLINE	/usr/local/include/grapefruit/menu.h	/^	    typedef enum {  INLINE,$/;"	e	enum:grapefruit::TDMenu::__anon11
-grapefruit::TDMenu::MenuStayType	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    } MenuStayType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon16
-grapefruit::TDMenu::MenuStayType	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    } MenuStayType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon19
-grapefruit::TDMenu::MenuStayType	/usr/local/include/grapefruit/menu.h	/^	    } MenuStayType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon12
-grapefruit::TDMenu::MenuViewType	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    } MenuViewType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon15
-grapefruit::TDMenu::MenuViewType	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    } MenuViewType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon18
-grapefruit::TDMenu::MenuViewType	/usr/local/include/grapefruit/menu.h	/^	    } MenuViewType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon11
-grapefruit::TDMenu::ONECLICK	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    ONECLICK,   	\/\/!< disappears after click$/;"	e	enum:grapefruit::TDMenu::__anon16
-grapefruit::TDMenu::ONECLICK	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    ONECLICK,   	\/\/!< disappears after click$/;"	e	enum:grapefruit::TDMenu::__anon19
-grapefruit::TDMenu::ONECLICK	/usr/local/include/grapefruit/menu.h	/^			    ONECLICK,   	\/\/!< disappears after click$/;"	e	enum:grapefruit::TDMenu::__anon12
-grapefruit::TDMenu::ONESHOT	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    ONESHOT		\/\/!< disappears and is deleted after click$/;"	e	enum:grapefruit::TDMenu::__anon16
-grapefruit::TDMenu::ONESHOT	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    ONESHOT		\/\/!< disappears and is deleted after click$/;"	e	enum:grapefruit::TDMenu::__anon19
-grapefruit::TDMenu::ONESHOT	/usr/local/include/grapefruit/menu.h	/^			    ONESHOT		\/\/!< disappears and is deleted after click$/;"	e	enum:grapefruit::TDMenu::__anon12
-grapefruit::TDMenu::STICKY	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    typedef enum {  STICKY,		\/\/!< stays on the screen$/;"	e	enum:grapefruit::TDMenu::__anon16
-grapefruit::TDMenu::STICKY	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    typedef enum {  STICKY,		\/\/!< stays on the screen$/;"	e	enum:grapefruit::TDMenu::__anon19
-grapefruit::TDMenu::STICKY	/usr/local/include/grapefruit/menu.h	/^	    typedef enum {  STICKY,		\/\/!< stays on the screen$/;"	e	enum:grapefruit::TDMenu::__anon12
+grapefruit::TDMenu::INARRAY	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    INARRAY,$/;"	e	enum:grapefruit::TDMenu::__anon22
+grapefruit::TDMenu::INARRAY	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    INARRAY,$/;"	e	enum:grapefruit::TDMenu::__anon25
+grapefruit::TDMenu::INARRAY	/usr/local/include/grapefruit/menu.h	/^			    INARRAY,$/;"	e	enum:grapefruit::TDMenu::__anon18
+grapefruit::TDMenu::INCOLUMN	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    INCOLUMN,$/;"	e	enum:grapefruit::TDMenu::__anon22
+grapefruit::TDMenu::INCOLUMN	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    INCOLUMN,$/;"	e	enum:grapefruit::TDMenu::__anon25
+grapefruit::TDMenu::INCOLUMN	/usr/local/include/grapefruit/menu.h	/^			    INCOLUMN,$/;"	e	enum:grapefruit::TDMenu::__anon18
+grapefruit::TDMenu::INLINE	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    typedef enum {  INLINE,$/;"	e	enum:grapefruit::TDMenu::__anon22
+grapefruit::TDMenu::INLINE	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    typedef enum {  INLINE,$/;"	e	enum:grapefruit::TDMenu::__anon25
+grapefruit::TDMenu::INLINE	/usr/local/include/grapefruit/menu.h	/^	    typedef enum {  INLINE,$/;"	e	enum:grapefruit::TDMenu::__anon18
+grapefruit::TDMenu::MenuStayType	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    } MenuStayType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon23
+grapefruit::TDMenu::MenuStayType	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    } MenuStayType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon26
+grapefruit::TDMenu::MenuStayType	/usr/local/include/grapefruit/menu.h	/^	    } MenuStayType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon19
+grapefruit::TDMenu::MenuViewType	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    } MenuViewType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon22
+grapefruit::TDMenu::MenuViewType	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    } MenuViewType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon25
+grapefruit::TDMenu::MenuViewType	/usr/local/include/grapefruit/menu.h	/^	    } MenuViewType;$/;"	t	class:grapefruit::TDMenu	typeref:enum:grapefruit::TDMenu::__anon18
+grapefruit::TDMenu::ONECLICK	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    ONECLICK,   	\/\/!< disappears after click$/;"	e	enum:grapefruit::TDMenu::__anon23
+grapefruit::TDMenu::ONECLICK	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    ONECLICK,   	\/\/!< disappears after click$/;"	e	enum:grapefruit::TDMenu::__anon26
+grapefruit::TDMenu::ONECLICK	/usr/local/include/grapefruit/menu.h	/^			    ONECLICK,   	\/\/!< disappears after click$/;"	e	enum:grapefruit::TDMenu::__anon19
+grapefruit::TDMenu::ONESHOT	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    ONESHOT		\/\/!< disappears and is deleted after click$/;"	e	enum:grapefruit::TDMenu::__anon23
+grapefruit::TDMenu::ONESHOT	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^			    ONESHOT		\/\/!< disappears and is deleted after click$/;"	e	enum:grapefruit::TDMenu::__anon26
+grapefruit::TDMenu::ONESHOT	/usr/local/include/grapefruit/menu.h	/^			    ONESHOT		\/\/!< disappears and is deleted after click$/;"	e	enum:grapefruit::TDMenu::__anon19
+grapefruit::TDMenu::STICKY	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    typedef enum {  STICKY,		\/\/!< stays on the screen$/;"	e	enum:grapefruit::TDMenu::__anon23
+grapefruit::TDMenu::STICKY	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    typedef enum {  STICKY,		\/\/!< stays on the screen$/;"	e	enum:grapefruit::TDMenu::__anon26
+grapefruit::TDMenu::STICKY	/usr/local/include/grapefruit/menu.h	/^	    typedef enum {  STICKY,		\/\/!< stays on the screen$/;"	e	enum:grapefruit::TDMenu::__anon19
 grapefruit::TDMenu::TDMenu	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    TDMenu ();$/;"	p	class:grapefruit::TDMenu
 grapefruit::TDMenu::TDMenu	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    TDMenu (const string &s);$/;"	p	class:grapefruit::TDMenu
 grapefruit::TDMenu::TDMenu	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    TDMenu (const string &s, MenuViewType viewType, MenuStayType stayType, int numcol=1);$/;"	p	class:grapefruit::TDMenu
@@ -4214,6 +4322,150 @@ isshown	/usr/local/include/grapefruit/agrume.h	/^	    bool isshown,$/;"	m	class:
 isshown	/usr/local/include/grapefruit/td.h	/^	    inline bool isshown (void)$/;"	f	class:grapefruit::TDObj
 istaping	./grsequence.c	/^static int istaping;		\/* sommes-nous en train d'enegistrer ?                  *\/$/;"	v	file:
 istoupdate	./settings.c	/^void    istoupdate (void *v)$/;"	f
+jack_acquire_real_time_scheduling	/usr/include/jack/thread.h	/^int jack_acquire_real_time_scheduling (pthread_t thread, int priority);$/;"	p
+jack_activate	/usr/include/jack/jack.h	/^int jack_activate (jack_client_t *client);$/;"	p
+jack_client_close	/usr/include/jack/jack.h	/^int jack_client_close (jack_client_t *client);$/;"	p
+jack_client_create_thread	/usr/include/jack/thread.h	/^int jack_client_create_thread (jack_client_t* client,$/;"	p
+jack_client_max_real_time_priority	/usr/include/jack/thread.h	/^int jack_client_max_real_time_priority (jack_client_t*);$/;"	p
+jack_client_name_size	/usr/include/jack/jack.h	/^int jack_client_name_size (void);$/;"	p
+jack_client_new	/usr/include/jack/jack.h	/^jack_client_t *jack_client_new (const char *client_name);$/;"	p
+jack_client_open	/usr/include/jack/jack.h	/^jack_client_t *jack_client_open (const char *client_name,$/;"	p
+jack_client_real_time_priority	/usr/include/jack/thread.h	/^int jack_client_real_time_priority (jack_client_t*);$/;"	p
+jack_client_t	/usr/include/jack/types.h	/^typedef struct _jack_client  jack_client_t;$/;"	t	typeref:struct:_jack_client
+jack_client_thread_id	/usr/include/jack/jack.h	/^pthread_t jack_client_thread_id (jack_client_t *);$/;"	p
+jack_connect	/usr/include/jack/jack.h	/^int jack_connect (jack_client_t *,$/;"	p
+jack_cpu_load	/usr/include/jack/jack.h	/^float jack_cpu_load (jack_client_t *client);$/;"	p
+jack_cycle_signal	/usr/include/jack/jack.h	/^void jack_cycle_signal (jack_client_t* client, int status);$/;"	p
+jack_cycle_wait	/usr/include/jack/jack.h	/^jack_nframes_t jack_cycle_wait (jack_client_t* client);$/;"	p
+jack_deactivate	/usr/include/jack/jack.h	/^int jack_deactivate (jack_client_t *client);$/;"	p
+jack_default_audio_sample_t	/usr/include/jack/types.h	/^typedef float jack_default_audio_sample_t;$/;"	t
+jack_disconnect	/usr/include/jack/jack.h	/^int jack_disconnect (jack_client_t *,$/;"	p
+jack_drop_real_time_scheduling	/usr/include/jack/thread.h	/^int jack_drop_real_time_scheduling (pthread_t thread);$/;"	p
+jack_dump_timestamps	/usr/include/jack/timestamps.h	/^void jack_dump_timestamps (FILE *out);$/;"	p
+jack_engine_takeover_timebase	/usr/include/jack/jack.h	/^int  jack_engine_takeover_timebase (jack_client_t *);$/;"	p
+jack_frame_time	/usr/include/jack/jack.h	/^jack_nframes_t jack_frame_time (const jack_client_t *);$/;"	p
+jack_frames_since_cycle_start	/usr/include/jack/jack.h	/^jack_nframes_t jack_frames_since_cycle_start (const jack_client_t *);$/;"	p
+jack_frames_to_time	/usr/include/jack/jack.h	/^jack_time_t jack_frames_to_time(const jack_client_t *client, jack_nframes_t);$/;"	p
+jack_get_buffer_size	/usr/include/jack/jack.h	/^jack_nframes_t jack_get_buffer_size (jack_client_t *);$/;"	p
+jack_get_client_name	/usr/include/jack/jack.h	/^char *jack_get_client_name (jack_client_t *client);$/;"	p
+jack_get_current_transport_frame	/usr/include/jack/transport.h	/^jack_nframes_t jack_get_current_transport_frame (const jack_client_t *client);$/;"	p
+jack_get_internal_client_name	/usr/include/jack/intclient.h	/^char *jack_get_internal_client_name (jack_client_t *client,$/;"	p
+jack_get_max_delayed_usecs	/usr/include/jack/statistics.h	/^float jack_get_max_delayed_usecs (jack_client_t *client);$/;"	p
+jack_get_ports	/usr/include/jack/jack.h	/^const char **jack_get_ports (jack_client_t *, $/;"	p
+jack_get_sample_rate	/usr/include/jack/jack.h	/^jack_nframes_t jack_get_sample_rate (jack_client_t *);$/;"	p
+jack_get_time	/usr/include/jack/jack.h	/^jack_time_t jack_get_time();$/;"	p
+jack_get_transport_info	/usr/include/jack/transport.h	/^void jack_get_transport_info (jack_client_t *client,$/;"	p
+jack_get_xrun_delayed_usecs	/usr/include/jack/statistics.h	/^float jack_get_xrun_delayed_usecs (jack_client_t *client);$/;"	p
+jack_init_timestamps	/usr/include/jack/timestamps.h	/^void jack_init_timestamps (unsigned long howmany);$/;"	p
+jack_intclient_t	/usr/include/jack/types.h	/^typedef uint64_t jack_intclient_t;$/;"	t
+jack_internal_client_close	/usr/include/jack/jack.h	/^void jack_internal_client_close (const char *client_name);$/;"	p
+jack_internal_client_handle	/usr/include/jack/intclient.h	/^jack_intclient_t jack_internal_client_handle (jack_client_t *client,$/;"	p
+jack_internal_client_load	/usr/include/jack/intclient.h	/^jack_intclient_t jack_internal_client_load (jack_client_t *client,$/;"	p
+jack_internal_client_new	/usr/include/jack/jack.h	/^int jack_internal_client_new (const char *client_name,$/;"	p
+jack_internal_client_unload	/usr/include/jack/intclient.h	/^jack_status_t jack_internal_client_unload (jack_client_t *client,$/;"	p
+jack_is_realtime	/usr/include/jack/jack.h	/^int jack_is_realtime (jack_client_t *client);$/;"	p
+jack_last_frame_time	/usr/include/jack/jack.h	/^jack_nframes_t jack_last_frame_time (const jack_client_t *client);$/;"	p
+jack_midi_clear_buffer	/usr/include/jack/midiport.h	/^jack_midi_clear_buffer(void           *port_buffer);$/;"	p
+jack_midi_data_t	/usr/include/jack/midiport.h	/^typedef unsigned char jack_midi_data_t;$/;"	t
+jack_midi_event_get	/usr/include/jack/midiport.h	/^jack_midi_event_get(jack_midi_event_t *event,$/;"	p
+jack_midi_event_reserve	/usr/include/jack/midiport.h	/^jack_midi_event_reserve(void           *port_buffer,$/;"	p
+jack_midi_event_t	/usr/include/jack/midiport.h	/^} jack_midi_event_t;$/;"	t	typeref:struct:_jack_midi_event
+jack_midi_event_write	/usr/include/jack/midiport.h	/^jack_midi_event_write(void                   *port_buffer,$/;"	p
+jack_midi_get_event_count	/usr/include/jack/midiport.h	/^jack_midi_get_event_count(void*          port_buffer);$/;"	p
+jack_midi_get_lost_event_count	/usr/include/jack/midiport.h	/^jack_midi_get_lost_event_count(void           *port_buffer);$/;"	p
+jack_midi_max_event_size	/usr/include/jack/midiport.h	/^jack_midi_max_event_size(void* port_buffer);$/;"	p
+jack_nframes_t	/usr/include/jack/types.h	/^typedef uint32_t	     jack_nframes_t;$/;"	t
+jack_on_shutdown	/usr/include/jack/jack.h	/^void jack_on_shutdown (jack_client_t *client,$/;"	p
+jack_options_t	/usr/include/jack/types.h	/^typedef enum JackOptions jack_options_t;$/;"	t	typeref:enum:JackOptions
+jack_port_by_id	/usr/include/jack/jack.h	/^jack_port_t *jack_port_by_id (jack_client_t *client,$/;"	p
+jack_port_by_name	/usr/include/jack/jack.h	/^jack_port_t *jack_port_by_name (jack_client_t *, const char *port_name);$/;"	p
+jack_port_connected	/usr/include/jack/jack.h	/^int jack_port_connected (const jack_port_t *port);$/;"	p
+jack_port_connected_to	/usr/include/jack/jack.h	/^int jack_port_connected_to (const jack_port_t *port,$/;"	p
+jack_port_disconnect	/usr/include/jack/jack.h	/^int jack_port_disconnect (jack_client_t *, jack_port_t *);$/;"	p
+jack_port_ensure_monitor	/usr/include/jack/jack.h	/^int jack_port_ensure_monitor (jack_port_t *port, int onoff);$/;"	p
+jack_port_flags	/usr/include/jack/jack.h	/^int jack_port_flags (const jack_port_t *port);$/;"	p
+jack_port_get_aliases	/usr/include/jack/jack.h	/^int jack_port_get_aliases (const jack_port_t *port, char* const aliases[2]);$/;"	p
+jack_port_get_all_connections	/usr/include/jack/jack.h	/^const char **jack_port_get_all_connections (const jack_client_t *client,$/;"	p
+jack_port_get_buffer	/usr/include/jack/jack.h	/^void *jack_port_get_buffer (jack_port_t *, jack_nframes_t);$/;"	p
+jack_port_get_connections	/usr/include/jack/jack.h	/^const char **jack_port_get_connections (const jack_port_t *port);$/;"	p
+jack_port_get_latency	/usr/include/jack/jack.h	/^jack_nframes_t jack_port_get_latency (jack_port_t *port);$/;"	p
+jack_port_get_total_latency	/usr/include/jack/jack.h	/^jack_nframes_t jack_port_get_total_latency (jack_client_t *,$/;"	p
+jack_port_id_t	/usr/include/jack/types.h	/^typedef uint32_t	     jack_port_id_t;$/;"	t
+jack_port_is_mine	/usr/include/jack/jack.h	/^int jack_port_is_mine (const jack_client_t *, const jack_port_t *port);$/;"	p
+jack_port_monitoring_input	/usr/include/jack/jack.h	/^int jack_port_monitoring_input (jack_port_t *port);$/;"	p
+jack_port_name	/usr/include/jack/jack.h	/^const char *jack_port_name (const jack_port_t *port);$/;"	p
+jack_port_name_size	/usr/include/jack/jack.h	/^int jack_port_name_size(void);$/;"	p
+jack_port_register	/usr/include/jack/jack.h	/^jack_port_t *jack_port_register (jack_client_t *client,$/;"	p
+jack_port_request_monitor	/usr/include/jack/jack.h	/^int jack_port_request_monitor (jack_port_t *port, int onoff);$/;"	p
+jack_port_request_monitor_by_name	/usr/include/jack/jack.h	/^int jack_port_request_monitor_by_name (jack_client_t *client,$/;"	p
+jack_port_set_alias	/usr/include/jack/jack.h	/^int jack_port_set_alias (jack_port_t *port, const char *alias);$/;"	p
+jack_port_set_latency	/usr/include/jack/jack.h	/^void jack_port_set_latency (jack_port_t *, jack_nframes_t);$/;"	p
+jack_port_set_name	/usr/include/jack/jack.h	/^int jack_port_set_name (jack_port_t *port, const char *port_name);$/;"	p
+jack_port_short_name	/usr/include/jack/jack.h	/^const char *jack_port_short_name (const jack_port_t *port);$/;"	p
+jack_port_t	/usr/include/jack/types.h	/^typedef struct _jack_port    jack_port_t;$/;"	t	typeref:struct:_jack_port
+jack_port_tie	/usr/include/jack/jack.h	/^int  jack_port_tie (jack_port_t *src, jack_port_t *dst);$/;"	p
+jack_port_type	/usr/include/jack/jack.h	/^const char *jack_port_type (const jack_port_t *port);$/;"	p
+jack_port_type_size	/usr/include/jack/jack.h	/^int jack_port_type_size(void);$/;"	p
+jack_port_unregister	/usr/include/jack/jack.h	/^int jack_port_unregister (jack_client_t *, jack_port_t *);$/;"	p
+jack_port_unset_alias	/usr/include/jack/jack.h	/^int jack_port_unset_alias (jack_port_t *port, const char *alias);$/;"	p
+jack_port_untie	/usr/include/jack/jack.h	/^int  jack_port_untie (jack_port_t *port);$/;"	p
+jack_position_bits_t	/usr/include/jack/transport.h	/^} jack_position_bits_t;$/;"	t	typeref:enum:__anon12
+jack_position_t	/usr/include/jack/transport.h	/^} POST_PACKED_STRUCTURE jack_position_t;$/;"	t	typeref:struct:__anon13
+jack_recompute_total_latencies	/usr/include/jack/jack.h	/^int jack_recompute_total_latencies (jack_client_t*);$/;"	p
+jack_recompute_total_latency	/usr/include/jack/jack.h	/^int jack_recompute_total_latency (jack_client_t*, jack_port_t* port);$/;"	p
+jack_release_timebase	/usr/include/jack/transport.h	/^int  jack_release_timebase (jack_client_t *client);$/;"	p
+jack_reset_max_delayed_usecs	/usr/include/jack/statistics.h	/^void jack_reset_max_delayed_usecs (jack_client_t *client);$/;"	p
+jack_reset_timestamps	/usr/include/jack/timestamps.h	/^void jack_reset_timestamps ();$/;"	p
+jack_ringbuffer_create	/usr/include/jack/ringbuffer.h	/^jack_ringbuffer_t *jack_ringbuffer_create(size_t sz);$/;"	p
+jack_ringbuffer_data_t	/usr/include/jack/ringbuffer.h	/^jack_ringbuffer_data_t ;$/;"	t	typeref:struct:__anon9
+jack_ringbuffer_free	/usr/include/jack/ringbuffer.h	/^void jack_ringbuffer_free(jack_ringbuffer_t *rb);$/;"	p
+jack_ringbuffer_get_read_vector	/usr/include/jack/ringbuffer.h	/^void jack_ringbuffer_get_read_vector(const jack_ringbuffer_t *rb,$/;"	p
+jack_ringbuffer_get_write_vector	/usr/include/jack/ringbuffer.h	/^void jack_ringbuffer_get_write_vector(const jack_ringbuffer_t *rb,$/;"	p
+jack_ringbuffer_mlock	/usr/include/jack/ringbuffer.h	/^int jack_ringbuffer_mlock(jack_ringbuffer_t *rb);$/;"	p
+jack_ringbuffer_peek	/usr/include/jack/ringbuffer.h	/^size_t jack_ringbuffer_peek(jack_ringbuffer_t *rb, char *dest, size_t cnt);$/;"	p
+jack_ringbuffer_read	/usr/include/jack/ringbuffer.h	/^size_t jack_ringbuffer_read(jack_ringbuffer_t *rb, char *dest, size_t cnt);$/;"	p
+jack_ringbuffer_read_advance	/usr/include/jack/ringbuffer.h	/^void jack_ringbuffer_read_advance(jack_ringbuffer_t *rb, size_t cnt);$/;"	p
+jack_ringbuffer_read_space	/usr/include/jack/ringbuffer.h	/^size_t jack_ringbuffer_read_space(const jack_ringbuffer_t *rb);$/;"	p
+jack_ringbuffer_reset	/usr/include/jack/ringbuffer.h	/^void jack_ringbuffer_reset(jack_ringbuffer_t *rb);$/;"	p
+jack_ringbuffer_t	/usr/include/jack/ringbuffer.h	/^jack_ringbuffer_t ;$/;"	t	typeref:struct:__anon10
+jack_ringbuffer_write	/usr/include/jack/ringbuffer.h	/^size_t jack_ringbuffer_write(jack_ringbuffer_t *rb, const char *src,$/;"	p
+jack_ringbuffer_write_advance	/usr/include/jack/ringbuffer.h	/^void jack_ringbuffer_write_advance(jack_ringbuffer_t *rb, size_t cnt);$/;"	p
+jack_ringbuffer_write_space	/usr/include/jack/ringbuffer.h	/^size_t jack_ringbuffer_write_space(const jack_ringbuffer_t *rb);$/;"	p
+jack_set_buffer_size	/usr/include/jack/jack.h	/^int jack_set_buffer_size (jack_client_t *client, jack_nframes_t nframes);$/;"	p
+jack_set_buffer_size_callback	/usr/include/jack/jack.h	/^int jack_set_buffer_size_callback (jack_client_t *client,$/;"	p
+jack_set_client_registration_callback	/usr/include/jack/jack.h	/^int jack_set_client_registration_callback (jack_client_t *,$/;"	p
+jack_set_error_function	/usr/include/jack/jack.h	/^void jack_set_error_function (void (*func)(const char *));$/;"	p
+jack_set_freewheel	/usr/include/jack/jack.h	/^int jack_set_freewheel(jack_client_t* client, int onoff);$/;"	p
+jack_set_freewheel_callback	/usr/include/jack/jack.h	/^int jack_set_freewheel_callback (jack_client_t *client,$/;"	p
+jack_set_graph_order_callback	/usr/include/jack/jack.h	/^int jack_set_graph_order_callback (jack_client_t *,$/;"	p
+jack_set_info_function	/usr/include/jack/jack.h	/^void jack_set_info_function (void (*func)(const char *));$/;"	p
+jack_set_port_connect_callback	/usr/include/jack/jack.h	/^int jack_set_port_connect_callback (jack_client_t *,$/;"	p
+jack_set_port_registration_callback	/usr/include/jack/jack.h	/^int jack_set_port_registration_callback (jack_client_t *,$/;"	p
+jack_set_process_callback	/usr/include/jack/jack.h	/^int jack_set_process_callback (jack_client_t *client,$/;"	p
+jack_set_process_thread	/usr/include/jack/jack.h	/^int jack_set_process_thread(jack_client_t* client, JackThreadCallback fun, void *arg);$/;"	p
+jack_set_sample_rate_callback	/usr/include/jack/jack.h	/^int jack_set_sample_rate_callback (jack_client_t *client,$/;"	p
+jack_set_sync_callback	/usr/include/jack/transport.h	/^int  jack_set_sync_callback (jack_client_t *client,$/;"	p
+jack_set_sync_timeout	/usr/include/jack/transport.h	/^int  jack_set_sync_timeout (jack_client_t *client,$/;"	p
+jack_set_thread_init_callback	/usr/include/jack/jack.h	/^int jack_set_thread_init_callback (jack_client_t *client,$/;"	p
+jack_set_timebase_callback	/usr/include/jack/transport.h	/^int  jack_set_timebase_callback (jack_client_t *client,$/;"	p
+jack_set_transport_info	/usr/include/jack/transport.h	/^void jack_set_transport_info (jack_client_t *client,$/;"	p
+jack_set_xrun_callback	/usr/include/jack/jack.h	/^int jack_set_xrun_callback (jack_client_t *,$/;"	p
+jack_shmsize_t	/usr/include/jack/types.h	/^typedef int32_t jack_shmsize_t;$/;"	t
+jack_shutdown	./groovit.c	/^void jack_shutdown (void *arg)$/;"	f
+jack_status_t	/usr/include/jack/types.h	/^typedef enum JackStatus jack_status_t;$/;"	t	typeref:enum:JackStatus
+jack_thread_wait	/usr/include/jack/jack.h	/^jack_nframes_t jack_thread_wait (jack_client_t*, int status);$/;"	p
+jack_time_t	/usr/include/jack/types.h	/^typedef uint64_t jack_time_t;$/;"	t
+jack_time_to_frames	/usr/include/jack/jack.h	/^jack_nframes_t jack_time_to_frames(const jack_client_t *client, jack_time_t);$/;"	p
+jack_timestamp	/usr/include/jack/timestamps.h	/^void jack_timestamp (const char *what);$/;"	p
+jack_transport_bits_t	/usr/include/jack/transport.h	/^} jack_transport_bits_t;$/;"	t	typeref:enum:__anon14
+jack_transport_info_t	/usr/include/jack/transport.h	/^} jack_transport_info_t;$/;"	t	typeref:struct:__anon15
+jack_transport_locate	/usr/include/jack/transport.h	/^int  jack_transport_locate (jack_client_t *client,$/;"	p
+jack_transport_query	/usr/include/jack/transport.h	/^jack_transport_state_t jack_transport_query (const jack_client_t *client,$/;"	p
+jack_transport_reposition	/usr/include/jack/transport.h	/^int  jack_transport_reposition (jack_client_t *client,$/;"	p
+jack_transport_start	/usr/include/jack/transport.h	/^void jack_transport_start (jack_client_t *client);$/;"	p
+jack_transport_state_t	/usr/include/jack/transport.h	/^} jack_transport_state_t;$/;"	t	typeref:enum:__anon11
+jack_transport_stop	/usr/include/jack/transport.h	/^void jack_transport_stop (jack_client_t *client);$/;"	p
+jack_unique_t	/usr/include/jack/transport.h	/^typedef uint64_t jack_unique_t;		\/**< Unique ID (opaque) *\/$/;"	t
 jmeta	./controls.c	/^JMeta   jmeta[6];		\/* les handles des jmeta            *\/$/;"	v
 keycontrols	./controls.c	/^int     keycontrols (int h, int c)	\/* returns 0 if the char is NOT handled *\/$/;"	f
 keycontrols	./controls.h	/^int     keycontrols (int h, int c);	\/* returns 0 if the char is NOT handled *\/$/;"	p
@@ -4238,10 +4490,12 @@ lb	./controls.c	/^    lb;				\/* mnemo: lb = "ListBox"        *\/$/;"	m	union:tc
 lbutton	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^	    LRadioButton lbutton;		\/\/!< the list of buttons$/;"	m	class:grapefruit::RadioValue
 lbutton	/usr/local/include/grapefruit/grapefruit.h	/^	    LRadioButton lbutton;		\/\/!< the list of buttons$/;"	m	class:grapefruit::RadioValue
 leavefakedsp	./groovit.c	/^int     leavefakedsp (int fdsp)$/;"	f
+leavenow	./groovit.c	/^int leavenow = 0;	   \/* should we leave groovit now (when usejack)   *\/$/;"	v
 left	/home/jd/bzoums/grapefruit/src/include/grapefruit/td.h	/^       GLdouble left,				    	    \/\/!< the coordinate for the left vertical clipping plane$/;"	m	class:grapefruit::View
 left	/usr/local/include/grapefruit/td.h	/^       GLdouble left,				    	    \/\/!< the coordinate for the left vertical clipping plane$/;"	m	class:grapefruit::View
 len	./controls.c	/^	        len,		\/* longueur max du buffer       *\/$/;"	m	struct:tcontain::__anon7	file:
 len	./controls.c	/^	int     len,		\/* longueur de la chaine texte  *\/$/;"	m	struct:tcontain::__anon8	file:
+len	/usr/include/jack/ringbuffer.h	/^  size_t len;$/;"	m	struct:__anon9
 level	./grmixeur.h	/^            level[MAXVOICES];  \/* le niveau de mixage de la ieme voie  *\/$/;"	m	struct:STMixeur
 level	./resoanlog.h	/^            level,	       \/* le niveau de mixage *\/$/;"	m	struct:STAnalogik
 level	./sample.h	/^    int     level;	       \/* niveau de sortie                               *\/$/;"	m	struct:STSample
@@ -4292,6 +4546,8 @@ loadglvfont	/home/jd/bzoums/grapefruit/src/glvfont.cpp	/^int loadglvfont (void)$
 loadglvfont	/home/jd/bzoums/grapefruit/src/include/grapefruit/glvfont.h	/^    int loadglvfont (void);$/;"	p	namespace:grapefruit
 loadglvfont	/usr/local/include/grapefruit/glvfont.h	/^    int loadglvfont (void);$/;"	p	namespace:grapefruit
 lomehi	/usr/local/include/caroube/readsample.h	/^	    void lomehi (void); \/\/!< computes the lo, me, hi magical values with fft$/;"	p	class:caroube::Sample
+loop_end	/usr/include/jack/transport.h	/^    jack_nframes_t         loop_end;$/;"	m	struct:__anon15
+loop_start	/usr/include/jack/transport.h	/^    jack_nframes_t         loop_start;$/;"	m	struct:__anon15
 low	./resoanlog.h	/^    long    hig, mid, low, feedbk, hig2, mid2, low2, freq;$/;"	m	struct:STAnReso
 low2	./resoanlog.h	/^    long    hig, mid, low, feedbk, hig2, mid2, low2, freq;$/;"	m	struct:STAnReso
 lrev	./grdelay.h	/^int     lrev,		       \/* construction du reverbsample gauche          *\/$/;"	v
@@ -4315,6 +4571,7 @@ main	./goodies/testchar.c	/^int main (void)$/;"	f
 main	./goodies/testkeyb.c	/^int main (void)$/;"	f
 main	./groovit.c	/^int     main (int nbcm, char **cmde)$/;"	f
 main	./testdsp.c	/^int main (int nb, char **cmde)$/;"	f
+mainloop	./groovit.c	/^int     mainloop (jack_nframes_t nframes, void *jack_arg)$/;"	f
 map_sdlkey	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapekey.h	/^	    map <SDLKey, ActionPool> map_sdlkey;$/;"	m	class:grapefruit::GrapeKeyMapKey
 map_sdlkey	/usr/local/include/grapefruit/grapekey.h	/^	    map <SDLKey, ActionPool> map_sdlkey;$/;"	m	class:grapefruit::GrapeKeyMapKey
 map_sdlkey_action	/home/jd/bzoums/grapefruit/src/grapekey.cpp	/^    void GrapeKeyMapKey::map_sdlkey_action (SDLKey k, Action & a)$/;"	f	class:grapefruit::GrapeKeyMapKey
@@ -4367,6 +4624,7 @@ mixm	./grdyfilter.c	/^       *mixr[MAXDYFILT], *mixm[MAXDYFILT];$/;"	v	file:
 mixr	./grdelay.c	/^static int *mixl, *mixr, *mixm;		\/* pointeurs sur les summerisations de mixeurs *\/$/;"	v	file:
 mixr	./grderiv.c	/^static int *mixl, *mixr, *mixm;		\/* pointeurs sur les summerisations de mixeurs *\/$/;"	v	file:
 mixr	./grdyfilter.c	/^       *mixr[MAXDYFILT], *mixm[MAXDYFILT];$/;"	v	file:
+mlocked	/usr/include/jack/ringbuffer.h	/^  int		  mlocked;$/;"	m	struct:__anon10
 mm	./controls.c	/^    mm;				\/* mnemo: mm = "MinMax"         *\/$/;"	m	union:tcontain	typeref:struct:tcontain::__anon1	file:
 modebefore	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^	    SDL_GrabMode modebefore;	\/\/!< what was the mode of the mouse before we take it$/;"	m	class:grapefruit::MGrabber
 modebefore	/usr/local/include/grapefruit/graperoute.h	/^	    SDL_GrabMode modebefore;	\/\/!< what was the mode of the mouse before we take it$/;"	m	class:grapefruit::MGrabber
@@ -4407,6 +4665,7 @@ nbch	./sample.h	/^    int	    nbch;	       \/* nombre de canaux				 *\/$/;"	m	st
 nbch	/usr/local/include/caroube/readsample.h	/^	    Sint16  nbch;   \/*!< \\brief	    number of channels *\/$/;"	m	class:caroube::Sample
 nbclick	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    int nbclick;$/;"	m	class:grapefruit::ActionTest
 nbclick	/usr/local/include/grapefruit/menu.h	/^	    int nbclick;$/;"	m	class:grapefruit::ActionTest
+nbconterr	./groovit.c	/^	nbconterr = 0;     \/* nombre d'erreur cumulees                     *\/$/;"	v
 nbcontfreez	./controls.c	/^        nbcontfreez[MAXCONTEXTS];	\/* nombre de contexte gele *\/$/;"	v	file:
 nbconttoinstall	./controls.c	/^            nbconttoinstall;	\/* nombre de controls a installer *\/$/;"	m	struct:tcontext	file:
 nbctx	./controls.c	/^        nbctx = -1;		\/* nombre de contextes deja installes ??? *\/$/;"	v
@@ -4443,6 +4702,7 @@ ncurpattern	./grsequence.h	/^            ncurpattern,	\/* no de pattern en cour 
 near_val	/home/jd/bzoums/grapefruit/src/include/grapefruit/td.h	/^		near_val,			    	    \/\/!< Specify the distance to the nearer depth clipping plane$/;"	m	class:grapefruit::View
 near_val	/usr/local/include/grapefruit/td.h	/^		near_val,			    	    \/\/!< Specify the distance to the nearer depth clipping plane$/;"	m	class:grapefruit::View
 next	./grevents.h	/^           *next;		\/* idem suivant                                 *\/$/;"	m	struct:STeventbuf	typeref:struct:STeventbuf::
+next_time	/usr/include/jack/transport.h	/^    double		next_time;	\/**< next sequential frame_time$/;"	m	struct:__anon13
 nextpat	./grpattern.h	/^    int	    nextpat;		\/\/ pattern suivante à jouer...$/;"	m	struct:STPattern
 nextpat	./grsequence.h	/^	    nextpat;		\/* la pattern suivante au normal des choses *\/$/;"	m	struct:STPatbut
 nfoutbis	./groovit.h	/^_groovitc char nfoutbis[MAXDIRSIZE];	\/* nom du fichier de sortie secondaire *\/$/;"	v
@@ -4514,6 +4774,8 @@ ourvalue	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^	    i
 ourvalue	/usr/local/include/grapefruit/grapefruit.h	/^	    bool ourvalue;$/;"	m	class:grapefruit::Button
 ourvalue	/usr/local/include/grapefruit/grapefruit.h	/^	    int ourvalue;			\/\/!< this value isn't used when Pvalue is supplied at construction$/;"	m	class:grapefruit::RadioValue
 ourvalue	/usr/local/include/grapefruit/grapefruit.h	/^	    int ourvalue;$/;"	m	class:grapefruit::RotButton
+output_portl	./groovit.c	/^jack_port_t *output_portl, \/* les sorties jackd                            *\/$/;"	v
+output_portr	./groovit.c	/^	    *output_portr;$/;"	v
 ownergrabmouse	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^	    static PEventCB ownergrabmouse;	\/\/!< who has currently grabbed the mouse$/;"	m	class:grapefruit::EventCB
 ownergrabmouse	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^	GRAPEFRUIT_H_SCOPE PEventCB EventCB::ownergrabmouse = NULL;$/;"	m	class:grapefruit::EventCB
 ownergrabmouse	/usr/local/include/grapefruit/graperoute.h	/^	    static PEventCB ownergrabmouse;	\/\/!< who has currently grabbed the mouse$/;"	m	class:grapefruit::EventCB
@@ -4523,6 +4785,7 @@ pa_finish	/home/jd/bzoums/grapefruit/src/include/grapefruit/cinetic.h	/^	    Act
 pa_finish	/usr/local/include/grapefruit/cinetic.h	/^	    ActionPool pa_finish;			    \/\/!< the Action to be performed at finishing the Mvmt$/;"	m	class:grapefruit::Mvmt
 paclick	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    ActionPool paclick;	\/\/!< pointer to the bound ActionPool when clicked$/;"	m	class:grapefruit::TDMenuItem
 paclick	/usr/local/include/grapefruit/menu.h	/^	    ActionPool paclick;	\/\/!< pointer to the bound ActionPool when clicked$/;"	m	class:grapefruit::TDMenuItem
+padding	/usr/include/jack/transport.h	/^    int32_t		padding[7];$/;"	m	struct:__anon13
 pagrab	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    ActionPool pagrab;	\/\/!< pointer to the bound ActionPool when grabbed \/\/ JDJDJDJD unfinished !$/;"	m	class:grapefruit::TDMenuItem
 pagrab	/usr/local/include/grapefruit/menu.h	/^	    ActionPool pagrab;	\/\/!< pointer to the bound ActionPool when grabbed \/\/ JDJDJDJD unfinished !$/;"	m	class:grapefruit::TDMenuItem
 pan	./resoanlog.h	/^    int     pan,	       \/* la position sonore left-right *\/$/;"	m	struct:STAnalogik
@@ -4685,6 +4948,7 @@ rdst	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^	    SDL_R
 rdst	/usr/local/include/grapefruit/grapefruit.h	/^	    SDL_Rect rdst;$/;"	m	class:grapefruit::Currant
 rdst	/usr/local/include/grapefruit/grapefruit.h	/^	    SDL_Rect rdst;$/;"	m	class:grapefruit::RotButton
 rdst	/usr/local/include/grapefruit/grapefruit.h	/^	    SDL_Rect rdst;$/;"	m	class:grapefruit::Text
+read_ptr	/usr/include/jack/ringbuffer.h	/^  volatile size_t read_ptr;$/;"	m	struct:__anon10
 readfdset	./controls.c	/^static fd_set readfdset;	\/* pour le polling *\/$/;"	v	file:
 readrevision	./settings.h	/^long    readrevision;	       \/* version du HOME\/.groovitrc                   *\/$/;"	v
 readsample	./readsample.c	/^short  *readsample (char *nomfile, Sample *sample)$/;"	f
@@ -4990,13 +5254,19 @@ shownagrumes	/home/jd/bzoums/grapefruit/src/include/grapefruit/agrume.h	/^	GRAPE
 shownagrumes	/usr/local/include/grapefruit/agrume.h	/^	    static LPAgrume shownagrumes;$/;"	m	class:grapefruit::Agrume
 shownagrumes	/usr/local/include/grapefruit/agrume.h	/^	GRAPEFRUIT_H_SCOPE LPAgrume Agrume::shownagrumes;$/;"	m	class:grapefruit::Agrume
 showusage	./groovit.c	/^void    showusage (void)$/;"	f
+signal_alrm	./groovit.c	/^    struct sigaction signal_alrm;	\/* structure de gestion du timer de polling     *\/$/;"	v	typeref:struct:sigaction
 simple_pression	./grsequence.c	/^int     simple_pression (int evtype, int voice, int data)$/;"	f
 simple_pression	./grsequence.h	/^int     simple_pression (int evtype, int voice, int data);$/;"	p
 size	./sample.h	/^    long    size;	       \/* taille. NUL ==> le sample est invalide.        *\/$/;"	m	struct:STSample
+size	/usr/include/jack/midiport.h	/^	size_t            size;   \/**< Number of bytes of data in \\a buffer *\/$/;"	m	struct:_jack_midi_event
+size	/usr/include/jack/ringbuffer.h	/^  size_t	  size;$/;"	m	struct:__anon10
 size	/usr/local/include/caroube/readsample.h	/^	    Sint32  size;   \/*!< \\brief	    size of the sample (0 means invalid or not yet valid *\/$/;"	m	class:caroube::Sample
+size_mask	/usr/include/jack/ringbuffer.h	/^  size_t	  size_mask;$/;"	m	struct:__anon10
 sizebufahead	./settings.h	/^        sizebufahead;	       \/* taille du playahead en octets *\/$/;"	v
 sizesum	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    Vector3 sizesum;		    \/\/!< more or less the next coordinate in use for positionning the next menu element$/;"	m	class:grapefruit::TDMenu
 sizesum	/usr/local/include/grapefruit/menu.h	/^	    Vector3 sizesum;		    \/\/!< more or less the next coordinate in use for positionning the next menu element$/;"	m	class:grapefruit::TDMenu
+smpte_frame_rate	/usr/include/jack/transport.h	/^    float          smpte_frame_rate;	\/**< 29.97, 30, 24 etc. *\/$/;"	m	struct:__anon15
+smpte_offset	/usr/include/jack/transport.h	/^    long           smpte_offset;	\/**< SMPTE offset (from frame 0) *\/$/;"	m	struct:__anon15
 speed1k	/home/jd/bzoums/grapefruit/src/include/grapefruit/cinetic.h	/^	    GLfloat speed1k;	\/\/!< the spin-speed in radian per millisecond$/;"	m	class:grapefruit::Mv_Spin
 speed1k	/usr/local/include/grapefruit/cinetic.h	/^	    GLfloat speed1k;	\/\/!< the spin-speed in radian per millisecond$/;"	m	class:grapefruit::Mv_Spin
 sr	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^	    RGBAColor bg, sr, txt;$/;"	m	class:grapefruit::Currant
@@ -5062,7 +5332,7 @@ talerts::hts_5	./alert.c	/^            hts_5;	       \/* la troisieme ligne     
 talerts::hts_title	./alert.c	/^            hts_title,	       \/* le handle du titre                   *\/$/;"	m	struct:talerts	file:
 talerts::used	./alert.c	/^    int     used,	       \/* is the alert used ?                  *\/$/;"	m	struct:talerts	file:
 tamp	/usr/local/include/caroube/audio.h	/^	    Sint32 tamp;		    \/\/ target (shifted) amplitude$/;"	m	class:caroube::EnvGen
-tamp	/usr/local/include/caroube/audio.h	/^	Uint16 tamp;	    \/\/ target amplitude$/;"	m	struct:caroube::__anon10
+tamp	/usr/local/include/caroube/audio.h	/^	Uint16 tamp;	    \/\/ target amplitude$/;"	m	struct:caroube::__anon17
 taping_pression	./grsequence.c	/^int     taping_pression (int evtype, int voice, int data)$/;"	f
 tcontain	./controls.c	/^typedef union tcontain		\/* data-container for controls  *\/$/;"	u	file:
 tcontain::__anon1::maxv	./controls.c	/^	        maxv;		\/* ... et maxi                  *\/$/;"	m	struct:tcontain::__anon1	file:
@@ -5166,6 +5436,8 @@ tf	/usr/local/include/grapefruit/agrume.h	/^	    TranspFunc tf; \/\/!< the trans
 therearedeletions	/home/jd/bzoums/grapefruit/src/graperoute.cpp	/^bool therearedeletions = false;$/;"	v
 thestring	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^	    string thestring;   \/\/ JDJDJDJD line to be removed or moved to text button only$/;"	m	class:grapefruit::Button
 thestring	/usr/local/include/grapefruit/grapefruit.h	/^	    string thestring;   \/\/ JDJDJDJD line to be removed or moved to text button only$/;"	m	class:grapefruit::Button
+tick	/usr/include/jack/transport.h	/^    int            tick;$/;"	m	struct:__anon15
+tick	/usr/include/jack/transport.h	/^    int32_t		tick;		\/**< current tick-within-beat *\/$/;"	m	struct:__anon13
 tickchange_analogik	./granalogik.c	/^int     tickchange_analogik (int voice)$/;"	f
 tickchange_analogik	./granalogik.h	/^int     tickchange_analogik (int voice);$/;"	p
 tickchange_delay	./grdelay.c	/^int     tickchange_delay (int voice)$/;"	f
@@ -5176,6 +5448,9 @@ tickchange_pattern	./grpattern.c	/^int     tickchange_pattern (int voice)$/;"	f
 tickchange_pattern	./grpattern.h	/^int     tickchange_pattern (int voice);$/;"	p
 tickchange_play	./grsequence.c	/^void    tickchange_play (void)$/;"	f
 tickchange_play	./grsequence.h	/^void    tickchange_play (void);$/;"	p
+ticks_per_beat	/usr/include/jack/transport.h	/^    double		ticks_per_beat;$/;"	m	struct:__anon13
+ticks_per_beat	/usr/include/jack/transport.h	/^    double         ticks_per_beat;$/;"	m	struct:__anon15
+time	/usr/include/jack/midiport.h	/^	jack_nframes_t    time;   \/**< Sample index at which event is valid *\/$/;"	m	struct:_jack_midi_event
 tjmeta	./controls.c	/^typedef struct tjmeta		\/* la structure de jmeta controls    *\/$/;"	s	file:
 tjmeta::member	./controls.c	/^    int     member[MAXMETAMEMBER];	\/* les membres                      *\/$/;"	m	struct:tjmeta	file:
 tjmeta::nb	./controls.c	/^    int     nb;			\/* le nombre de membres             *\/$/;"	m	struct:tjmeta	file:
@@ -5202,6 +5477,7 @@ transpD	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.h	/^		trans
 transpD	/usr/local/include/grapefruit/grapecolor.h	/^		transpD;	\/\/!< OpenGL transparency function for destination$/;"	m	class:grapefruit::TranspFunc
 transpS	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.h	/^	    int transpS,	\/\/!< OpenGL transparency function for source$/;"	m	class:grapefruit::TranspFunc
 transpS	/usr/local/include/grapefruit/grapecolor.h	/^	    int transpS,	\/\/!< OpenGL transparency function for source$/;"	m	class:grapefruit::TranspFunc
+transport_state	/usr/include/jack/transport.h	/^    jack_transport_state_t transport_state;         $/;"	m	struct:__anon15
 trigger_action	/home/jd/bzoums/grapefruit/src/grapekey.cpp	/^    bool GrapeKeyMapKey::trigger_action (SDL_Event const & event)$/;"	f	class:grapefruit::GrapeKeyMapKey
 trigger_action	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapekey.h	/^	    bool trigger_action (SDL_Event const & event);$/;"	p	class:grapefruit::GrapeKeyMapKey
 trigger_action	/usr/local/include/grapefruit/grapekey.h	/^	    bool trigger_action (SDL_Event const & event);$/;"	p	class:grapefruit::GrapeKeyMapKey
@@ -5209,7 +5485,7 @@ ts	./controls.c	/^    ts;				\/* mnemo ts = "Text String"     *\/$/;"	m	union:tc
 ts	./groovit.h	/^long    ts,		       \/* OBSOLETE "timesample" nb de sample depuis le *\/$/;"	v
 tss	./groovit.h	/^        tss,		       \/* OBSOLETE "timesample" nb de sample depuis le *\/$/;"	v
 tta	/usr/local/include/caroube/audio.h	/^	    Sint32 tta;	    	    \/\/ time length left to reach the target amplitude (expressed in$/;"	m	class:caroube::EnvGen
-tta	/usr/local/include/caroube/audio.h	/^	Sint32 tta;		    \/\/ time length left to reach the target amplitude (in samples-length)$/;"	m	struct:caroube::__anon10
+tta	/usr/local/include/caroube/audio.h	/^	Sint32 tta;		    \/\/ time length left to reach the target amplitude (in samples-length)$/;"	m	struct:caroube::__anon17
 ttt	/usr/local/include/caroube/asequencer.h	/^	    int ttt;			\/\/!< decounter : time to (next) 'tick'...$/;"	m	class:caroube::SonGeSeq
 txt	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^	    RGBAColor bg, sr, txt;$/;"	m	class:grapefruit::Currant
 txt	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^	    Uint32 txt;$/;"	m	class:grapefruit::Text
@@ -5221,7 +5497,9 @@ type	./gpm-xterm.h	/^    enum Gpm_Etype type;$/;"	m	struct:Gpm_Event	typeref:enu
 type	./grevents.h	/^    int     type;		\/* type d'evenement                             *\/$/;"	m	struct:STevent
 type	./settings.h	/^    int     type, portee, checked;$/;"	m	struct:TSettings
 type	/usr/local/include/caroube/audio.h	/^	    EnvElType type;		    \/\/ current type of enveloppe element$/;"	m	class:caroube::EnvGen
-type	/usr/local/include/caroube/audio.h	/^	EnvElType type;  \/\/ nature of the segment$/;"	m	struct:caroube::__anon10
+type	/usr/local/include/caroube/audio.h	/^	EnvElType type;  \/\/ nature of the segment$/;"	m	struct:caroube::__anon17
+unique_1	/usr/include/jack/transport.h	/^    jack_unique_t	unique_1;	\/**< unique ID *\/$/;"	m	struct:__anon13
+unique_2	/usr/include/jack/transport.h	/^    jack_unique_t	unique_2;	\/**< unique ID *\/$/;"	m	struct:__anon13
 unlocksema	./semaphore.c	/^int unlocksema (int semid)$/;"	f
 unlocksema	./semaphore.h	/^int unlocksema (int semid);$/;"	p
 unsubscribe	/home/jd/bzoums/grapefruit/src/glreinit.cpp	/^void GLReInit::unsubscribe (void)$/;"	f	class:grapefruit::GLReInit
@@ -5233,7 +5511,10 @@ update	/home/jd/bzoums/grapefruit/src/menu.cpp	/^void TDMenuItemString::update (
 update	/home/jd/bzoums/grapefruit/src/tdstring.cpp	/^    void TDString::update (const string &s)$/;"	f	class:grapefruit::TDString
 update	/usr/local/include/grapefruit/menu.h	/^	    void update (const string & s); \/\/!< updates the value of the string$/;"	p	class:grapefruit::TDMenuItemString
 update	/usr/local/include/grapefruit/tdstring.h	/^	    void update (const string &s);$/;"	p	class:grapefruit::TDString
+usecs	/usr/include/jack/transport.h	/^    jack_time_t		usecs;		\/**< monotonic, free-rolling *\/$/;"	m	struct:__anon13
+usecs	/usr/include/jack/transport.h	/^    jack_time_t    usecs;		\/**< monotonic, free-rolling *\/$/;"	m	struct:__anon15
 used	./alert.c	/^    int     used,	       \/* is the alert used ?                  *\/$/;"	m	struct:talerts	file:
+usejack	./groovit.c	/^int usejack = 0;	   \/* shall we use jack ?                          *\/$/;"	v
 uselibgpm	./controls.c	/^static int uselibgpm = 0;	\/* utilisons-nous libgpm ??? *\/$/;"	v	file:
 uselockmem	./groovit.c	/^int     uselockmem = 0;$/;"	v
 uselockmem	./groovit.c	/^int     uselockmem = USELOCKMEM;$/;"	v
@@ -5245,6 +5526,8 @@ val	./grevents.h	/^    int     val;		\/* valeur                                 
 val	./semaphore.c	/^        int val;                    \/* value for SETVAL *\/$/;"	m	union:semun	file:
 val	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapecolor.h	/^	    Uint32 val;$/;"	m	class:grapefruit::RGBAColor
 val	/usr/local/include/grapefruit/grapecolor.h	/^	    Uint32 val;$/;"	m	class:grapefruit::RGBAColor
+valid	/usr/include/jack/transport.h	/^    jack_position_bits_t valid;		\/**< which other fields are valid *\/$/;"	m	struct:__anon13
+valid	/usr/include/jack/transport.h	/^    jack_transport_bits_t  valid;	\/**< which fields are legal to read *\/$/;"	m	struct:__anon15
 value	./radio.h	/^    int     value, nb, h[CONTMAXRADIO];$/;"	m	struct:STRadio
 valuechange	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^	    virtual void valuechange (void) {};$/;"	f	class:grapefruit::Button
 valuechange	/home/jd/bzoums/grapefruit/src/include/grapefruit/grapefruit.h	/^	    virtual void valuechange (void) {};$/;"	f	class:grapefruit::RadioValue
@@ -5266,6 +5549,7 @@ vernumber	./grov_io.c	/^long    vernumber = 0;$/;"	v
 version	./menu_board.c	/^     *version;				\/* contient la version de groovit	*\/$/;"	v	file:
 vh	/home/jd/bzoums/grapefruit/src/include/grapefruit/td.h	/^       GLsizei vw, vh;				    	    \/\/!< the width and height of the viewport$/;"	m	class:grapefruit::View
 vh	/usr/local/include/grapefruit/td.h	/^       GLsizei vw, vh;				    	    \/\/!< the width and height of the viewport$/;"	m	class:grapefruit::View
+video_offset	/usr/include/jack/transport.h	/^    jack_nframes_t      video_offset;   \/**< audio frame at which the first video$/;"	m	struct:__anon13
 viewType	/home/jd/bzoums/grapefruit/src/include/grapefruit/menu.h	/^	    MenuViewType viewType;	    \/\/!< the menu's disposition (column, line, array)$/;"	m	class:grapefruit::TDMenu
 viewType	/usr/local/include/grapefruit/menu.h	/^	    MenuViewType viewType;	    \/\/!< the menu's disposition (column, line, array)$/;"	m	class:grapefruit::TDMenu
 view_displayed	/home/jd/bzoums/grapefruit/src/include/grapefruit/td.h	/^    GRAPEFRUIT_H_SCOPE list <View *> view_displayed;		\/\/!< the ordered list of curently displayed View$/;"	v
@@ -5316,6 +5600,7 @@ width	/home/jd/bzoums/grapefruit/src/include/grapefruit/tdstring.h	/^	    double
 width	/usr/local/include/grapefruit/tdstring.h	/^	    double width;   \/\/!< the line and point width$/;"	m	class:grapefruit::TDString
 write_pref	./settings.c	/^int     write_pref (void **liste)$/;"	f
 write_pref	./settings.h	/^int     write_pref (void **liste);$/;"	p
+write_ptr	/usr/include/jack/ringbuffer.h	/^  volatile size_t write_ptr;$/;"	m	struct:__anon10
 wz	/home/jd/bzoums/grapefruit/src/include/grapefruit/graperoute.h	/^	    int wz, hz;$/;"	m	class:grapefruit::ClicableZone
 wz	/usr/local/include/grapefruit/graperoute.h	/^	    int wz, hz;$/;"	m	class:grapefruit::ClicableZone
 x	./controls.c	/^            x,			\/* coordonnee en haut a gauche de la sous fenetre *\/$/;"	m	struct:tcontext	file:

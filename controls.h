@@ -164,6 +164,11 @@ int     createcontexts (int x, int y, int lx, int ly, int col, char *name, Tacti
 		/* creer un contexts de ss fenetre */
 void    actionnecontexts (int h, Tactionne actionne);
 
+// ajoutes pour permettre le control des meta en midi ....
+extern int     focus;
+int     keydirectcontrols (int h, int val);
+void    actionnedirectjmeta (int m, int val);
+
 // int registertocontexts (int ctx, int ctl);                   /* ajouter un controls au
 // contexts */
 /* l'enregistrement est desormais automatique */
