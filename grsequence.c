@@ -231,7 +231,7 @@ void    tickchange_play (void)
 
 int     start_playing (void)
 {
-    int     i;
+//    int     i;
 
 #ifdef DEBSEQU
 	fprintf (stderr, "-->start_playing\n");
