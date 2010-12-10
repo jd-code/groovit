@@ -111,6 +111,7 @@
 #include <string.h>
 
 #include <jack/jack.h>
+#include <jack/midiport.h>
 
 #include <linux/soundcard.h>
 /* #include <sys/soundcard.h> */
@@ -718,7 +719,8 @@ int     fjs1,	       /* joystick #1                                  */
 #endif
 
 jack_port_t *output_portl, /* les sorties jackd                            */
-	    *output_portr;
+	    *output_portr,
+	    *midi_input;   /* l'entree midi                                */
 
 jack_client_t *client;     /* le handle client aupres du serveur jackd     */
 
@@ -746,6 +748,33 @@ int     mainloop (jack_nframes_t nframes, void *jack_arg)
 	(jack_default_audio_sample_t *) jack_port_get_buffer (output_portr, nframes);
     jack_default_audio_sample_t *jackoutl =
 	(jack_default_audio_sample_t *) jack_port_get_buffer (output_portl, nframes);
+
+    if (1)
+    {	jack_midi_event_t event;
+	long i, j, n;
+	void* midiin_buf = jack_port_get_buffer(midi_input, nframes);
+	n = (long) jack_midi_get_event_count(midiin_buf);
+	for (i=0 ; i<n ; i++) {
+	    if (jack_midi_event_get (&event, midiin_buf, i) != ENODATA) {
+		if (event.size > 0) {
+		    if ( (((unsigned char *)event.buffer)[0] & 0xf0 ) == 0xb0 )	{   /* a continuous midi control */
+			int control = ((unsigned char *)event.buffer)[1];
+			if ((control >= 1) && (control <=5)) {
+			    actionnedirectjmeta (control, (((unsigned char *)event.buffer)[2]) << 1);	/* value are 7 bits, multiply them ... */
+			}
+			else if (control == 8) {
+			    keydirectcontrols (focus, (((unsigned char *)event.buffer)[2]) << 1);	/* value are 7 bits, multiply them ... */
+			}
+		    }
+		}
+	    } else {
+		fprintf (stderr, " midi @%15lu %ld ", (unsigned long) event.time, event.size);
+		for (j=0 ; j<event.size ; j++)
+		    fprintf (stderr, "%02x ", ((unsigned char *)event.buffer)[j]);
+		fprintf (stderr, "\n");
+	    }
+	}
+    }
 
     {
 #ifdef HOPEDMONO16
@@ -1516,6 +1545,8 @@ int     main (int nbcm, char **cmde)
 
 		output_portl = jack_port_register (client, "outputl", JACK_DEFAULT_AUDIO_TYPE, JackPortIsOutput, 0);
 		output_portr = jack_port_register (client, "outputr", JACK_DEFAULT_AUDIO_TYPE, JackPortIsOutput, 0);
+
+		midi_input = jack_port_register (client, "midi_input", JACK_DEFAULT_MIDI_TYPE, JackPortIsInput, 0);
 	    }
 	} else {
 	    fdsp = initoutdsp ();

@@ -713,6 +713,49 @@ void    actionnejmeta (int m, int c)
 	keycontrols (jmeta[m].member[i], c);
 }
 
+void    actionnedirectjmeta (int m, int val)
+{
+    int     i;
+
+    for (i = 0; i < jmeta[m].nb; i++)
+	keydirectcontrols (jmeta[m].member[i], val);
+}
+
+int     keydirectcontrols (int h, int val)	/* returns 0 if the control cannot support direct */
+{
+    int    *p = (int *) controls[h].p;
+
+    lastpressed = h;
+    switch (controls[h].type)
+    {
+	case CONTRVSLIDE:	/* slide vertical - keycontrols */
+	case CONTRHSLIDE:	/* slide horizontal - keycontrols */
+	    if (p != NULL)
+	    {
+		if (val > 256)
+		    *p = 256;
+		else if (val < 0)
+		    *p = 0;
+		else
+		    *p = val;
+
+		controls[h].nbmodif++;
+		if (controls[h].pression != NULL)
+		    controls[h].pression (controls[h].evtype, controls[h].voice, *p);
+
+		if (controls[h].associated != CONTUNDEF)
+		    refreshcontrols (controls[h].associated);
+		refreshcontrols (h);
+		return (1);
+	    }
+	    break;
+	default:
+	    return 0;
+    }
+
+    return (0);
+}
+
 int     keycontrols (int h, int c)	/* returns 0 if the char is NOT handled */
 {
     int    *p = (int *) controls[h].p;
