@@ -334,7 +334,7 @@ echo "a few question to Configure it all good..."
 echo "in a pintch just press RETURN for the default answer in [bracket]."
 echo
 
-VERSION=`echo $Id: Configure,v 1.2 2003/03/19 16:45:47 jd Exp $ | cut -d' ' -f3`
+VERSION='1.5'
 FINAL=groovit
 PREFIX=/usr/local
 LIBDIR=$PREFIX/lib/groovit
@@ -1177,7 +1177,7 @@ then
 	mv installer installer.bak
 fi
 echo -n "generating installer ...  "
-(	echo '#!/bin/sh'
+(	echo '#!/bin/bash'
 	echo 'LIBDIR'=$LIBDIR
 	echo 'SAMPLEDIR'=$SAMPLEDIR
 	echo 'DESTDIR'=$DESTDIR
