@@ -64,10 +64,11 @@
      TARDIR = $(HOME)/tar
     DICTDIR = $(HOME)
          CC = `./.cc`
-    VERSION = `rlog -r RCS/$(FINAL).c,v | grep "revision " | cut -d' ' -f2 | cut -f1`
+    VERSION = '1.5'
+#    VERSION = `rlog -r RCS/$(FINAL).c,v | grep "revision " | cut -d' ' -f2 | cut -f1`
 #    PSEUDO =
 #    PSEUDO = "ביבא-לת"
-     PSEUDO = telaviv
+     PSEUDO = walden
      CC_OBJ = -c
 #  CC_STAMP = -DCCUNAMED="\"`uname -n` `uname -s` `uname -r`\"" -DCCCONFEDBY="\"`whoami` `date "+%d-%m-%Y %H:%M"`\""
    CC_STAMP = -DCCUNAMED="\"`./.inu`\"" -DCCCONFEDBY="\"`./.woa`\""

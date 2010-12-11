@@ -1,0 +1,50 @@
+# DO NOT DELETE
+
+raw2disk.o: sample.h
+readsample.o: conv_ieee_ext.h sample.h voncendian.h
+controls.o: gpm-xterm.h semaphore.h controls.h radio.h
+fileselect.o: placement.h sample.h controls.h radio.h alert.h fileselect.h
+alert.o: controls.h radio.h alert.h
+tokenio.o: tokenio.h controls.h radio.h voncendian.h
+grov_io.o: sample.h readsample.h tokenio.h grov_io.h grpattern.h radio.h
+grov_io.o: grevents.h grsequence.h granalogik.h resoanlog.h grdyfilter.h
+grov_io.o: grdelay.h constants.h controls.h groovit.h menu_board.h grmixeur.h
+grov_io.o: voncendian.h
+gpm-xterm.o: gpm-xterm.h
+settings.o: sample.h grov_io.h placement.h controls.h radio.h fileselect.h
+settings.o: settings.h
+dialogs.o: sample.h placement.h controls.h radio.h alert.h fileselect.h
+dialogs.o: grsel.h menu_board.h resoanlog.h grpattern.h grevents.h
+dialogs.o: grsequence.h grdyfilter.h settings.h groovit.h constants.h
+grsel.o: sample.h placement.h controls.h radio.h alert.h fileselect.h
+grsel.o: readsample.h grov_io.h raw2disk.h menu_board.h resoanlog.h
+grsel.o: grpattern.h grevents.h grsequence.h grdyfilter.h groovit.h
+grsel.o: constants.h
+grpattern.o: controls.h radio.h sample.h readsample.h placement.h groovit.h
+grpattern.o: constants.h grlevels.h grmixeur.h menu_board.h resoanlog.h
+grpattern.o: grpattern.h grevents.h grsequence.h grdyfilter.h
+granalogik.o: controls.h radio.h sample.h placement.h grlevels.h grmixeur.h
+granalogik.o: groovit.h constants.h menu_board.h resoanlog.h grpattern.h
+granalogik.o: grevents.h grsequence.h grdyfilter.h granalogik.h
+menu_board.o: sample.h placement.h controls.h radio.h dialogs.h grsel.h
+menu_board.o: settings.h grpattern.h grevents.h grsequence.h granalogik.h
+menu_board.o: resoanlog.h grdyfilter.h grdelay.h constants.h grlevels.h
+menu_board.o: grderiv.h groovit.h menu_board.h
+resoanlog.o: resoanlog.h radio.h sample.h placement.h groovit.h constants.h
+grdelay.o: controls.h radio.h sample.h placement.h grlevels.h grmixeur.h
+grdelay.o: groovit.h constants.h grdelay.h
+grmixeur.o: grlevels.h grmixeur.h
+grlevels.o: sample.h placement.h controls.h radio.h grmixeur.h grlevels.h
+grdyfilter.o: controls.h radio.h sample.h placement.h groovit.h constants.h
+grdyfilter.o: menu_board.h resoanlog.h grpattern.h grevents.h grsequence.h
+grdyfilter.o: grdyfilter.h grmixeur.h grlevels.h granalogik.h
+groovit.o: placement.h tokenio.h grov_io.h raw2disk.h sample.h readsample.h
+groovit.o: controls.h radio.h menu_board.h resoanlog.h grpattern.h grevents.h
+groovit.o: grsequence.h grdyfilter.h settings.h dialogs.h grsel.h grmixeur.h
+groovit.o: granalogik.h grdelay.h constants.h grderiv.h groovit.h
+grderiv.o: controls.h radio.h sample.h placement.h grlevels.h grmixeur.h
+grderiv.o: groovit.h constants.h grderiv.h
+grevents.o: grevents.h
+grsequence.o: placement.h controls.h radio.h groovit.h constants.h sample.h
+grsequence.o: grpattern.h grevents.h grsequence.h granalogik.h resoanlog.h
+grsequence.o: grdyfilter.h
