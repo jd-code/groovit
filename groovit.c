@@ -668,6 +668,7 @@ void    rustine (void)	       /* cette fonction initialise les variables globale
     totleft = 0;
     totright = 0;
     bpm = 140;
+    instancename = gname;
 
     if (getcwd (startdir, MAXDIRSIZE) == NULL)
     {
@@ -704,6 +705,8 @@ void    showusage (void)
     fprintf (stderr,   " -raw     attributes a filename and enable the raw ouput.\n");
     fprintf (stderr,   " -noX     disable forking into an Xtermish window when DISPLAY is set.\n");
     fprintf (stderr,   " -fakedsp disable dsp usage (useful for testing).\n");
+    fprintf (stderr,   " -jack[=instance_name] jackd mode, being client with instance_name\n");
+    fprintf (stderr,   "                       for multi-instance needs.\n");
     fprintf (stderr,   "          the last valid `startfile' is opened\n");
 }
 
@@ -1243,6 +1246,14 @@ int     main (int nbcm, char **cmde)
 		    else if (strncmp (cmde[i], "-jack", 5) == 0)
 		    {
 			usejack = 1;
+			if (cmde[i][5] == '=') {
+			    if (strlen (cmde[i]+6) == 0) {
+				fprintf (stderr, "error : \"-jack=name\" needs a name\n");
+				exit (1);
+			    } else {
+				instancename = cmde[i]+6;
+			    }
+			}
 		    }
 		    else if (strncmp (cmde[i], "-fakedsp", 8) == 0)
 		    {
@@ -1302,7 +1313,7 @@ int     main (int nbcm, char **cmde)
     if (!forcedfakedsp)
     {
 	if (usejack) {
-	    if ((client = jack_client_new ("groovit")) == NULL) {
+	    if ((client = jack_client_new (instancename)) == NULL) {
 		fprintf (stderr, "could not connect to jackd server\n");
 	    }
 	    jack_client_close (client);
@@ -1519,7 +1530,7 @@ int     main (int nbcm, char **cmde)
 	  /* JDJDJDJD come sanity jobs needed here !!! */
 	    strcpy (cursongfile, "no-title");
 	    shortcursongfile = cursongfile;
-	    settitle (gname, shortcursongfile);
+	    settitle (instancename, shortcursongfile);
 	}
 #endif
 	else
@@ -1531,7 +1542,7 @@ int     main (int nbcm, char **cmde)
 		shortcursongfile = cursongfile;
 	    else
 		shortcursongfile++;
-	    settitle (gname, shortcursongfile);
+	    settitle (instancename, shortcursongfile);
 	}
     }
 
@@ -1542,7 +1553,7 @@ int     main (int nbcm, char **cmde)
     else
     {
 	if (usejack) {
-	    if ((client = jack_client_new ("groovit")) == NULL) {
+	    if ((client = jack_client_new (instancename)) == NULL) {
 		fprintf (stderr, "could not connect to jackd server\n");
 	    }
 	    if (client != NULL) {
@@ -1567,7 +1578,7 @@ int     main (int nbcm, char **cmde)
     }
     nbconterr = 0;
 
-    settitle (gname, shortcursongfile);
+    settitle (instancename, shortcursongfile);
     init_mixeur ();
     initboard (rcsid);
     resync_displaypatterns ();

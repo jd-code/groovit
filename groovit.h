@@ -137,10 +137,11 @@ char   *match_sound[] =
 {".wav", ".WAV", NULL},	       /* de type groovit                              */
        *match_grov[] =
 {".grov", ".grav", NULL},      /* main menu                                    */
-       *gname = "gr" "oo" "vit";
+       *gname = "gr" "oo" "vit",
+       *instancename;
 
 #else
-extern char *match_sound[], *match_wav[], *match_grov[], *fmenmain[], *gname;
+extern char *match_sound[], *match_wav[], *match_grov[], *fmenmain[], *gname, *instancename;
 
 #endif
 
