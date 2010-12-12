@@ -736,6 +736,17 @@ void jack_shutdown (void *arg)
 }
 
 
+void dumpmidi (FILE * std, jack_midi_event_t * event)
+{   int j;
+    fprintf (std, " midi @%15lu %ld ", (unsigned long) event->time, event->size);
+    for (j=0 ; j<event->size ; j++) {
+	fprintf (std, "%02x ", ((unsigned char *)event->buffer)[j]);
+	if (j == 0)
+	    fprintf (std, "(%1x %02d) ",(0xf0 & ((unsigned char *)event->buffer)[j]) >> 4, (0x0f & ((unsigned char *)event->buffer)[j]) );
+    }
+    fprintf (std, "\n");
+}
+
 int     mainloop (jack_nframes_t nframes, void *jack_arg)
 {
 
@@ -754,27 +765,35 @@ int     mainloop (jack_nframes_t nframes, void *jack_arg)
 
     if (1)
     {	jack_midi_event_t event;
-	long i, j, n;
+	long i, n;
 	void* midiin_buf = jack_port_get_buffer(midi_input, nframes);
 	n = (long) jack_midi_get_event_count(midiin_buf);
 	for (i=0 ; i<n ; i++) {
 	    if (jack_midi_event_get (&event, midiin_buf, i) != ENODATA) {
 		if (event.size > 0) {
+		    int took_care = 0;
 		    if ( (((unsigned char *)event.buffer)[0] & 0xf0 ) == 0xb0 )	{   /* a continuous midi control */
 			int control = ((unsigned char *)event.buffer)[1];
 			if ((control >= 1) && (control <=7)) {
 			    actionnedirectjmeta (control, (((unsigned char *)event.buffer)[2]) << 1);	/* value are 7 bits, multiply them ... */
+			    took_care = 1;
 			}
 			else if (control == 8) {
 			    keydirectcontrols (focus, (((unsigned char *)event.buffer)[2]) << 1);	/* value are 7 bits, multiply them ... */
+			    took_care = 1;
+			}
+		    } else if ( (((unsigned char *)event.buffer)[0] & 0xf0 ) == 0x90 ) { /* a pad begin sound */
+			int channel = ((unsigned char *)event.buffer)[0] & 0x0f;
+			int control = ((unsigned char *)event.buffer)[1];
+			if ((channel == 0) && (control>=0x24) && (control<=0x2b)) {
+fprintf (stderr, "next pattern : %d\n", control - 0x24);
+			    pattpatbut.nncurpattern = control - 0x24;
+			    took_care = 1;
 			}
 		    }
+		    if (!took_care)
+			dumpmidi (stderr, &event);
 		}
-	    } else {
-		fprintf (stderr, " midi @%15lu %ld ", (unsigned long) event.time, event.size);
-		for (j=0 ; j<event.size ; j++)
-		    fprintf (stderr, "%02x ", ((unsigned char *)event.buffer)[j]);
-		fprintf (stderr, "\n");
 	    }
 	}
     }
