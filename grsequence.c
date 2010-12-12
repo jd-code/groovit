@@ -130,10 +130,18 @@ void    initPatbut (Patbut *pat, int ncurpattern, int tp, int curnbrow)
     pat->radiobank.value = ncurpattern >> 3;
 }
 
+void refresh (Radio *r) {
+    int i;
+    for (i=0 ; i<r->nb ;i++)
+	refreshcontrols (r->h[i]);
+}
+
 void refrsyncPatbut (Patbut *pat, int nncurpattern)
 {   pat->nncurpattern = nncurpattern;
     pat->radiopattern.value = nncurpattern & 0x7;
     pat->radiobank.value = nncurpattern >> 3;
+    refresh (&pat->radiopattern);
+    refresh (&pat->radiopattern);
 }
 
 int     createpatbut (Patbut *pat, int voice, int pos, int evtype)

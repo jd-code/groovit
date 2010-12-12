@@ -211,9 +211,9 @@ void    reset_pattern (void)
 		freesample (&sample[i]);
 	    relooksimplebutton (hbt_sample[i], '@', CONTBLACK + CONTNOPUCE, sample[i].shortname);
 	    vlevel[i] = 0;
-/* trick again ... */ if (i)
-		vpan[i] = 0xFF & (int) ((255.0 * i) / ((nb > MAXSAMPLE) ? MAXSAMPLE : nb));
-	    else
+//  /* trick again ... */ if (i)
+//  		vpan[i] = 0xFF & (int) ((255.0 * i) / ((nb > MAXSAMPLE) ? MAXSAMPLE : nb));
+//  	    else
 		vpan[i] = 127;
 	    sample[i].revlevel = 0;
 	    sample[i].filtl = 0;

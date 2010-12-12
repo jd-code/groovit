@@ -114,7 +114,7 @@ test: all
 
 vimtest: all
 	# xterm +lc +u8 -fn 10x20 -bg black -fg white -geometry 80x25+40+40 -e ./groovit -noX
-	./$(FINAL) -fixedpos 40+40 -jack # 2>&1 | tr ':' '='
+	./$(FINAL) -fixedpos 40+40 -jack | tr ':' '='
 
 $(FINAL): $(OBJ) additlib $(OBJBIS)
 	@echo
