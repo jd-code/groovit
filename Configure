@@ -849,7 +849,7 @@ then
 	fi
 fi
 
-readit "want to zero input level of all recording devices when playin' ?" "y"
+readit "want to zero input level of all recording devices when playin' ?" "n"
 ZEROINGINPUT=$VALUE
 if [ $ZEROINGINPUT = "y" ]
 then
