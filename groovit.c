@@ -636,6 +636,12 @@ void    init_arbitr (void)
     abitr_analogik ();
     abitr_dyfilter ();
 
+    {	int i;
+	for (i=0 ; i<MAXVOICES ; i++) {
+	    vpan [i] = 127;
+	}
+    }
+
     currowoffset = 0;
 }
 
@@ -786,8 +792,8 @@ int     mainloop (jack_nframes_t nframes, void *jack_arg)
 			int channel = ((unsigned char *)event.buffer)[0] & 0x0f;
 			int control = ((unsigned char *)event.buffer)[1];
 			if ((channel == 0) && (control>=0x24) && (control<=0x2b)) {
-fprintf (stderr, "next pattern : %d\n", control - 0x24);
-			    pattpatbut.nncurpattern = control - 0x24;
+//			    pattpatbut.nncurpattern = control - 0x24;
+			    refrsyncPatbut (&pattpatbut, control - 0x24);
 			    took_care = 1;
 			}
 		    }
