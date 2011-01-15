@@ -33,7 +33,7 @@
 #define MAXCONTEXTS	16	/* nombre maxi de contexts                */
 #define MAXSCREENWIDTH  160	/* largeur maxi en caracteres             */
 #define MAXSCREENHEIGHT 80	/* hauteur maxi                           */
-#define MAXNBCONTROLS   484	/* nombre max de controls         */
+#define MAXNBCONTROLS   1024	/* nombre max de controls		  */
 
 #define MAXMETAMEMBER	64	/* nombre maxi de metahandlers            */
 
